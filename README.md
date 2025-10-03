@@ -48,10 +48,6 @@ Screenshots
 ![water-optimize](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/097b392f-a741-4c54-98ae-1335a19a4fa4)
 ![aerith](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/fb410316-080b-4ffb-a61b-4a21df8901a6)
 
-> Original Map (Optional)
-
-![classic_map_option](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/1c645533-c9b3-4f15-8b64-44b44342af2b)
-
 Comparison
 ======  
 ![compare2](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/376de783-8bff-4f49-9b9e-dd8dedfac059)
