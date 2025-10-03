@@ -60,7 +60,7 @@ HD HDR Map Textures + Upscale + Reshade
 # Version List
 
 ### `v1.0 | "Noble Endeavors"`
-- Most *new player* pointer UI has been removed.   
+- Most button key UI has been removed.   
   - Optionally you can select to keep the UI.
 - All maps have been giving a boost to saturation, contrast, and clarity.
 - All sword skills detail and saturation have been increased.
@@ -72,4 +72,4 @@ HD HDR Map Textures + Upscale + Reshade
 
 # Known Issues
 
--Win condition overlay sometimes does not display new texture.
+-Well see when we get there.
