@@ -1,8 +1,12 @@
 # Final Fantasy Tactics: The Ivalice Chronicles Texture Pack
 ![title](https://github.com/user-attachments/assets/49d0caab-811f-4814-aa25-078ba58637d3)
 
+<div align="center">
+
 __*<p>A steam texture pack that focuses on debloating UI elements and adding vibrant visuals. 
-<br>Community contributions, edits, address hashes, and forks are strongly encouraged!</p>*__
+<br>Community contributions, edits, and forks are strongly encouraged!</p>*__
+
+</div>
 
 <div align="center">
   
