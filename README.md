@@ -26,14 +26,6 @@ PPSSPP `Settings>graphics>render resolution` must be set at 4x or above. (Recomm
  
 Screenshots
 ======  
-> World Map
-
-![ULES00850_00004](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/16b3ca74-fb59-4bb3-948f-93d759ae0b92)
-
-> Party Menu
-
-![pm](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/65d5d16e-7963-414f-96aa-42319cadc7a4)
-
 > HD HDR Sword Skills
 
 ![bold](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/fad336a9-8f3e-419d-84e7-92dc30b44b32)
@@ -55,10 +47,6 @@ Screenshots
 
 ![water-optimize](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/097b392f-a741-4c54-98ae-1335a19a4fa4)
 ![aerith](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/fb410316-080b-4ffb-a61b-4a21df8901a6)
-
-> Stats Menu
-
-![mobilegear](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/666efa19-8c55-4159-bcd0-898d17e3d3fe)
 
 > Original Map (Optional)
 
