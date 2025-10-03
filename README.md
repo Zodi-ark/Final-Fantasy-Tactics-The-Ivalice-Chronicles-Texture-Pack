@@ -19,26 +19,10 @@ PPSSPP `Settings>graphics>render resolution` must be set at 4x or above. (Recomm
 # Automatic Installation
 - Open the zip file within PPSSPP as if it were a game.
 
-- It will automatically place all the files in the correct location for you.
-
-- Enable texture replacement by heading to `settings>tools>developer tools>replace textures`.
-
 *Please note using this method will prioritize your last opened ISO region. So if you have multiple copies of FFT from different regions open the version that you would like the texture pack to be applied to before installing. If you have never opened FFT in your PPSSPP it will default to a EUROPE install.*
 
 # Manual Installation
 - In your PPSSPP directory, navigate to `memstick/PSP/TEXTURES`.
-
-- Create a new folder. Your FFT's region will determine the folder's name.
-
-- If you don't know if the copy is a USA or EUROPE version right-click it or on mobile long press it. Then look at the bottom left.
-
-- Name the folder for EUROPE - `ULES00850` or name the folder for USA - `ULUS10297`.
-
-- Then open the downloaded .zip file and then open the first folder inside.
-
-- Move all the contents (worldmap, title, party, etc.) into your newly renamed folder.
-
-- Finally enable texture replacement by heading to `settings>tools>developer tools>replace textures`.
  
 Screenshots
 ======  
@@ -95,51 +79,6 @@ HD HDR Map Textures + Upscale + Reshade
 
 # Version List
 
-### `v1.6 | "Stand Still Please"`
-- Added portraits to formation.
-- Added portraits to in-game battles.
-- Added portraits to chronicles personae.
-- Added monster sprites and some generic units to formation.
-- Added HDR map files for the final dungeon (Orbonne 4th Floor to Airship Graveyard).
-- Added blue and red move tiles.
-- Added optional white move tiles.
-- Added unit and pointer shadow.
-- Optimized map files (58% total file size reduction).
-- General bug fixes.
-
-### `v1.5 | "The Pretty Colors Update"`
-- Added HD HDR map textures to event dedicated maps.
-- Created 'lite' branch with compressed map textures.
-- Added mobile portraits to event dedicated maps.
-- Added HD HDR chapter end graphics.
-- Added artifacts.
-- Added wonders.
-- General bug fixes.
-
-### `v1.4 | "So, The Hour Is Come..."`
-- Added multiplayer UI.
-- Added original map option.
-- Minor cleaning pass.
-- General bug fixes.
-- USA install fix.
-
-### `v1.3 | "Reunion"`
-- Added updated mobile port equipment and item sprites.
-- Added updated mobile port human + monster sprites. (party menu only)
-- Added updated mobile port human + monster portraits. (party menu only)
-- Added extensively more various UI elements.
-- Massive texture cleaning pass.
-- General bug fixes.
-
-### `v1.2 | "Zodiark"`
-- Added summons.
-- Added multiplayer team blue and red ui.
-- Improved aliasing on world map text.
-- Fixed intro card vignette.
-
-### `v1.1 | "Ivalice to Ordallia"`
-- Added intial support for US and modded copies of the game.
-
 ### `v1.0 | "Noble Endeavors"`
 - ~80% of all UI Elements have been altered.  
   - The new textures where created from a variety of sources: mobile port, community artwork, redrawn by hand, redrawn by AI, or upscaled by AI.
@@ -148,19 +87,8 @@ HD HDR Map Textures + Upscale + Reshade
 
 # Up Coming
 - [x] HD HDR summons
-- [x] Further texture cleaning
-- [x] Community suggestions/contributions
-- [x] HD HDR cut scene maps
-- [x] Add remastered portraits to in-game battles
 - [ ] Dev build with raw pngs for the community to edit
-- [ ] Improved battle pointer
 
 # Known Issues
 
 -Win condition overlay sometimes does not display new texture.
-
--In dungeons that do not return to world map, save menu time text does not display.
-
--Dirty UI textures when reading the Scriptures of Germonique or Japan exclusives.
-
--Texture pack for ULUS10297- US region semi tested.
