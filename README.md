@@ -3,7 +3,7 @@
 
 <div align="center">
 
-__*<p>A steam texture pack that focuses on debloating UI elements and adding vibrant visuals. 
+__*<p>A customizable texture pack that focuses on debloating UI elements and adding vibrant visuals. 
 <br>Community contributions, edits, and forks are strongly encouraged!</p>*__
 
 </div>
