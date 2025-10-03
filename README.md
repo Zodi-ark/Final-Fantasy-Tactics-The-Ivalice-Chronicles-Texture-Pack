@@ -60,14 +60,15 @@ HD HDR Map Textures + Upscale + Reshade
 # Version List
 
 ### `v1.0 | "Noble Endeavors"`
-- ~80% of all UI Elements have been altered.  
-  - The new textures where created from a variety of sources: mobile port, community artwork, redrawn by hand, redrawn by AI, or upscaled by AI.
-- Most sword skills have been given an HD HDR makeover.
-- At this point too much to list or even remember.
+- Most *new player* pointer UI has been removed.   
+  - Optionally you can select to keep the UI.
+- All maps have been giving a boost to saturation, contrast, and clarity.
+- All sword skills detail and saturation have been increased.
+- All summons are replaced using their key art.
 
 # Up Coming
-- [x] HD HDR summons
-- [ ] Dev build with raw pngs for the community to edit
+- [x] None
+- [ ] None
 
 # Known Issues
 
