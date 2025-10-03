@@ -1,7 +1,7 @@
 # Final Fantasy Tactics: The Ivalice Chronicles Texture Pack
 ![title](https://github.com/user-attachments/assets/49d0caab-811f-4814-aa25-078ba58637d3)
 
-__*<p>A faithful PPSSPP texture pack that focuses on UI elements and effects without compromising the original sprites. 
+__*<p>A steam texture pack that focuses on debloating UI elements and adding vibrant visuals. 
 <br>Community contributions, edits, address hashes, and forks are strongly encouraged!</p>*__
 
 <div align="center">
