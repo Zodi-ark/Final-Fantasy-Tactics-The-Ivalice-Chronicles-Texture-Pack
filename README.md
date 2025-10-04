@@ -1,5 +1,5 @@
 # Final Fantasy Tactics: The Ivalice Chronicles Texture Pack
-![title]([https://github.com/user-attachments/assets/49d0caab-811f-4814-aa25-078ba58637d3](https://github.com/user-attachments/assets/8932aaf6-8cc4-413d-96b3-43281acd3527))
+![title](https://github.com/user-attachments/assets/8932aaf6-8cc4-413d-96b3-43281acd3527)
 
 <div align="center">
 
