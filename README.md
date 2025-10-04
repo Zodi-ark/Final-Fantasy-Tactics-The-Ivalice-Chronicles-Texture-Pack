@@ -63,5 +63,4 @@ HD HDR Map Textures + Upscale + Reshade
 - [ ] Sword Skills
 
 # Known Issues
-
 -Light values can vary greatly on different monitors.
