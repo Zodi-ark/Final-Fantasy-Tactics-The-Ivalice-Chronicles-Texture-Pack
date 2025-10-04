@@ -32,7 +32,7 @@ Screenshots
 ======  
 > HD HDR Sword Skills
 
-[!Image](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/issues/6#issuecomment-3368456270)
+![Image](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/issues/6#issuecomment-3368456270)
 ![shadow](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/a6064896-fe95-4351-88bc-7054d6aadd4b)
 
 > Summons
