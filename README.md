@@ -15,10 +15,7 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.62 GB)](https://github.com/Zodi-ark/Final
 </div>
 
 # Requirements
-You must use the lastest stable [PPSSPP](https://www.ppsspp.org/download) build.
-
-PPSSPP `Settings>graphics>render resolution` must be set at 4x or above. (Recommend 6x)
-
+[FFT - The Ivalice Chronicles Mod Loader](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/4?tab=files)
 
 # Automatic Installation
 - Open the zip file within PPSSPP as if it were a game.
