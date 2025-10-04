@@ -58,9 +58,9 @@ HD HDR Map Textures + Upscale + Reshade
 # Version List
 
 ### `v1.0 | "Noble Endeavors"`
+- All maps have been given a boost to saturation, contrast, and clarity.
 - Most button key UI has been removed.   
   - Optionally you can select to keep the UI or any change for that matter.
-- All maps have been given a boost to saturation, contrast, and clarity.
 
 # Up Coming
 - [ ] Summons
