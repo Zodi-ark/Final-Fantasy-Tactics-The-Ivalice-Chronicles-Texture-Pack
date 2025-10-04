@@ -57,13 +57,11 @@ HD HDR Map Textures + Upscale + Reshade
 - Most button key UI has been removed.   
   - Optionally you can select to keep the UI or any change for that matter.
 - All maps have been given a boost to saturation, contrast, and clarity.
-- All sword skills detail and saturation have been increased.
-- All summons are replaced with their key art.
 
 # Up Coming
-- [x] None
-- [ ] None
+- [ ] Summons
+- [ ] Sword Skills
 
 # Known Issues
 
--Well see when we get there.
+-Light values can vary greatly on different monitors.
