@@ -18,9 +18,11 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.62 GB)](https://github.com/Zodi-ark/Final
 [FFT - The Ivalice Chronicles Mod Loader](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/4?tab=files)
 
 # Installation
-- Open the zip file within PPSSPP as if it were a game.
+- Points make it
+- Easier to
+- Read.
 
-*Please note using this method will prioritize your last opened ISO region. So if you have multiple copies of FFT from different regions open the version that you would like the texture pack to be applied to before installing. If you have never opened FFT in your PPSSPP it will default to a EUROPE install.*
+*Side note goes here*
  
 Screenshots
 ======  
