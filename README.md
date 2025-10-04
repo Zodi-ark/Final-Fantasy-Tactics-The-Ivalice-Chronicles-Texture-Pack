@@ -30,10 +30,10 @@ PPSSPP `Settings>graphics>render resolution` must be set at 4x or above. (Recomm
  
 Screenshots
 ======  
-> HD HDR Sword Skills
+> Maps
 
 ![Image](https://github.com/user-attachments/assets/dfe2fe70-986a-44c7-9b54-d42e7c29534e)
-![shadow](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/a6064896-fe95-4351-88bc-7054d6aadd4b)
+![Image](https://github.com/user-attachments/assets/06a16d6d-bc3b-4e76-bc70-d1a1b11fa390)
 
 > Summons
 
