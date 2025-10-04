@@ -15,6 +15,7 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.62 GB)](https://github.com/Zodi-ark/Final
 </div>
 
 # Requirements
+[Reloaded II Mod Manager](https://github.com/Reloaded-Project/Reloaded-II/releases)
 [FFT - The Ivalice Chronicles Mod Loader](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/4?tab=files)
 
 # Installation
