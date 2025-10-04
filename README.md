@@ -31,7 +31,7 @@ Screenshots
 ![Image](https://github.com/user-attachments/assets/dfe2fe70-986a-44c7-9b54-d42e7c29534e)
 ![Image](https://github.com/user-attachments/assets/06a16d6d-bc3b-4e76-bc70-d1a1b11fa390)
 
-> Summons
+> UI Declutter
 
 ![HD_HDR_Summons](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/82e063f2-1b40-4393-ac21-ffe5728550b6)
 
