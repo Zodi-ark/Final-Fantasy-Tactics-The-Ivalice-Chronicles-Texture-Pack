@@ -37,11 +37,6 @@ Screenshots
 
 ![HD_HDR_Summons](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/82e063f2-1b40-4393-ac21-ffe5728550b6)
 
-> HD HDR Map Textures (Event Dedicated Maps Only)
-
-![water-optimize](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/097b392f-a741-4c54-98ae-1335a19a4fa4)
-![aerith](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/fb410316-080b-4ffb-a61b-4a21df8901a6)
-
 Comparison
 ======  
 ![comparison](https://github.com/user-attachments/assets/f43888c2-b2b2-41e2-86e5-b54b3bfaab5a)
