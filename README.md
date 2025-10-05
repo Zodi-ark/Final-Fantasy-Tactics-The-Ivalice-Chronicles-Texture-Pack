@@ -35,7 +35,7 @@ Screenshots
 
 > UI Declutter
 
-![HD_HDR_Summons](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/82e063f2-1b40-4393-ac21-ffe5728550b6)
+![UI Declutter](https://github.com/user-attachments/assets/ef4770bb-d619-42d0-b927-577e1a840412))
 
 Comparison
 ======  
