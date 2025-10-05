@@ -28,14 +28,15 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.84 GB)](https://github.com/Zodi-ark/Final
  
 Screenshots
 ======  
+
+> UI Declutter
+
+![UI Declutter](https://github.com/user-attachments/assets/ef4770bb-d619-42d0-b927-577e1a840412)
+
 > Maps
 
 ![Image](https://github.com/user-attachments/assets/dfe2fe70-986a-44c7-9b54-d42e7c29534e)
 ![Image](https://github.com/user-attachments/assets/06a16d6d-bc3b-4e76-bc70-d1a1b11fa390)
-
-> UI Declutter
-
-![UI Declutter](https://github.com/user-attachments/assets/ef4770bb-d619-42d0-b927-577e1a840412))
 
 Comparison
 ======  
