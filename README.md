@@ -65,6 +65,7 @@ HD HDR Map Textures + Upscale + Reshade
 # Up Coming
 - [ ] Summons
 - [ ] Sword Skills
+- [ ] Portrait Clean Up
 
 # Known Issues
 -Light values can vary greatly on different monitors.
