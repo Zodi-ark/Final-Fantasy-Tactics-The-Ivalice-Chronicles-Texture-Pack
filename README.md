@@ -54,10 +54,10 @@ HD HDR Map Textures + Upscale + Reshade
 
 ### `v1.0 | "Noble Endeavors"`
 - All maps have been given a boost to saturation, contrast, and clarity.
-- Most button key UI has been removed.   
-  - Optionally you can select to keep the UI or any change for that matter.
+- Various dramatic lighting adjustments.
+- Portrait border and red/blue vignette UI has been removed.
 
-# Up Coming
+# Upcoming Considerations
 - [ ] Summons
 - [ ] Sword Skills
 - [ ] Portrait Clean Up
