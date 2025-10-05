@@ -63,4 +63,4 @@ HD HDR Map Textures + Upscale + Reshade
 - [ ] Portrait Clean Up
 
 # Known Issues
--Light values can vary greatly on different monitors.
+-Light values can vary greatly on different monitors; especially on HDR displays.
