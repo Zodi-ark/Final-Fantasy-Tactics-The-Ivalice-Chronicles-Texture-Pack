@@ -53,9 +53,9 @@ Map Textures & Reshade
 # Version List
 
 ### `v1.0 | "Noble Endeavors"`
+- Portrait border, red/blue vignette, and battle pointer has been removed.
 - All maps have been given a boost to saturation, contrast, and clarity.
 - Various dramatic lighting adjustments.
-- Portrait border, red/blue vignette, and battle pointer has been removed.
 
 # Upcoming Considerations
 - [ ] Summons
