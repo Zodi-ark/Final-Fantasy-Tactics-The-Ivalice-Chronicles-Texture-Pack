@@ -41,7 +41,7 @@ Comparison
 ======  
 ![comparison](https://github.com/user-attachments/assets/f43888c2-b2b2-41e2-86e5-b54b3bfaab5a)
 
-HD HDR Map Textures + Upscale + Reshade
+Map Textures & Reshade
 ======  
 
 <div align="center">
