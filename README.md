@@ -44,7 +44,7 @@ Screenshots
 
 Comparison
 ======  
-![compare2](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/376de783-8bff-4f49-9b9e-dd8dedfac059)
+![comparison](https://github.com/user-attachments/assets/f43888c2-b2b2-41e2-86e5-b54b3bfaab5a)
 
 HD HDR Map Textures + Upscale + Reshade
 ======  
