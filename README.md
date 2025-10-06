@@ -17,7 +17,7 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.84 GB)](https://github.com/Zodi-ark/Final
 # Installation
 - Install [Reloaded II Mod Manager](https://github.com/Reloaded-Project/Reloaded-II/releases)
 - Install [FFT: The Ivalice Chronicles Mod Loader](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/4?tab=files) to Reloaded II
-- Install FFT: The Ivalice Chronicles Texture Pack to Reloaded II
+- Install [FFT: The Ivalice Chronicles Texture Pack](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases) to Reloaded II
 
 *video guide goes here as webm*
 
