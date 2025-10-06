@@ -41,7 +41,7 @@ Screenshots
 
 ![Image](https://github.com/user-attachments/assets/dfe2fe70-986a-44c7-9b54-d42e7c29534e)
 ![Image](https://github.com/user-attachments/assets/06a16d6d-bc3b-4e76-bc70-d1a1b11fa390)
-![citade_webm](https://github.com/user-attachments/assets/86fccfc9-4503-4da3-979f-36fe3df95d06)
+!([https://github.com/user-attachments/assets/86fccfc9-4503-4da3-979f-36fe3df95d06](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/issues/6#issuecomment-3370552245))
 
 Map Textures & Reshade
 ======  
