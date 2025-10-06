@@ -24,7 +24,7 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.84 GB)](https://github.com/Zodi-ark/Final
 - Install FFT - The Ivalice Chronicles Mod Loader to Reloaded II
 - Install Final Fantasy Tactics: The Ivalice Chronicles Texture Pack to Reloaded II
 
-*video goes here as webm*
+*video guide goes here as webm*
 
 Comparison
 ======  
