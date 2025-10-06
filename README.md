@@ -25,6 +25,10 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.84 GB)](https://github.com/Zodi-ark/Final
 - Read.
 
 *Side note goes here*
+
+Comparison
+======  
+![comparison](https://github.com/user-attachments/assets/f43888c2-b2b2-41e2-86e5-b54b3bfaab5a)
  
 Screenshots
 ======  
@@ -38,10 +42,6 @@ Screenshots
 ![Image](https://github.com/user-attachments/assets/dfe2fe70-986a-44c7-9b54-d42e7c29534e)
 ![Image](https://github.com/user-attachments/assets/06a16d6d-bc3b-4e76-bc70-d1a1b11fa390)
 ![citade_gif](https://github.com/user-attachments/assets/d7c1b3c0-a32d-4761-a89d-53907771e01e)
-
-Comparison
-======  
-![comparison](https://github.com/user-attachments/assets/f43888c2-b2b2-41e2-86e5-b54b3bfaab5a)
 
 Map Textures & Reshade
 ======  
