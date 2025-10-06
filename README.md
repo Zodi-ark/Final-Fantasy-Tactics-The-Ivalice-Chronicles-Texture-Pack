@@ -41,7 +41,7 @@ Screenshots
 
 ![Image](https://github.com/user-attachments/assets/dfe2fe70-986a-44c7-9b54-d42e7c29534e)
 ![Image](https://github.com/user-attachments/assets/06a16d6d-bc3b-4e76-bc70-d1a1b11fa390)
-![webm](https://github.com/user-attachments/assets/86fccfc9-4503-4da3-979f-36fe3df95d06)
+![citade_gif](https://github.com/user-attachments/assets/d7c1b3c0-a32d-4761-a89d-53907771e01e)
 
 Map Textures & Reshade
 ======  
