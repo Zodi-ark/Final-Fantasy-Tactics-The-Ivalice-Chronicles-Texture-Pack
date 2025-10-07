@@ -53,7 +53,7 @@ Map Textures & Reshade
 - Battle portrait border, red/blue vignette, and pointer have been removed.
 - All maps have been given a boost to saturation, contrast, and clarity.
 - Various dramatic lighting adjustments.
-- Configurable battle filter.
+- Configurable battle filters.
 - Configurable menu filter.
 
 # Upcoming Considerations
