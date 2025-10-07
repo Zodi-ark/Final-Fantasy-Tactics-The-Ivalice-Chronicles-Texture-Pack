@@ -50,9 +50,12 @@ Map Textures & Reshade
 # Version List
 
 ### `v1.0 | "Noble Endeavors"`
+**UI**
 - Battle portrait border, red/blue vignette, and pointer have been removed.
+**Maps**
 - All maps have been given a boost to saturation, contrast, and clarity.
 - Various dramatic lighting adjustments.
+**Config**
 - Configurable battle filters.
 - Configurable menu filter.
 
