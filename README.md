@@ -58,8 +58,8 @@ Map Textures & Reshade
 
 # Upcoming Considerations
 - [ ] Battle portrait clean up
-- [ ] ![Port FFT:WotL Texture Pack summons](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/82e063f2-1b40-4393-ac21-ffe5728550b6)
-- [ ] ![Port FFT:WotL Texture Pack sword skills](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/a6064896-fe95-4351-88bc-7054d6aadd4b)
+- [ ] [Port FFT:WotL Texture Pack summons](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/82e063f2-1b40-4393-ac21-ffe5728550b6)
+- [ ] [Port FFT:WotL Texture Pack sword skills](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/a6064896-fe95-4351-88bc-7054d6aadd4b)
 
 # Known Issues
 -Light values can vary greatly on different monitors; especially on HDR displays.
