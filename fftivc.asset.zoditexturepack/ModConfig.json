@@ -3,36 +3,19 @@
   "ModName": "FINAL FANTASY TACTICS - The Ivalice Chronicles Texture Pack",
   "ModAuthor": "Zodiark",
   "ModVersion": "1.0.0",
-  "ModDescription": "Texture pack adjusting maps, lighting, and graphical UI elements. ",
-  "ModDll": "",
-  "ModIcon": "preview_1.png",
-  "ModR2RManagedDll32": "",
-  "ModR2RManagedDll64": "",
+  "ModDescription": "Texture pack adjusting maps, lighting, and graphical UI elements.",
+  "ModDll": "fftivc.asset.zoditexturepack.dll",
+  "ModIcon": "Preview.png",
+  "ModR2RManagedDll32": "x86/fftivc.asset.zoditexturepack.dll",
+  "ModR2RManagedDll64": "x64/fftivc.asset.zoditexturepack.dll",
   "ModNativeDll32": "",
   "ModNativeDll64": "",
-  "Tags": [
-    "Texture",
-    "GUI/HUD"
-  ],
-  "CanUnload": null,
-  "HasExports": null,
   "IsLibrary": false,
   "ReleaseMetadataFileName": "fftivc.asset.zoditexturepack.ReleaseMetadata.json",
-  "PluginData": {
-    "GitHubRelease": {
-      "UserName": "Zodi-ark",
-      "RepositoryName": "Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack",
-      "UseReleaseTag": true,
-      "AssetFileName": "Mod.zip"
-    }
-  },
+  "PluginData": {},
   "IsUniversalMod": false,
-  "ModDependencies": [
-    "fftivc.utility.modloader"
-  ],
+  "ModDependencies": [ "reloaded.sharedlib.hooks" ],
   "OptionalDependencies": [],
-  "SupportedAppId": [
-    "fft_enhanced.exe"
-  ],
-  "ProjectUrl": "https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack"
+  "SupportedAppId": [],
+  "ProjectUrl": ""
 }

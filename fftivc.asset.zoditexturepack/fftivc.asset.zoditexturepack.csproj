@@ -1,0 +1,53 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0-windows</TargetFramework>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<LangVersion>12.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<OutputPath>$(RELOADEDIIMODS)/fftivc.asset.zoditexturepack</OutputPath>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- IL Trimming Support -->
+		<ReloadedILLink>false</ReloadedILLink>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ReloadedLinkRoots Include="fftivc.asset.zoditexturepack" />
+		<!-- Add assemblies to be trimmed if needed -->
+		<!-- <ReloadedLinkAssemblies Include="Reloaded.Memory" /> -->
+	</ItemGroup>
+
+	<Import Project="Reloaded.Trimming.targets" />
+	<Import Project="Reloaded.Checks.targets" />
+
+	<ItemGroup>
+		<None Remove="ModConfig.json" />
+		<None Remove="Publish.ps1" />
+		<None Remove="BuildLinked.ps1" />
+		<None Remove="Reloaded.Trimming.targets" />
+		<None Remove="Reloaded.Checks.targets" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="ModConfig.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<None Update="Preview.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Reloaded II 2.4 dependencies -->
+		<PackageReference Include="Reloaded.Mod.Interfaces" Version="2.4.0" />
+		<PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Configuration\" />
+	</ItemGroup>
+
+</Project>

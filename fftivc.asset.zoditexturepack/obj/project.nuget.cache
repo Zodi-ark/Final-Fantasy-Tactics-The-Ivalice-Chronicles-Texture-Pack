@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "usj4aT90LGU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Chris\\source\\repos\\fftivc.asset.zoditexturepack\\fftivc.asset.zoditexturepack\\fftivc.asset.zoditexturepack.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Chris\\.nuget\\packages\\reloaded.hooks.definitions\\1.11.0\\reloaded.hooks.definitions.1.11.0.nupkg.sha512",
+    "C:\\Users\\Chris\\.nuget\\packages\\reloaded.mod.interfaces\\2.4.0\\reloaded.mod.interfaces.2.4.0.nupkg.sha512",
+    "C:\\Users\\Chris\\.nuget\\packages\\reloaded.sharedlib.hooks\\1.9.0\\reloaded.sharedlib.hooks.1.9.0.nupkg.sha512"
+  ],
+  "logs": []
+}
