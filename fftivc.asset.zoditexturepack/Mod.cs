@@ -9,66 +9,57 @@ namespace fftivc.asset.zoditexturepack
     public class Mod : IModV1
     {
         private readonly Config _configuration;
-        private readonly string ConfigAssetsFolder;
+        private readonly string _configAssetsFolder;
 
-        public Mod(IMod mod)
+        public Mod()
         {
-            // Load configuration
-            string configPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                                             "fftivc.asset.zoditexturepack",
-                                             "Configuration",
-                                             "Config.json");
-            _configuration = Configurable<Config>.FromFile(configPath, "Default Config");
+            // Robust path to config assets folder
+            _configAssetsFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "fftivc.asset.zoditexturepack", "ConfigAssets");
 
-            // Path to config assets
-            ConfigAssetsFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,
-                                              "fftivc.asset.zoditexturepack",
-                                              "ConfigAssets");
+            // Load configuration from file
+            _configuration = Configurable<Config>.FromFile(
+                Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "fftivc.asset.zoditexturepack", "Configuration", "Config.json"),
+                "Default Config"
+            );
 
             ApplyConfigFilters();
         }
 
-        private void ApplyConfigFilters()
-        {
-            try
-            {
-                // Menu filters
-                string menuSourceFolder = _configuration.DisableMenuFilters
-                    ? Path.Combine(ConfigAssetsFolder, "MenuFilters", "Disabled")
-                    : Path.Combine(ConfigAssetsFolder, "MenuFilters", "Original");
+        public Action? Disposing => null;
 
-                File.Copy(Path.Combine(menuSourceFolder, "ffto_screen_filter_0.tga"),
-                          Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FFTIVC", "data", "enhanced", "vfx", "post_process", "ffto_screen_filter_0.tga"),
-                          true);
-
-                File.Copy(Path.Combine(menuSourceFolder, "ffto_screen_filter_1.tga"),
-                          Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FFTIVC", "data", "enhanced", "vfx", "post_process", "ffto_screen_filter_1.tga"),
-                          true);
-
-                // Battle filter
-                string battleSourceFolder = _configuration.DisableBattleFilter
-                    ? Path.Combine(ConfigAssetsFolder, "BattleFilter", "Disabled")
-                    : Path.Combine(ConfigAssetsFolder, "BattleFilter", "Original");
-
-                File.Copy(Path.Combine(battleSourceFolder, "ffto_screen_filter_uitx.tex"),
-                          Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ffto_screen_filter_uitx.tex"),
-                          true);
-
-                Console.WriteLine("[Mod] Filters applied successfully!");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("[ERROR] Failed to apply filters: " + ex);
-            }
-        }
-
-        #region IModV1 Implementation
+        // IModV1 interface members
         public void Suspend() { }
         public void Resume() { }
         public void Unload() { }
         public bool CanUnload() => true;
         public bool CanSuspend() => true;
-        public Action Disposing => null!;
-        #endregion
+
+        private void ApplyConfigFilters()
+        {
+            // Menu filter
+            string menuFilterPath = Path.Combine(_configAssetsFolder, "MenuFilter", _configuration.DisableMenuFilter ? "Disabled" : "Original", "ffto_screen_filter_uitx.tex");
+            string menuTargetPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ffto_screen_filter_uitx.tex");
+            TryCopy(menuFilterPath, menuTargetPath);
+
+            // Battle filters
+            for (int i = 0; i <= 1; i++)
+            {
+                string battleFilterPath = Path.Combine(_configAssetsFolder, "BattleFilters", _configuration.DisableBattleFilter ? "Disabled" : "Original", $"ffto_screen_filter_{i}.tga");
+                string battleTargetPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FFTIVC", "data", "enhanced", "vfx", "post_process", $"ffto_screen_filter_{i}.tga");
+                TryCopy(battleFilterPath, battleTargetPath);
+            }
+        }
+
+        private void TryCopy(string source, string destination)
+        {
+            try
+            {
+                File.Copy(source, destination, true);
+            }
+            catch
+            {
+                // ignored
+            }
+        }
     }
 }

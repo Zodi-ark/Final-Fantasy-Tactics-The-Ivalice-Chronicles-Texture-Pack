@@ -5,19 +5,19 @@ namespace fftivc.asset.zoditexturepack.Configuration
 {
     public class Config : Configurable<Config>
     {
-        [DisplayName("Disable Menu Filters")]
-        [Description("Disables the menu screen filters.")]
+        [DisplayName("Disable Menu Filter")]
+        [Description("Disables the menu screen filter.")]
         [DefaultValue(true)]
-        public bool DisableMenuFilters { get; set; } = true;
+        public bool DisableMenuFilter { get; set; } = true;
 
-        [DisplayName("Disable Battle Filter")]
-        [Description("Disables the battle screen filter.")]
+        [DisplayName("Disable Battle Filters")]
+        [Description("Disables the battle screen filters.")]
         [DefaultValue(true)]
         public bool DisableBattleFilter { get; set; } = true;
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
     {
-        // Override methods here later if needed
+        // Future overrides go here if needed
     }
 }
