@@ -52,9 +52,9 @@ Map Textures & Reshade
 ### `v1.0 | "Noble Endeavors"`
  **Battle UI**
  
-- Removed Battle portrait border.
-- Removed Red/blue vignette.
-- Removed Sword pointer have been removed.
+- Removed battle portrait border.
+- Removed red/blue vignette.
+- Removed sword pointer.
 
  **Maps**
 - All maps have been given a boost to saturation, contrast, and clarity.
