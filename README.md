@@ -53,7 +53,7 @@ Map Textures & Reshade
  **Battle UI**
 - Removed battle portrait border.
 - Removed red/blue vignette.
-- Removed sword pointer.
+- Removed battle pointer.
 
  **Maps**
 - All maps have been given a boost to saturation, contrast, and clarity.
