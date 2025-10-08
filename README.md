@@ -60,7 +60,7 @@ Map Textures & Reshade
 - Various dramatic lighting adjustments.
   
  **Config**
-- Users can choose from removed, original, PSX, and custom user battle pointer.
+- Users can choose from removed, original, PSX, or custom user battle pointer.
 - Configurable burlap and noise battle filters.
 - Configurable menus filter.
 
