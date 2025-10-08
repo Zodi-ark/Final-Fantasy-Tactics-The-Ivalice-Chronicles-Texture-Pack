@@ -2,7 +2,7 @@
   "ModId": "fftivc.asset.zoditexturepack",
   "ModName": "FINAL FANTASY TACTICS - The Ivalice Chronicles Texture Pack",
   "ModAuthor": "Zodiark",
-  "ModVersion": "1.0.0",
+  "ModVersion": "0.6.1",
   "ModDescription": "Texture pack adjusting maps, lighting, and graphical UI elements.",
   "ModDll": "fftivc.asset.zoditexturepack.dll",
   "ModIcon": "Preview.png",
