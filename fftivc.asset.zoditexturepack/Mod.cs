@@ -23,6 +23,7 @@ namespace fftivc.asset.zoditexturepack
             );
 
             ApplyConfigFilters();
+            ApplyBattlePointers();
         }
 
         public Action? Disposing => null;
@@ -48,6 +49,15 @@ namespace fftivc.asset.zoditexturepack
                 string battleTargetPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FFTIVC", "data", "enhanced", "vfx", "post_process", $"ffto_screen_filter_{i}.tga");
                 TryCopy(battleFilterPath, battleTargetPath);
             }
+        }
+
+        private void ApplyBattlePointers()
+        {
+            string pointerOption = _configuration.BattlePointerOption.ToString();
+            string pointerSourcePath = Path.Combine(_configAssetsFolder, "BattlePointers", pointerOption, "sword.tga");
+            string pointerTargetPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "FFTIVC", "data", "enhanced", "ui", "sword.tga");
+
+            TryCopy(pointerSourcePath, pointerTargetPath);
         }
 
         private void TryCopy(string source, string destination)
