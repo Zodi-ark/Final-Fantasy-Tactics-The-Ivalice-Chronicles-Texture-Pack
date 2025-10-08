@@ -51,7 +51,6 @@ Map Textures & Reshade
 
 ### `v1.0 | "Noble Endeavors"`
  **Battle UI**
- 
 - Removed battle portrait border.
 - Removed red/blue vignette.
 - Removed sword pointer.
@@ -61,7 +60,7 @@ Map Textures & Reshade
 - Various dramatic lighting adjustments.
   
  **Config**
-
+- Users can choose from removed, original, PSX, and custom user pointer
 - Configurable burlap and noise battle filters.
 - Configurable menu filter.
 
