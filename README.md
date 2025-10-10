@@ -49,7 +49,7 @@ Map Textures & Reshade
 
 # Version List
 
-### `v1.0 | "Noble Endeavors"` <IN DEVELOPMENT>
+### `v1.0 | "Noble Endeavors"` IN DEVELOPMENT
  **Battle UI**
 - Removed battle portrait border.
 - Removed red/blue vignette.
