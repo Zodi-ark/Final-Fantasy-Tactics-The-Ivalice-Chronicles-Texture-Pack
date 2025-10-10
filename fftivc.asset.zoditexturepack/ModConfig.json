@@ -10,7 +10,10 @@
   "ModR2RManagedDll64": "x64/fftivc.asset.zoditexturepack.dll",
   "ModNativeDll32": "",
   "ModNativeDll64": "",
-  "Tags": [],
+  "Tags": [
+    "Texture",
+    "GUI/HUD"
+  ],
   "CanUnload": true,
   "HasExports": false,
   "IsLibrary": false,
@@ -50,8 +53,7 @@
   },
   "IsUniversalMod": false,
   "ModDependencies": [
-    "fftivc.utility.modloader",
-    "reloaded.sharedlib.hooks"
+    "fftivc.utility.modloader"
   ],
   "OptionalDependencies": [],
   "SupportedAppId": [
