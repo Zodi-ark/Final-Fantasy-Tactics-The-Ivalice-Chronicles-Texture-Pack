@@ -11,13 +11,22 @@
   "ModNativeDll32": "",
   "ModNativeDll64": "",
   "Tags": [],
-  "CanUnload": null,
-  "HasExports": null,
+  "CanUnload": true,
+  "HasExports": false,
   "IsLibrary": false,
   "ReleaseMetadataFileName": "fftivc.asset.zoditexturepack.ReleaseMetadata.json",
   "PluginData": {
     "GitHubDependencies": {
       "IdToConfigMap": {
+        "fftivc.utility.modloader": {
+          "Config": {
+            "UserName": "Nenkai",
+            "RepositoryName": "fftivc.utility.modloader",
+            "UseReleaseTag": true,
+            "AssetFileName": "Mod.zip"
+          },
+          "ReleaseMetadataName": "fftivc.utility.modloader.ReleaseMetadata.json"
+        },
         "reloaded.sharedlib.hooks": {
           "Config": {
             "UserName": "Sewer56",
@@ -26,12 +35,22 @@
             "AssetFileName": "reloaded.sharedlib.hooks.zip"
           },
           "ReleaseMetadataName": "Sewer56.Update.ReleaseMetadata.json"
+        },
+        "Reloaded.Memory.SigScan.ReloadedII": {
+          "Config": {
+            "UserName": "Reloaded-Project",
+            "RepositoryName": "Reloaded.Memory.SigScan",
+            "UseReleaseTag": false,
+            "AssetFileName": "Mod.zip"
+          },
+          "ReleaseMetadataName": "Reloaded.Memory.SigScan.ReloadedII.ReleaseMetadata.json"
         }
       }
     }
   },
   "IsUniversalMod": false,
   "ModDependencies": [
+    "fftivc.utility.modloader",
     "reloaded.sharedlib.hooks"
   ],
   "OptionalDependencies": [],

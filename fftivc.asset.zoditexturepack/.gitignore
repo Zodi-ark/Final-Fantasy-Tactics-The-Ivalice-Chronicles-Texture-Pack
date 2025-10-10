@@ -4,6 +4,12 @@
 *.suo
 *.sln.docstates
 
+# Build output
+bin/
+obj/
+*.dll
+*.pdb
+
 # Configuration caches and logs
 *.cache
 *.log

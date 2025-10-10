@@ -36,6 +36,11 @@ namespace fftivc.asset.zoditexturepack.Configuration
         {
             FilePath = filePath;
             ConfigName = configName;
+
+            string? dir = Path.GetDirectoryName(filePath);
+            if (!string.IsNullOrEmpty(dir) && !Directory.Exists(dir))
+                Directory.CreateDirectory(dir);
+
             MakeConfigWatcher();
             Save = OnSave;
         }
@@ -50,13 +55,17 @@ namespace fftivc.asset.zoditexturepack.Configuration
         [Browsable(false)]
         public Action? Save { get; private set; }
 
-        private static object _readLock = new object();
+        private static readonly object _readLock = new();
 
         public static TParentType FromFile(string filePath, string configName) => ReadFrom(filePath, configName);
 
         private void MakeConfigWatcher()
         {
-            ConfigWatcher = new FileSystemWatcher(Path.GetDirectoryName(FilePath)!, Path.GetFileName(FilePath)!);
+            string? dir = Path.GetDirectoryName(FilePath);
+            if (string.IsNullOrEmpty(dir) || !Directory.Exists(dir))
+                return; // avoid crash if config folder missing
+
+            ConfigWatcher = new FileSystemWatcher(dir, Path.GetFileName(FilePath)!);
             ConfigWatcher.Changed += (sender, e) => OnConfigurationUpdated();
             ConfigWatcher.EnableRaisingEvents = true;
         }

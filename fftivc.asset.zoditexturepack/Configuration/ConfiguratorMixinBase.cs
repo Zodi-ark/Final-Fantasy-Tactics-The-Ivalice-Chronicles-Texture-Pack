@@ -20,16 +20,22 @@ namespace fftivc.asset.zoditexturepack.Configuration
 
         public virtual void Migrate(string oldDirectory, string newDirectory)
         {
-            void TryMoveFile(string fileName)
+            try
             {
-                try
+                if (!Directory.Exists(oldDirectory))
+                    return;
+
+                Directory.CreateDirectory(newDirectory);
+                foreach (var file in Directory.GetFiles(oldDirectory))
                 {
-                    File.Move(Path.Combine(oldDirectory, fileName), Path.Combine(newDirectory, fileName));
+                    var dest = Path.Combine(newDirectory, Path.GetFileName(file));
+                    if (!File.Exists(dest))
+                        File.Move(file, dest);
                 }
-                catch
-                {
-                    // ignored
-                }
+            }
+            catch
+            {
+                // ignored
             }
         }
     }

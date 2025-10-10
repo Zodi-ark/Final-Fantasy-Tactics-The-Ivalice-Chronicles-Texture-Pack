@@ -7,22 +7,24 @@
 		<LangVersion>12.0</LangVersion>
 		<Nullable>enable</Nullable>
 		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-		<OutputPath>$(RELOADEDIIMODS)/fftivc.asset.zoditexturepack</OutputPath>
 		<ImplicitUsings>enable</ImplicitUsings>
+		<OutputPath>$(RELOADEDIIMODS)/fftivc.asset.zoditexturepack</OutputPath>
 
-		<!-- IL Trimming Support -->
+		<!-- IL Trimming Support (for Reloaded II) -->
 		<ReloadedILLink>false</ReloadedILLink>
 	</PropertyGroup>
 
+	<!-- Reloaded Link/Trim roots -->
 	<ItemGroup>
 		<ReloadedLinkRoots Include="fftivc.asset.zoditexturepack" />
-		<!-- Add assemblies to be trimmed if needed -->
 		<!-- <ReloadedLinkAssemblies Include="Reloaded.Memory" /> -->
 	</ItemGroup>
 
+	<!-- Reloaded II build hooks -->
 	<Import Project="Reloaded.Trimming.targets" />
 	<Import Project="Reloaded.Checks.targets" />
 
+	<!-- Remove build scripts from output -->
 	<ItemGroup>
 		<None Remove="ModConfig.json" />
 		<None Remove="Publish.ps1" />
@@ -31,23 +33,40 @@
 		<None Remove="Reloaded.Checks.targets" />
 	</ItemGroup>
 
+	<!-- Include code files explicitly so Visual Studio always shows them -->
 	<ItemGroup>
+		<Compile Include="Mod.cs" />
+		<Compile Include="Configuration\Config.cs" />
+		<Compile Include="Configuration\Configurable.cs" />
+		<Compile Include="Configuration\Configurator.cs" />
+		<Compile Include="Configuration\ConfiguratorMixinBase.cs" />
+		<Compile Include="Configuration\Utilities.cs" />
+	</ItemGroup>
+
+	<!-- Include assets, config, and visuals -->
+	<ItemGroup>
+		<Content Include="ConfigAssets\**\*.*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<None Include="Preview.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
 		<Content Include="ModConfig.json">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</Content>
-		<None Update="Preview.png">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
 	</ItemGroup>
 
+	<!-- Dependencies -->
 	<ItemGroup>
-		<!-- Reloaded II 2.4 dependencies -->
-		<PackageReference Include="Reloaded.Mod.Interfaces" Version="2.4.0" />
+		<PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="9.0.3" />
+		<PackageReference Include="Reloaded.Mod.Interfaces" Version="2.4.0" ExcludeAssets="runtime" />
 		<PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
 	</ItemGroup>
 
+	<!-- Folder references (ensures Visual Studio shows structure) -->
 	<ItemGroup>
 		<Folder Include="Configuration\" />
+		<Folder Include="ConfigAssets\" />
 	</ItemGroup>
 
 </Project>

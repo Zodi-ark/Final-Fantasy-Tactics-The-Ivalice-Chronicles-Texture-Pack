@@ -30,6 +30,6 @@ namespace fftivc.asset.zoditexturepack.Configuration
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
     {
-        // Future overrides go here
+        // Reserved for future UI hooks
     }
 }
