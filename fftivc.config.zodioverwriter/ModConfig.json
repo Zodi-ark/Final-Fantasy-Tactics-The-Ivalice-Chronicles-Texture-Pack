@@ -1,0 +1,29 @@
+{
+  "ModId": "fftivc.config.zodioverwriter",
+  "ModName": "FINAL FANTASY TACTICS - The Ivalice Chronicles Texture Pack Configurator",
+  "ModAuthor": "Zodiark",
+  "ModVersion": "1.0.0",
+  "ModDescription": "Must be at the top of your load order! Configure the mod to your liking.",
+  "ModDll": "fftivc.config.zodioverwriter.dll",
+  "ModIcon": "Preview.png",
+  "ModR2RManagedDll32": "x86/fftivc.config.zodioverwriter.dll",
+  "ModR2RManagedDll64": "x64/fftivc.config.zodioverwriter.dll",
+  "ModNativeDll32": "",
+  "ModNativeDll64": "",
+  "Tags": [
+    "Texture",
+    "GUI/HUD"
+  ],
+  "CanUnload": false,
+  "HasExports": false,
+  "IsLibrary": false,
+  "ReleaseMetadataFileName": "Sewer56.Update.ReleaseMetadata.json",
+  "PluginData": {},
+  "IsUniversalMod": false,
+  "ModDependencies": [],
+  "OptionalDependencies": [],
+  "SupportedAppId": [
+    "fft_enhanced.exe"
+  ],
+  "ProjectUrl": ""
+}

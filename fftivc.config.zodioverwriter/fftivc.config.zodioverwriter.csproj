@@ -1,0 +1,50 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net9.0-windows</TargetFramework>
+		<AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<LangVersion>12.0</LangVersion>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+		<OutputPath>$(RELOADEDIIMODS)/fftivc.config.zodioverwriter</OutputPath>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<ReloadedILLink>false</ReloadedILLink>
+	</PropertyGroup>
+
+	<!-- Reloaded build system references -->
+	<ItemGroup>
+		<ReloadedLinkRoots Include="fftivc.config.zodioverwriter" />
+	</ItemGroup>
+
+	<Import Project="Reloaded.Trimming.targets" />
+	<Import Project="Reloaded.Checks.targets" />
+
+	<!-- Include all your source code files except auto-generated ones -->
+	<ItemGroup>
+		<Compile Include="**\*.cs" Exclude="obj\**\*.cs" />
+	</ItemGroup>
+
+	<!-- Copy ModConfig + resources -->
+	<ItemGroup>
+		<Content Include="ModConfig.json">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+
+		<None Update="Preview.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+
+		<None Update="Resources\**\*">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<!-- Dependencies -->
+	<ItemGroup>
+		<PackageReference Include="Microsoft.NET.ILLink.Tasks" Version="9.0.3" />
+		<PackageReference Include="Reloaded.Mod.Interfaces" Version="2.4.0" ExcludeAssets="runtime" />
+		<PackageReference Include="Reloaded.SharedLib.Hooks" Version="1.9.0" />
+	</ItemGroup>
+
+</Project>
