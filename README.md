@@ -3,7 +3,7 @@
 
 <div align="center">
 
-__*<p>Texture pack that focuses on debloating UI elements and adding vibrant visuals. 
+__*<p>Texture pack that focuses on debloating UI and adding vibrant visuals. 
 <br>Community contributions, edits, and forks are strongly encouraged!</p>*__
 
 </div>
@@ -53,14 +53,14 @@ Map Textures & Reshade
  **Battle UI**
 - Removed battle portrait border.
 - Removed red/blue vignette.
-- Removed sword pointer.
+- Removed battle pointer.
 
  **Maps**
 - All maps have been given a boost to saturation, contrast, and clarity.
 - Various dramatic lighting adjustments.
   
  **Config**
-- Users can choose from removed, original, PSX, or custom user battle pointer.
+- Users can choose from removed, original, PSX, or user custom battle pointer.
 - Configurable burlap and noise battle filters.
 - Configurable menus filter.
 
