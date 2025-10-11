@@ -21,7 +21,7 @@ __[DOWNLOAD THE MOST RECENT VERSION (6.01 GB)](https://github.com/Zodi-ark/Final
 - Install [FFT: The Ivalice Chronicles Mod Loader](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/4?tab=files) to Reloaded II
 - Install [FFT: The Ivalice Chronicles Texture Pack](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases) to Reloaded II
 
-*video guide goes here as webm*
+*video guide goes here as webm on 1.0 release*
 
 Comparison
 ======  
@@ -44,6 +44,8 @@ Map Textures & Reshade
 ======  
 
 <div align="center">
+
+*UPDATE WITH IVC VERSION ON 1.0 RELEASE*
 
 ![goodbye](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/92eab509-b886-458f-a18f-7a9940fe2c01)
 
