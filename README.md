@@ -58,11 +58,15 @@ Map Textures & Reshade
  **Maps**
 - All maps have been given a boost to saturation, contrast, and clarity.
 - Various dramatic lighting adjustments.
+
+ **Sprites**
+ - Added IOS/ Android Sprites.
   
  **Config**
-- Users can choose from removed, original, PSX, or user custom battle pointer.
+- Users can choose from IOS/ Android Sprites or original sprites.
+- Users can choose from removed, original, PSX, or a user custom battle pointer.
 - Configurable burlap and noise battle filters.
-- Configurable menus filter.
+- Configurable burlap party menu filter.
 
 # Upcoming Considerations
 - [ ] Battle portrait clean up
