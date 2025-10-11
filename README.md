@@ -45,9 +45,7 @@ Map Textures & Reshade
 
 <div align="center">
 
-*UPDATE WITH IVC VERSION ON 1.0 RELEASE*
-
-![](https://github.com/Zodi-ark/Zodi-ark/issues/4#issue-3505132882)
+![Image](https://github.com/user-attachments/assets/ab43727c-74ca-44ec-bdf7-b73f7eb235ce)
 
 </div>
 
