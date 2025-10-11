@@ -40,7 +40,7 @@ Screenshots
 ![Image](https://github.com/user-attachments/assets/06a16d6d-bc3b-4e76-bc70-d1a1b11fa390)
 ![citade_gif](https://github.com/user-attachments/assets/d7c1b3c0-a32d-4761-a89d-53907771e01e)
 
-Map Textures & Reshade
+Texture Pack & Reshade
 ======  
 
 <div align="center">
