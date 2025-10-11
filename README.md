@@ -47,7 +47,7 @@ Map Textures & Reshade
 
 *UPDATE WITH IVC VERSION ON 1.0 RELEASE*
 
-![goodbye](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/92eab509-b886-458f-a18f-7a9940fe2c01)
+![portal_1](https://github.com/Zodi-ark/Zodi-ark/issues/4#issue-3505132882)
 
 </div>
 
