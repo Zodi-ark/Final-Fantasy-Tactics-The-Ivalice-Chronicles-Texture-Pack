@@ -10,7 +10,7 @@ __*<p>Texture pack that focuses on debloating UI and adding vibrant visuals.
 
 <div align="center">
   
-__[DOWNLOAD THE MOST RECENT VERSION (5.85 GB)](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases)__
+__[DOWNLOAD THE MOST RECENT VERSION (6.01 GB)](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases)__
 
 </div>
 
