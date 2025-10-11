@@ -3,7 +3,7 @@
   "ModName": "FINAL FANTASY TACTICS - The Ivalice Chronicles Texture Pack Configurator",
   "ModAuthor": "Zodiark",
   "ModVersion": "1.0.0",
-  "ModDescription": "Must be at the top of your load order! Configure the mod to your liking.",
+  "ModDescription": "Must be at the top of your load order! Configure the mod to your liking and launch application to save changes. Delete this mod after if you wish.",
   "ModDll": "fftivc.config.zodioverwriter.dll",
   "ModIcon": "Preview.png",
   "ModR2RManagedDll32": "x86/fftivc.config.zodioverwriter.dll",

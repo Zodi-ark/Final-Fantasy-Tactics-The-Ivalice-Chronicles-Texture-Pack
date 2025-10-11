@@ -68,6 +68,7 @@ namespace fftivc.config.zodioverwriter
             ApplyBattlePointer(texturePackDir);
             ApplyMenuFilter(texturePackDir);
             ApplyBattleFilter(texturePackDir);
+            ApplySpriteOption(texturePackDir);
         }
 
         private void ApplyBattlePointer(string texturePackDir)
@@ -117,6 +118,42 @@ namespace fftivc.config.zodioverwriter
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle filter: {ex.Message}");
+            }
+        }
+
+        private void ApplySpriteOption(string texturePackDir)
+        {
+            try
+            {
+                string selected = _configuration!.SpritesOption.ToString();
+                string sourceDir = Path.Combine(_modRoot!, "Resources", "Sprites", selected);
+                string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "system", "ffto", "g2d");
+
+                if (!Directory.Exists(sourceDir))
+                {
+                    Console.WriteLine($"[fftivc.config.zodioverwriter] No sprite folder found for: {selected}");
+                    return;
+                }
+
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Applying {selected} sprites...");
+                CopyDirectory(sourceDir, targetDir);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying sprites: {ex.Message}");
+            }
+        }
+
+        private void CopyDirectory(string sourceDir, string targetDir)
+        {
+            Directory.CreateDirectory(targetDir);
+
+            foreach (var file in Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories))
+            {
+                string relativePath = file.Substring(sourceDir.Length + 1);
+                string targetFile = Path.Combine(targetDir, relativePath);
+                Directory.CreateDirectory(Path.GetDirectoryName(targetFile)!);
+                File.Copy(file, targetFile, true);
             }
         }
 

@@ -2,7 +2,7 @@
   "ModId": "fftivc.asset.zoditexturepack",
   "ModName": "FINAL FANTASY TACTICS - The Ivalice Chronicles Texture Pack",
   "ModAuthor": "Zodiark",
-  "ModVersion": "0.6.1",
+  "ModVersion": "0.6.4",
   "ModDescription": "Texture pack adjusting maps, lighting, and graphical UI elements.",
   "ModDll": "fftivc.asset.zoditexturepack.dll",
   "ModIcon": "Preview.png",
@@ -30,15 +30,6 @@
           },
           "ReleaseMetadataName": "fftivc.utility.modloader.ReleaseMetadata.json"
         },
-        "reloaded.sharedlib.hooks": {
-          "Config": {
-            "UserName": "Sewer56",
-            "RepositoryName": "Reloaded.SharedLib.Hooks.ReloadedII",
-            "UseReleaseTag": true,
-            "AssetFileName": "reloaded.sharedlib.hooks.zip"
-          },
-          "ReleaseMetadataName": "Sewer56.Update.ReleaseMetadata.json"
-        },
         "Reloaded.Memory.SigScan.ReloadedII": {
           "Config": {
             "UserName": "Reloaded-Project",
@@ -47,6 +38,15 @@
             "AssetFileName": "Mod.zip"
           },
           "ReleaseMetadataName": "Reloaded.Memory.SigScan.ReloadedII.ReleaseMetadata.json"
+        },
+        "reloaded.sharedlib.hooks": {
+          "Config": {
+            "UserName": "Sewer56",
+            "RepositoryName": "Reloaded.SharedLib.Hooks.ReloadedII",
+            "UseReleaseTag": true,
+            "AssetFileName": "reloaded.sharedlib.hooks.zip"
+          },
+          "ReleaseMetadataName": "Sewer56.Update.ReleaseMetadata.json"
         }
       }
     }

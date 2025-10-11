@@ -5,6 +5,12 @@ using System.ComponentModel;
 
 namespace fftivc.config.zodioverwriter.Configuration
 {
+    public enum SpriteOption
+    {
+        Mobile,
+        Original
+    }
+
     public enum BattlePointerChoice
     {
         Removed,
@@ -15,6 +21,11 @@ namespace fftivc.config.zodioverwriter.Configuration
 
     public class Config : Configurable<Config>
     {
+        [DisplayName("Sprites Option")]
+        [Description("Select which sprite style to use (Mobile or Original).")]
+        [DefaultValue(SpriteOption.Mobile)]
+        public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
+
         [DisplayName("Battle Pointer Option")]
         [Description("Choose which battle pointer to use.")]
         [DefaultValue(BattlePointerChoice.Removed)]
