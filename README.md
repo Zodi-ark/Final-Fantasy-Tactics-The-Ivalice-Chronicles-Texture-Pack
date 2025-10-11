@@ -3,7 +3,9 @@
 
 <div align="center">
 
-__*<p>Texture pack that focuses on debloating UI and adding vibrant visuals. 
+__*<p> IN ACTIVE DEVELOPMENT MOST MAPS ARE ROUGH AND LIKEY TO CHANGE<br>
+THE PROJECT IS IN A PRE-ALPHA STATE <br>
+<br>Texture pack that focuses on debloating UI and adding vibrant visuals. 
 <br>Community contributions, edits, and forks are strongly encouraged!</p>*__
 
 </div>
