@@ -43,11 +43,7 @@ Screenshots
 Texture Pack & Reshade
 ======  
 
-<div align="center">
-
 ![Image](https://github.com/user-attachments/assets/ab43727c-74ca-44ec-bdf7-b73f7eb235ce)
-
-</div>
 
 # Version List
 
