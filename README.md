@@ -3,14 +3,16 @@
 
 <div align="center">
 
-__*<p>Texture pack that focuses on debloating UI and adding vibrant visuals. 
+__*<p> IN ACTIVE DEVELOPMENT MOST MAPS ARE ROUGH AND LIKEY TO CHANGE<br>
+THE PROJECT IS IN A PRE-ALPHA STATE <br>
+<br>Texture pack that focuses on debloating UI and adding vibrant visuals. 
 <br>Community contributions, edits, and forks are strongly encouraged!</p>*__
 
 </div>
 
 <div align="center">
   
-__[DOWNLOAD THE MOST RECENT VERSION (5.85 GB)](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases)__
+__[DOWNLOAD THE MOST RECENT VERSION (6.01 GB)](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases)__
 
 </div>
 
@@ -19,7 +21,7 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.85 GB)](https://github.com/Zodi-ark/Final
 - Install [FFT: The Ivalice Chronicles Mod Loader](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/4?tab=files) to Reloaded II
 - Install [FFT: The Ivalice Chronicles Texture Pack](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases) to Reloaded II
 
-*video guide goes here as webm*
+*video guide goes here as webm on 1.0 release*
 
 Comparison
 ======  
@@ -38,12 +40,12 @@ Screenshots
 ![Image](https://github.com/user-attachments/assets/06a16d6d-bc3b-4e76-bc70-d1a1b11fa390)
 ![citade_gif](https://github.com/user-attachments/assets/d7c1b3c0-a32d-4761-a89d-53907771e01e)
 
-Map Textures & Reshade
+Texture Pack & Reshade
 ======  
 
 <div align="center">
 
-![goodbye](https://github.com/Zodi-ark/in-memory-of-imgur-sucks/assets/113886368/92eab509-b886-458f-a18f-7a9940fe2c01)
+![Image](https://github.com/user-attachments/assets/ab43727c-74ca-44ec-bdf7-b73f7eb235ce)
 
 </div>
 
@@ -58,11 +60,15 @@ Map Textures & Reshade
  **Maps**
 - All maps have been given a boost to saturation, contrast, and clarity.
 - Various dramatic lighting adjustments.
+
+ **Sprites**
+ - Added IOS/ Android Sprites.
   
  **Config**
-- Users can choose from removed, original, PSX, or user custom battle pointer.
+- Users can choose from IOS/ Android Sprites or original sprites.
+- Users can choose from removed, original, PSX, or a user custom battle pointer.
 - Configurable burlap and noise battle filters.
-- Configurable menus filter.
+- Configurable burlap party menu filter.
 
 # Upcoming Considerations
 - [ ] Battle portrait clean up
