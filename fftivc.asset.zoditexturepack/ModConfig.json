@@ -4,10 +4,10 @@
   "ModAuthor": "Zodiark",
   "ModVersion": "0.6.4",
   "ModDescription": "Texture pack adjusting maps, lighting, and graphical UI elements.",
-  "ModDll": "fftivc.asset.zoditexturepack.dll",
+  "ModDll": "",
   "ModIcon": "Preview.png",
-  "ModR2RManagedDll32": "x86/fftivc.asset.zoditexturepack.dll",
-  "ModR2RManagedDll64": "x64/fftivc.asset.zoditexturepack.dll",
+  "ModR2RManagedDll32": "",
+  "ModR2RManagedDll64": "",
   "ModNativeDll32": "",
   "ModNativeDll64": "",
   "Tags": [
