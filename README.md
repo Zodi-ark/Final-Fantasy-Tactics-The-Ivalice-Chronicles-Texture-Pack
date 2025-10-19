@@ -75,13 +75,13 @@ Texture Pack & Reshade
  ### <ins>**Configurator**</ins>
 
  **UI**
-- Users can choose from removed, original, PSX, or a user custom battle pointer.
+- Toggle from removed, original, PSX, or a user custom battle pointer.
 - Configurable burlap and noise battle filters.
 - Configurable burlap party menu filter.
 
  **Sprites**
-- Users can choose from IOS/ Android Sprites or original sprites.
-- Users can choose from upscaled or original portraits.
+- Toggle IOS/ Android Sprites or original sprites.
+- Toggle upscaled or original portraits.
 
 # Upcoming Considerations
 - [x] Battle portrait clean up
