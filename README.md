@@ -4,7 +4,7 @@
 <div align="center">
 
 __*<p> IN ACTIVE DEVELOPMENT MOST MAPS ARE ROUGH AND LIKEY TO CHANGE<br>
-THE PROJECT IS IN A PRE-ALPHA STATE <br>
+THE PROJECT IS IN AN ALPHA STATE <br>
 <br>Texture pack that focuses on debloating UI and adding vibrant visuals. 
 <br>Community contributions, edits, and forks are strongly encouraged!</p>*__
 
