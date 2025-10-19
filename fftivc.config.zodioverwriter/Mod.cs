@@ -69,6 +69,7 @@ namespace fftivc.config.zodioverwriter
             ApplyMenuFilter(texturePackDir);
             ApplyBattleFilter(texturePackDir);
             ApplySpriteOption(texturePackDir);
+            ApplyPortraitsOption(texturePackDir);
         }
 
         private void ApplyBattlePointer(string texturePackDir)
@@ -141,6 +142,29 @@ namespace fftivc.config.zodioverwriter
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying sprites: {ex.Message}");
+            }
+        }
+
+        private void ApplyPortraitsOption(string texturePackDir)
+        {
+            try
+            {
+                string selected = _configuration!.PortraitsOption.ToString();
+                string sourceDir = Path.Combine(_modRoot!, "Resources", "Portraits", selected);
+                string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "face", "texture");
+
+                if (!Directory.Exists(sourceDir))
+                {
+                    Console.WriteLine($"[fftivc.config.zodioverwriter] No portraits folder found for: {selected}");
+                    return;
+                }
+
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Applying {selected} portraits...");
+                CopyDirectory(sourceDir, targetDir);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying portraits: {ex.Message}");
             }
         }
 

@@ -11,6 +11,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original
     }
 
+    public enum PortraitOption
+    {
+        Upscaled,
+        Original
+    }
+
     public enum BattlePointerChoice
     {
         Removed,
@@ -25,6 +31,11 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select which sprite style to use (Mobile or Original).")]
         [DefaultValue(SpriteOption.Mobile)]
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
+
+        [DisplayName("Portraits Option")]
+        [Description("Select which portrait style to use (Upscaled or Original).")]
+        [DefaultValue(PortraitOption.Original)]
+        public PortraitOption PortraitsOption { get; set; } = PortraitOption.Original;
 
         [DisplayName("Battle Pointer Option")]
         [Description("Choose which battle pointer to use.")]
