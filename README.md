@@ -71,7 +71,6 @@ Texture Pack & Reshade
 
  **Sprites**
  - Added IOS/ Android Sprites.
- - Upscaled portraits.
 
  ### <ins>**Configurator**</ins>
 
