@@ -122,22 +122,24 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
+        // --- NEW/UPDATED METHODS START HERE ---
+
         private void ApplySpriteOption(string texturePackDir)
         {
             try
             {
-                string selected = _configuration!.SpritesOption.ToString();
-                string sourceDir = Path.Combine(_modRoot!, "Resources", "Sprites", selected);
                 string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "system", "ffto", "g2d");
 
-                if (!Directory.Exists(sourceDir))
+                if (_configuration!.SpritesOption == SpriteOption.Original)
                 {
-                    Console.WriteLine($"[fftivc.config.zodioverwriter] No sprite folder found for: {selected}");
-                    return;
+                    // User wants Original (base game): DISABLE the texture pack's "Mobile" sprite folder.
+                    DisableDirectory(targetDir);
                 }
-
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Applying {selected} sprites...");
-                CopyDirectory(sourceDir, targetDir);
+                else // SpriteOption.Mobile
+                {
+                    // User wants Mobile (texture pack): ENABLE the texture pack's folder.
+                    EnableDirectory(targetDir);
+                }
             }
             catch (Exception ex)
             {
@@ -149,24 +151,91 @@ namespace fftivc.config.zodioverwriter
         {
             try
             {
-                string selected = _configuration!.PortraitsOption.ToString();
-                string sourceDir = Path.Combine(_modRoot!, "Resources", "Portraits", selected);
                 string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "face", "texture");
 
-                if (!Directory.Exists(sourceDir))
+                if (_configuration!.PortraitsOption == PortraitOption.Original)
                 {
-                    Console.WriteLine($"[fftivc.config.zodioverwriter] No portraits folder found for: {selected}");
-                    return;
+                    // User wants Original (base game): DISABLE the texture pack's portrait folder.
+                    DisableDirectory(targetDir);
                 }
+                else // PortraitOption.Upscaled
+                {
+                    // User wants Upscaled:
+                    // 1. ENABLE the folder (in case we disabled it last time).
+                    EnableDirectory(targetDir);
 
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Applying {selected} portraits...");
-                CopyDirectory(sourceDir, targetDir);
+                    // 2. Copy the upscaled files from this mod's resources.
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "Portraits", "Upscaled");
+
+                    if (!Directory.Exists(sourceDir))
+                    {
+                        Console.WriteLine($"[fftivc.config.zodioverwriter] No portraits folder found for: Upscaled");
+                        return;
+                    }
+
+                    Console.WriteLine($"[fftivc.config.zodioverwriter] Applying Upscaled portraits...");
+                    CopyDirectory(sourceDir, targetDir); // Uses your existing CopyDirectory method
+                }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying portraits: {ex.Message}");
             }
         }
+
+        /// <summary>
+        /// Renames a directory to "disable" it (e.g., "g2d" -> "g2d.disabled_by_config").
+        /// </summary>
+        private void DisableDirectory(string path)
+        {
+            try
+            {
+                string disabledPath = path + ".disabled_by_config";
+
+                // If it's already disabled, we're done.
+                if (Directory.Exists(disabledPath))
+                    return;
+
+                // If the active path exists, rename it.
+                if (Directory.Exists(path))
+                {
+                    Directory.Move(path, disabledPath);
+                    Console.WriteLine($"[fftivc.config.zodioverwriter] Disabled: {Path.GetFileName(path)}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error disabling {Path.GetFileName(path)}: {ex.Message}");
+            }
+        }
+
+        /// <summary>
+        /// Restores a "disabled" directory (e.g., "g2d.disabled_by_config" -> "g2d").
+        /// </summary>
+        private void EnableDirectory(string path)
+        {
+            try
+            {
+                string disabledPath = path + ".disabled_by_config";
+
+                // If it's already enabled, we're done.
+                if (Directory.Exists(path))
+                    return;
+
+                // If the disabled path exists, rename it back.
+                if (Directory.Exists(disabledPath))
+                {
+                    Directory.Move(disabledPath, path);
+                    Console.WriteLine($"[fftivc.config.zodioverwriter] Enabled: {Path.GetFileName(path)}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error enabling {Path.GetFileName(path)}: {ex.Message}");
+            }
+        }
+
+        // --- YOUR ORIGINAL HELPER METHODS (UNCHANGED) ---
 
         private void CopyDirectory(string sourceDir, string targetDir)
         {
