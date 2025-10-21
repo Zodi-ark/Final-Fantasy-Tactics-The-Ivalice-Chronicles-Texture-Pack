@@ -45,6 +45,10 @@ Screenshots
 
 </div>
 
+> Battle Frames & Pointers 
+
+![Image](https://github.com/user-attachments/assets/97c19768-b9e0-4da9-80e2-95565396f32d)
+
 Texture Pack & Reshade
 ======  
 
@@ -92,3 +96,6 @@ Texture Pack & Reshade
 
 # Known Issues
 -Light values can vary greatly on different monitors; especially on HDR displays.
+
+# Credits
+PSX Cursor- Serbagz
