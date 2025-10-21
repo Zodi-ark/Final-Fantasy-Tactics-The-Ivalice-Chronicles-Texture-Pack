@@ -75,7 +75,8 @@ Texture Pack & Reshade
  ### <ins>**Configurator**</ins>
 
  **UI**
-- Toggle from removed, original, PSX, or a user custom battle pointer.
+- Toggle battle pointer from removed, original, PSX, or a user custom.
+- Toggle battle frame from removed, vignette, or orignal.
 - Configurable burlap and noise battle filters.
 - Configurable burlap party menu filter.
 
