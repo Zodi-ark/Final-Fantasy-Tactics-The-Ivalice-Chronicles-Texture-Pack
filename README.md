@@ -68,6 +68,7 @@ Texture Pack & Reshade
 - Removed battle portrait border.
 - Removed red/blue vignette.
 - Removed battle pointer.
+- Removed battle frame.
 
  **Sprites**
  - Added IOS/ Android Sprites.
