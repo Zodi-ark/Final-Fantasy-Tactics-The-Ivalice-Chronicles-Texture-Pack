@@ -25,6 +25,14 @@ namespace fftivc.config.zodioverwriter.Configuration
         PSX
     }
 
+    // --- NEW ENUM ADDED HERE ---
+    public enum BattleFrameOption
+    {
+        Removed,
+        Vignette,
+        Original
+    }
+
     public class Config : Configurable<Config>
     {
         [DisplayName("Sprites Option")]
@@ -41,6 +49,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Choose which battle pointer to use.")]
         [DefaultValue(BattlePointerChoice.Removed)]
         public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
+
+        // --- NEW CONFIG PROPERTY ADDED HERE ---
+        [DisplayName("Battle Frame Option")]
+        [Description("Choose which battle frame to use.")]
+        [DefaultValue(BattleFrameOption.Removed)]
+        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
 
         [DisplayName("Disable Menu Filter")]
         [Description("Disables the menu screen filter.")]

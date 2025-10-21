@@ -66,6 +66,7 @@ namespace fftivc.config.zodioverwriter
             }
 
             ApplyBattlePointer(texturePackDir);
+            ApplyBattleFrame(texturePackDir); // --- NEW METHOD CALLED HERE ---
             ApplyMenuFilter(texturePackDir);
             ApplyBattleFilter(texturePackDir);
             ApplySpriteOption(texturePackDir);
@@ -86,6 +87,26 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle pointer: {ex.Message}");
             }
         }
+
+        // --- NEW METHOD ADDED HERE ---
+        private void ApplyBattleFrame(string texturePackDir)
+        {
+            try
+            {
+                // Converts "Removed" to "removed", "Vignette" to "vignette", etc.
+                // to match your folder names.
+                string option = _configuration!.BattleFrameOption.ToString().ToLower();
+
+                string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFrame", option, "ui_battle_frame_uitx.tex");
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "battle", "texture", "ui_battle_frame_uitx.tex");
+                TryCopy(sourcePath, destPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle frame: {ex.Message}");
+            }
+        }
+        // --- END OF NEW METHOD ---
 
         private void ApplyMenuFilter(string texturePackDir)
         {
@@ -121,8 +142,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle filter: {ex.Message}");
             }
         }
-
-        // --- NEW/UPDATED METHODS START HERE ---
 
         private void ApplySpriteOption(string texturePackDir)
         {
@@ -234,8 +253,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error enabling {Path.GetFileName(path)}: {ex.Message}");
             }
         }
-
-        // --- YOUR ORIGINAL HELPER METHODS (UNCHANGED) ---
 
         private void CopyDirectory(string sourceDir, string targetDir)
         {
