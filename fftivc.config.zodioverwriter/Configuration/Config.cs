@@ -17,6 +17,16 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original
     }
 
+    // --- ENUM UPDATED WITH NEW COLORS ---
+    public enum PartyMenuColorOption
+    {
+        Original,
+        Black,
+        Blackara,
+        Blackaga,
+        White
+    }
+
     public enum BattlePointerChoice
     {
         Removed,
@@ -25,7 +35,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         PSX
     }
 
-    // --- NEW ENUM ADDED HERE ---
     public enum BattleFrameOption
     {
         Removed,
@@ -45,12 +54,17 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(PortraitOption.Original)]
         public PortraitOption PortraitsOption { get; set; } = PortraitOption.Original;
 
+        // --- CONFIG PROPERTY UPDATED WITH NEW DEFAULT ---
+        [DisplayName("Party Menu Color")]
+        [Description("Select the background color for the party/formation menu.")]
+        [DefaultValue(PartyMenuColorOption.Original)] // Default changed to Original
+        public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original; // Default changed to Original
+
         [DisplayName("Battle Pointer Option")]
         [Description("Choose which battle pointer to use.")]
         [DefaultValue(BattlePointerChoice.Removed)]
         public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
 
-        // --- NEW CONFIG PROPERTY ADDED HERE ---
         [DisplayName("Battle Frame Option")]
         [Description("Choose which battle frame to use.")]
         [DefaultValue(BattleFrameOption.Removed)]

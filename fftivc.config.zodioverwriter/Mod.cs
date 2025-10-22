@@ -66,11 +66,12 @@ namespace fftivc.config.zodioverwriter
             }
 
             ApplyBattlePointer(texturePackDir);
-            ApplyBattleFrame(texturePackDir); // --- NEW METHOD CALLED HERE ---
+            ApplyBattleFrame(texturePackDir);
             ApplyMenuFilter(texturePackDir);
             ApplyBattleFilter(texturePackDir);
             ApplySpriteOption(texturePackDir);
             ApplyPortraitsOption(texturePackDir);
+            ApplyPartyMenuColor(texturePackDir); // --- NEW METHOD CALLED HERE ---
         }
 
         private void ApplyBattlePointer(string texturePackDir)
@@ -88,13 +89,11 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // --- NEW METHOD ADDED HERE ---
         private void ApplyBattleFrame(string texturePackDir)
         {
             try
             {
                 // Converts "Removed" to "removed", "Vignette" to "vignette", etc.
-                // to match your folder names.
                 string option = _configuration!.BattleFrameOption.ToString().ToLower();
 
                 string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFrame", option, "ui_battle_frame_uitx.tex");
@@ -106,7 +105,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle frame: {ex.Message}");
             }
         }
-        // --- END OF NEW METHOD ---
 
         private void ApplyMenuFilter(string texturePackDir)
         {
@@ -201,6 +199,26 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying portraits: {ex.Message}");
             }
         }
+
+        // --- NEW METHOD ADDED HERE ---
+        private void ApplyPartyMenuColor(string texturePackDir)
+        {
+            try
+            {
+                // Converts "Original" to "Original", "Black" to "Black", etc.
+                string option = _configuration!.PartyMenuColorOption.ToString();
+
+                string sourcePath = Path.Combine(_modRoot!, "Resources", "PartyMenuColor", option, "ui_bg_stone_uitx.tex");
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ui_bg_stone_uitx.tex");
+                TryCopy(sourcePath, destPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying party menu color: {ex.Message}");
+            }
+        }
+        // --- END OF NEW METHOD ---
+
 
         /// <summary>
         /// Renames a directory to "disable" it (e.g., "g2d" -> "g2d.disabled_by_config").
