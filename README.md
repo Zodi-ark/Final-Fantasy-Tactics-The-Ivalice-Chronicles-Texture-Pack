@@ -93,7 +93,7 @@ Texture Pack & Reshade
  ### <ins>**Configurator**</ins>
 
  **UI**
-- Toggle party menu color from original, black, blackara, blackaja, and white.
+- Toggle party menu color from original, black, blackara, blackaga, and white.
 - Toggle battle pointer from removed, original, PSX, or a user custom.
 - Toggle battle frame from removed, vignette, or orignal.
 - Configurable burlap and noise battle filters.
