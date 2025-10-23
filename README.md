@@ -39,15 +39,28 @@ Screenshots
 
 ![Image](https://github.com/user-attachments/assets/dfe2fe70-986a-44c7-9b54-d42e7c29534e)
 ![Image](https://github.com/user-attachments/assets/06a16d6d-bc3b-4e76-bc70-d1a1b11fa390)
+
 <div align="center">
-  
+
 ![citade_gif](https://github.com/user-attachments/assets/d7c1b3c0-a32d-4761-a89d-53907771e01e)
+
+</div>
+
+> Upscaled Portraits
+
+<div align="center">
+
+![Image](https://github.com/user-attachments/assets/89087b0d-1954-4a3e-93fe-007b5e5ffad0)
 
 </div>
 
 > Battle Frames & Pointers 
 
 ![Image](https://github.com/user-attachments/assets/97c19768-b9e0-4da9-80e2-95565396f32d)
+
+> Party Menu Colors
+
+![Image](https://github.com/user-attachments/assets/cee0f64c-f1b4-42e4-a486-2467510180bd)
 
 Texture Pack & Reshade
 ======  
@@ -80,6 +93,7 @@ Texture Pack & Reshade
  ### <ins>**Configurator**</ins>
 
  **UI**
+- Toggle party menu color from original, black, blackara, blackaja, and white.
 - Toggle battle pointer from removed, original, PSX, or a user custom.
 - Toggle battle frame from removed, vignette, or orignal.
 - Configurable burlap and noise battle filters.
