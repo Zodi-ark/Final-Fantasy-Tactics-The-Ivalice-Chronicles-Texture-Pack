@@ -86,6 +86,8 @@ Texture Pack & Reshade
 - Removed red/blue vignette.
 - Removed battle pointer.
 - Removed battle frame.
+- Removed party menu up & down arrows.
+- Removed party menu boxes around "Units, Inventory, Chronicle, and Option."
 
  **Sprites**
  - Added IOS/ Android Sprites.
@@ -94,6 +96,7 @@ Texture Pack & Reshade
 
  **UI**
 - Toggle party menu color from original, black, blackara, blackaga, and white.
+- Toggle party menu highlight ring color from original, white, red, purple, and removed.
 - Toggle battle pointer from removed, original, PSX, or a user custom.
 - Toggle battle frame from removed, vignette, or orignal.
 - Configurable burlap and noise battle filters.
