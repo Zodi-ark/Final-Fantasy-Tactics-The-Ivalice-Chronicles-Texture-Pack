@@ -71,7 +71,8 @@ namespace fftivc.config.zodioverwriter
             ApplyBattleFilter(texturePackDir);
             ApplySpriteOption(texturePackDir);
             ApplyPortraitsOption(texturePackDir);
-            ApplyPartyMenuColor(texturePackDir); // --- NEW METHOD CALLED HERE ---
+            ApplyPartyMenuColor(texturePackDir);
+            ApplyUnitHighlightRing(texturePackDir); // --- NEW METHOD CALLED HERE ---
         }
 
         private void ApplyBattlePointer(string texturePackDir)
@@ -93,7 +94,6 @@ namespace fftivc.config.zodioverwriter
         {
             try
             {
-                // Converts "Removed" to "removed", "Vignette" to "vignette", etc.
                 string option = _configuration!.BattleFrameOption.ToString().ToLower();
 
                 string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFrame", option, "ui_battle_frame_uitx.tex");
@@ -149,12 +149,10 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.SpritesOption == SpriteOption.Original)
                 {
-                    // User wants Original (base game): DISABLE the texture pack's "Mobile" sprite folder.
                     DisableDirectory(targetDir);
                 }
                 else // SpriteOption.Mobile
                 {
-                    // User wants Mobile (texture pack): ENABLE the texture pack's folder.
                     EnableDirectory(targetDir);
                 }
             }
@@ -172,16 +170,11 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.PortraitsOption == PortraitOption.Original)
                 {
-                    // User wants Original (base game): DISABLE the texture pack's portrait folder.
                     DisableDirectory(targetDir);
                 }
                 else // PortraitOption.Upscaled
                 {
-                    // User wants Upscaled:
-                    // 1. ENABLE the folder (in case we disabled it last time).
                     EnableDirectory(targetDir);
-
-                    // 2. Copy the upscaled files from this mod's resources.
                     string sourceDir = Path.Combine(_modRoot!, "Resources", "Portraits", "Upscaled");
 
                     if (!Directory.Exists(sourceDir))
@@ -191,7 +184,7 @@ namespace fftivc.config.zodioverwriter
                     }
 
                     Console.WriteLine($"[fftivc.config.zodioverwriter] Applying Upscaled portraits...");
-                    CopyDirectory(sourceDir, targetDir); // Uses your existing CopyDirectory method
+                    CopyDirectory(sourceDir, targetDir);
                 }
             }
             catch (Exception ex)
@@ -200,12 +193,10 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // --- NEW METHOD ADDED HERE ---
         private void ApplyPartyMenuColor(string texturePackDir)
         {
             try
             {
-                // Converts "Original" to "Original", "Black" to "Black", etc.
                 string option = _configuration!.PartyMenuColorOption.ToString();
 
                 string sourcePath = Path.Combine(_modRoot!, "Resources", "PartyMenuColor", option, "ui_bg_stone_uitx.tex");
@@ -217,8 +208,25 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying party menu color: {ex.Message}");
             }
         }
-        // --- END OF NEW METHOD ---
 
+        // --- NEW METHOD ADDED HERE ---
+        private void ApplyUnitHighlightRing(string texturePackDir)
+        {
+            try
+            {
+                // Converts "Original" to "Original", "White" to "White", etc.
+                string option = _configuration!.UnitHighlightRingOption.ToString();
+
+                string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitHighlightRing", option, "ui_unit_tex_uitx.tex");
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "unit", "texture", "ui_unit_tex_uitx.tex");
+                TryCopy(sourcePath, destPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying unit highlight ring: {ex.Message}");
+            }
+        }
+        // --- END OF NEW METHOD ---
 
         /// <summary>
         /// Renames a directory to "disable" it (e.g., "g2d" -> "g2d.disabled_by_config").
@@ -229,11 +237,9 @@ namespace fftivc.config.zodioverwriter
             {
                 string disabledPath = path + ".disabled_by_config";
 
-                // If it's already disabled, we're done.
                 if (Directory.Exists(disabledPath))
                     return;
 
-                // If the active path exists, rename it.
                 if (Directory.Exists(path))
                 {
                     Directory.Move(path, disabledPath);
@@ -255,11 +261,9 @@ namespace fftivc.config.zodioverwriter
             {
                 string disabledPath = path + ".disabled_by_config";
 
-                // If it's already enabled, we're done.
                 if (Directory.Exists(path))
                     return;
 
-                // If the disabled path exists, rename it back.
                 if (Directory.Exists(disabledPath))
                 {
                     Directory.Move(disabledPath, path);

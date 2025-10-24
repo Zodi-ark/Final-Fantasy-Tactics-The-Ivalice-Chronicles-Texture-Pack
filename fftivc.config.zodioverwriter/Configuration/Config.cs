@@ -17,7 +17,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original
     }
 
-    // --- ENUM UPDATED WITH NEW COLORS ---
     public enum PartyMenuColorOption
     {
         Original,
@@ -42,30 +41,45 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original
     }
 
+    public enum UnitHighlightRingOption
+    {
+        Original,
+        White,
+        Red,
+        Purple,
+        Removed
+    }
+
     public class Config : Configurable<Config>
     {
-        [DisplayName("Sprites Option")]
+        [DisplayName("Sprites")]
         [Description("Select which sprite style to use (Mobile or Original).")]
         [DefaultValue(SpriteOption.Mobile)]
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
 
-        [DisplayName("Portraits Option")]
+        [DisplayName("Portraits")]
         [Description("Select which portrait style to use (Upscaled or Original).")]
         [DefaultValue(PortraitOption.Original)]
         public PortraitOption PortraitsOption { get; set; } = PortraitOption.Original;
 
-        // --- CONFIG PROPERTY UPDATED WITH NEW DEFAULT ---
         [DisplayName("Party Menu Color")]
         [Description("Select the background color for the party/formation menu.")]
-        [DefaultValue(PartyMenuColorOption.Original)] // Default changed to Original
-        public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original; // Default changed to Original
+        [DefaultValue(PartyMenuColorOption.Original)]
+        public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
 
-        [DisplayName("Battle Pointer Option")]
+        // --- MOVED PROPERTY BLOCK ---
+        [DisplayName("Unit Highlight Ring")]
+        [Description("Choose the color of the unit's highlight ring in battle.")]
+        [DefaultValue(UnitHighlightRingOption.Original)]
+        public UnitHighlightRingOption UnitHighlightRingOption { get; set; } = UnitHighlightRingOption.Original;
+        // --- END OF MOVED BLOCK ---
+
+        [DisplayName("Battle Pointer")]
         [Description("Choose which battle pointer to use.")]
         [DefaultValue(BattlePointerChoice.Removed)]
         public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
 
-        [DisplayName("Battle Frame Option")]
+        [DisplayName("Battle Frame")]
         [Description("Choose which battle frame to use.")]
         [DefaultValue(BattleFrameOption.Removed)]
         public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
