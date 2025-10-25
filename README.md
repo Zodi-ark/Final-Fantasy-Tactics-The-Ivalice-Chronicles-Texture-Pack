@@ -62,6 +62,10 @@ Screenshots
 
 ![Image](https://github.com/user-attachments/assets/cee0f64c-f1b4-42e4-a486-2467510180bd)
 
+> Highlight Rings
+
+![Image](https://github.com/user-attachments/assets/130cd241-2211-414c-a5f2-93f182c3768b)
+
 Texture Pack & Reshade
 ======  
 
