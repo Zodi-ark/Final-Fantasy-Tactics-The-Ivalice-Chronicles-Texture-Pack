@@ -46,7 +46,7 @@ Screenshots
 
 </div>
 
-> Upscaled Portraits
+> Upscaled Portraits (Configurable)
 
 <div align="center">
 
@@ -56,17 +56,21 @@ Screenshots
 
 ![Image](https://github.com/user-attachments/assets/54ea27bc-a8f3-4cfa-aca3-e70969881bc7)
 
-> Battle Frames & Pointers 
+> Battle Frames & Pointers (Configurable)
 
 ![Image](https://github.com/user-attachments/assets/97c19768-b9e0-4da9-80e2-95565396f32d)
 
-> Party Menu Colors
+> Party Menu Colors (Configurable)
 
 ![Image](https://github.com/user-attachments/assets/cee0f64c-f1b4-42e4-a486-2467510180bd)
 
-> Highlight Rings
+> Highlight Rings (Configurable)
 
 ![Image](https://github.com/user-attachments/assets/130cd241-2211-414c-a5f2-93f182c3768b)
+
+> Azure and Ivory World Map (Configurable)
+
+![Image](https://github.com/user-attachments/assets/c1507eb9-20f4-47f0-b74c-dfc0eba25742)
 
 Texture Pack & Reshade
 ======  
@@ -105,8 +109,10 @@ Texture Pack & Reshade
 - Toggle party menu highlight ring color from original, white, red, purple, and removed.
 - Toggle battle pointer from removed, original, PSX, or a user custom.
 - Toggle battle frame from removed, vignette, or orignal.
+- Toggle alternative world map theme "Azure and Ivory."
 - Configurable burlap and noise battle filters.
 - Configurable burlap party menu filter.
+- Configurable world map blur.
 
  **Sprites**
 - Toggle IOS/ Android Sprites or original sprites.
