@@ -65,15 +65,102 @@ namespace fftivc.config.zodioverwriter
                 return;
             }
 
+            // Apply options
             ApplyBattlePointer(texturePackDir);
             ApplyBattleFrame(texturePackDir);
+            ApplyWorldMapBlur(texturePackDir);
+            ApplyWorldMap(texturePackDir); // This now runs independently
             ApplyMenuFilter(texturePackDir);
             ApplyBattleFilter(texturePackDir);
             ApplySpriteOption(texturePackDir);
             ApplyPortraitsOption(texturePackDir);
             ApplyPartyMenuColor(texturePackDir);
-            ApplyUnitHighlightRing(texturePackDir); // --- NEW METHOD CALLED HERE ---
+            ApplyUnitHighlightRing(texturePackDir);
         }
+
+        // --- UPDATED METHOD HERE ---
+        private void ApplyWorldMap(string texturePackDir)
+        {
+            try
+            {
+                string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "worldmap", "texture");
+
+                // Get the name of the folder from the config option.
+                string optionName = _configuration!.WorldMap.ToString();
+                string sourceDir = Path.Combine(_modRoot!, "Resources", "WorldMap", optionName);
+
+                if (_configuration.WorldMap == WorldMapOption.Original)
+                {
+                    // User wants Original: Delete the files from "AzureAndIvory" (or any other custom map)
+                    // We check the "AzureAndIvory" folder in our *own mod* to see what files we *would* have copied.
+                    string customMapSourceDir = Path.Combine(_modRoot!, "Resources", "WorldMap", "AzureAndIvory");
+                    DeleteManagedFiles(customMapSourceDir, targetDir);
+                }
+                else // AzureAndIvory (or any other custom map)
+                {
+                    // User wants a custom map: Copy all files from the selected map pack.
+                    if (!Directory.Exists(sourceDir))
+                    {
+                        Console.WriteLine($"[fftivc.config.zodioverwriter] No world map folder found for: {optionName}");
+                        return;
+                    }
+
+                    Console.WriteLine($"[fftivc.config.zodioverwriter] Applying {optionName} world map...");
+                    CopyDirectory(sourceDir, targetDir); // Uses your existing CopyDirectory method
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying world map: {ex.Message}");
+            }
+        }
+
+
+        // --- NEW HELPER METHOD HERE ---
+        /// <summary>
+        /// Deletes files from a target directory based on what files exist in a source directory.
+        /// This is used to "uninstall" a file copy.
+        /// </summary>
+        private void DeleteManagedFiles(string sourceDir, string targetDir)
+        {
+            if (!Directory.Exists(sourceDir))
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Missing source directory, cannot delete files: {sourceDir}");
+                return;
+            }
+
+            if (!Directory.Exists(targetDir))
+            {
+                return; // Target folder doesn't exist, so nothing to delete.
+            }
+
+            try
+            {
+                // Find all files in our mod's "AzureAndIvory" folder
+                foreach (var file in Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories))
+                {
+                    // Get the relative path of the file
+                    string relativePath = file.Substring(sourceDir.Length + 1);
+
+                    // Get the full path to that file in the *texture pack* folder
+                    string targetFile = Path.Combine(targetDir, relativePath);
+
+                    // If that file exists in the texture pack, delete it.
+                    if (File.Exists(targetFile))
+                    {
+                        File.Delete(targetFile);
+                        Console.WriteLine($"[fftivc.config.zodioverwriter] Removed: {Path.GetFileName(targetFile)}");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error removing managed files: {ex.Message}");
+            }
+        }
+
+
+        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
 
         private void ApplyBattlePointer(string texturePackDir)
         {
@@ -103,6 +190,23 @@ namespace fftivc.config.zodioverwriter
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle frame: {ex.Message}");
+            }
+        }
+
+        private void ApplyWorldMapBlur(string texturePackDir)
+        {
+            try
+            {
+                string folderName = _configuration!.DisableWorldMapBlur ? "Removed" : "Original";
+
+                string sourcePath = Path.Combine(_modRoot!, "Resources", "WorldMapBlur", folderName, "wm_edge_blur_uitx.tex");
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "worldmap", "texture", "wm_edge_blur_uitx.tex");
+
+                TryCopy(sourcePath, destPath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying world map blur: {ex.Message}");
             }
         }
 
@@ -209,12 +313,10 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // --- NEW METHOD ADDED HERE ---
         private void ApplyUnitHighlightRing(string texturePackDir)
         {
             try
             {
-                // Converts "Original" to "Original", "White" to "White", etc.
                 string option = _configuration!.UnitHighlightRingOption.ToString();
 
                 string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitHighlightRing", option, "ui_unit_tex_uitx.tex");
@@ -226,7 +328,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying unit highlight ring: {ex.Message}");
             }
         }
-        // --- END OF NEW METHOD ---
 
         /// <summary>
         /// Renames a directory to "disable" it (e.g., "g2d" -> "g2d.disabled_by_config").
