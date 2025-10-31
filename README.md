@@ -60,6 +60,8 @@ Screenshots
 
 ![Image](https://github.com/user-attachments/assets/97c19768-b9e0-4da9-80e2-95565396f32d)
 
+![Image](https://github.com/user-attachments/assets/0422e358-fa9b-4f71-a155-72e69451e25f)
+
 > Party Menu Colors (Configurable)
 
 ![Image](https://github.com/user-attachments/assets/cee0f64c-f1b4-42e4-a486-2467510180bd)
