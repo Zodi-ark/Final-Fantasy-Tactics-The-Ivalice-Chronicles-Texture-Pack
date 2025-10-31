@@ -93,7 +93,7 @@ namespace fftivc.config.zodioverwriter
                 {
                     // User wants Original: Delete the files from "AzureAndIvory" (or any other custom map)
                     // We check the "AzureAndIvory" folder in our *own mod* to see what files we *would* have copied.
-                    string customMapSourceDir = Path.Combine(_modRoot!, "Resources", "WorldMap", "AzureAndIvory");
+                    string customMapSourceDir = Path.Combine(_modRoot!, "Resources", "WorldMap", "Azure_and_Ivory");
                     DeleteManagedFiles(customMapSourceDir, targetDir);
                 }
                 else // AzureAndIvory (or any other custom map)
