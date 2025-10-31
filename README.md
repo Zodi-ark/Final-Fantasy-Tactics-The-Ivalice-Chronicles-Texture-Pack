@@ -105,9 +105,9 @@ Texture Pack & Reshade
  ### <ins>**Configurator**</ins>
 
  **UI**
-- Toggle party menu color from original, black, blackara, blackaga, and white.
-- Toggle party menu highlight ring color from original, white, red, purple, and removed.
-- Toggle battle pointer from removed, original, PSX, or a user custom.
+- Toggle party menu color from original, black, blackara, blackaga, or white.
+- Toggle party menu highlight ring color from original, white, red, purple, or removed.
+- Toggle battle pointer from removed, original, PSX, pink, purple, red, green, cyan, blue, white, or black.
 - Toggle battle frame from removed, vignette, or orignal.
 - Toggle alternative world map theme "Azure and Ivory."
 - Configurable burlap and noise battle filters.
