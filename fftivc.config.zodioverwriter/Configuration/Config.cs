@@ -5,11 +5,27 @@ using System.ComponentModel;
 
 namespace fftivc.config.zodioverwriter.Configuration
 {
-    // --- Enums are unchanged ---
+    // --- Enums ---
     public enum SpriteOption { Mobile, Original }
     public enum PortraitOption { Upscaled, Original }
     public enum PartyMenuColorOption { Original, Black, Blackara, Blackaga, White }
-    public enum BattlePointerChoice { Removed, Original, Custom, PSX }
+
+    // --- ENUM UPDATED HERE (ORDER CHANGED) ---
+    public enum BattlePointerChoice
+    {
+        Removed,
+        Original,
+        PSX,
+        Pink, // Moved here
+        Purple,
+        Red,
+        Green,
+        Cyan,
+        Blue,
+        White,
+        Black
+    }
+
     public enum BattleFrameOption { Removed, Vignette, Original }
     public enum UnitHighlightRingOption { Original, White, Red, Purple, Removed }
     public enum WorldMapOption { Original, Azure_and_Ivory }
