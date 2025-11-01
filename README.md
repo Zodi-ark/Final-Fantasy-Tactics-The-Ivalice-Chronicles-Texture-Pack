@@ -21,6 +21,7 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.68 GB)](https://github.com/Zodi-ark/Final
 - Install [FFT: The Ivalice Chronicles Mod Loader](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/4?tab=files) to Reloaded II
 - Install [FFT: The Ivalice Chronicles Texture Pack & Configurator](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases) to Reloaded II
 - Set Texture Pack Configurator above Mod Loader
+- Set Texture Pack at the bottom of your mod order
 
 <!-- *video guide goes here as webm on 1.0 release include optional reshade esp. qUINT install at end*  -->
 
