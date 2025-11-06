@@ -5,7 +5,7 @@
 
 __*<p> IN ACTIVE DEVELOPMENT SOME MAPS ARE ROUGH AND LIKEY TO CHANGE<br>
 THE PROJECT IS IN AN ALPHA STATE <br>
-<br>Texture pack that focuses on debloating UI and adding vibrant visuals. 
+<br>Customizable texture pack focused on debloating UI and adding vibrant visuals. 
 <br>Community contributions, edits, and forks are strongly encouraged!</p>*__
 
 </div>
@@ -22,6 +22,12 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.50 GB)](https://github.com/Zodi-ark/Final
 - Install [FFT: The Ivalice Chronicles Texture Pack & Configurator](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases) to Reloaded II
 - Set Texture Pack Configurator above Mod Loader
 - Set Texture Pack at the bottom of your mod order
+
+<details>
+  <summary>Click to reveal proper load order example</summary>
+  
+  ![image](https://github.com/user-attachments/assets/e172c4f1-e1a4-4e84-b8ea-b8efbe6adfd7)
+</details>
 
 <!-- *video guide goes here as webm on 1.0 release include optional reshade esp. qUINT install at end*  -->
 
