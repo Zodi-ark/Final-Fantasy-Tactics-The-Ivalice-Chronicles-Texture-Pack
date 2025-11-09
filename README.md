@@ -12,7 +12,7 @@ THE PROJECT IS IN AN ALPHA STATE <br>
 
 <div align="center">
   
-__[DOWNLOAD THE MOST RECENT VERSION (5.50 GB)](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases)__
+__[DOWNLOAD THE MOST RECENT VERSION (5.48 GB)](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases)__
 
 </div>
 
