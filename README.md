@@ -24,6 +24,8 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.48 GB)](https://github.com/Zodi-ark/Final
 - Set Texture Pack at the bottom of your mod order
 - Click Texture Pack Configurator then the "Configure Mod" button to customize the texture pack to your liking.
 
+If you get a timeout error after launching wait for the [green initialized line](https://github.com/user-attachments/assets/672bb368-dbd0-4d0e-8269-6051712227c9) and then click cancel on the Reloaded II error.
+
 <details>
   <summary>Click to reveal proper load order example</summary>
   
