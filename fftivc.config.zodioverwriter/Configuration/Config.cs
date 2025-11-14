@@ -9,14 +9,12 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum SpriteOption { Mobile, Original }
     public enum PortraitOption { Upscaled, Original }
     public enum PartyMenuColorOption { Original, Black, Blackara, Blackaga, White }
-
-    // --- ENUM UPDATED HERE (ORDER CHANGED) ---
     public enum BattlePointerChoice
     {
         Removed,
         Original,
         PSX,
-        Pink, // Moved here
+        Pink,
         Purple,
         Red,
         Green,
@@ -25,7 +23,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         White,
         Black
     }
-
     public enum BattleFrameOption { Removed, Vignette, Original }
     public enum UnitHighlightRingOption { Original, White, Red, Purple, Removed }
     public enum WorldMapOption { Original, Azure_and_Ivory }
@@ -72,6 +69,13 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Choose which battle frame to use.")]
         [DefaultValue(BattleFrameOption.Removed)]
         public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
+
+        // --- DESCRIPTION UPDATED HERE ---
+        [Category("UI & Colors")]
+        [DisplayName("Minimal Button Prompts")]
+        [Description("Removes many UI button tooltip prompts.")]
+        [DefaultValue(false)]
+        public bool MinimalButtonPrompts { get; set; } = false;
 
         // --- Category: World Map ---
 

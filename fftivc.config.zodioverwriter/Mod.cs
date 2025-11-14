@@ -76,11 +76,37 @@ namespace fftivc.config.zodioverwriter
             ApplyPortraitsOption(texturePackDir);
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
+            ApplyMinimalButtonPrompts(texturePackDir); // --- NEW METHOD CALLED HERE ---
         }
 
+        // --- NEW METHOD ADDED HERE ---
+        private void ApplyMinimalButtonPrompts(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "nxd", "uibuttonguide.nxd");
 
-        // --- UPDATED METHODS START HERE ---
-        // (The logic for all file-swap methods has been updated)
+                if (_configuration!.MinimalButtonPrompts)
+                {
+                    // User wants minimal prompts: Copy the file.
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MinimalButtonPrompts", "uibuttonguide.nxd");
+                    TryCopy(sourcePath, destPath);
+                }
+                else
+                {
+                    // User wants original prompts: Delete our file.
+                    TryDelete(destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying minimal button prompts: {ex.Message}");
+            }
+        }
+        // --- END OF NEW METHOD ---
+
+
+        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
 
         private void ApplyWorldMap(string texturePackDir)
         {
@@ -92,13 +118,11 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration.WorldMap == WorldMapOption.Original)
                 {
-                    // User wants Original: Delete the files from "Azure_and_Ivory"
                     string customMapSourceDir = Path.Combine(_modRoot!, "Resources", "WorldMap", "Azure_and_Ivory");
                     DeleteManagedFiles(customMapSourceDir, targetDir);
                 }
                 else // Azure_and_Ivory
                 {
-                    // User wants a custom map: Copy all files.
                     if (!Directory.Exists(sourceDir))
                     {
                         Console.WriteLine($"[fftivc.config.zodioverwriter] No world map folder found for: {optionName}");
@@ -122,12 +146,10 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.BattlePointerOption == BattlePointerChoice.Original)
                 {
-                    // User wants Original: Delete our file to restore texture pack's default.
                     TryDelete(destPath);
                 }
                 else
                 {
-                    // User wants custom/removed: Copy the file.
                     string option = _configuration!.BattlePointerOption.ToString();
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "BattlePointers", option, "sword.tga");
                     TryCopy(sourcePath, destPath);
@@ -147,12 +169,10 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.BattleFrameOption == BattleFrameOption.Original)
                 {
-                    // User wants Original: Delete our file.
                     TryDelete(destPath);
                 }
                 else
                 {
-                    // User wants custom/removed: Copy the file.
                     string option = _configuration!.BattleFrameOption.ToString().ToLower();
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFrame", option, "ui_battle_frame_uitx.tex");
                     TryCopy(sourcePath, destPath);
@@ -172,13 +192,11 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.DisableWorldMapBlur)
                 {
-                    // User wants blur disabled: Copy the "Removed" file.
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "WorldMapBlur", "Removed", "wm_edge_blur_uitx.tex");
                     TryCopy(sourcePath, destPath);
                 }
                 else
                 {
-                    // User wants blur enabled (Original): Delete our file.
                     TryDelete(destPath);
                 }
             }
@@ -196,13 +214,11 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.DisableMenuFilter)
                 {
-                    // User wants filter disabled: Copy the "Disabled" file.
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "MenuFilter", "Disabled", "ffto_screen_filter_uitx.tex");
                     TryCopy(sourcePath, destPath);
                 }
                 else
                 {
-                    // User wants filter enabled (Original): Delete our file.
                     TryDelete(destPath);
                 }
             }
@@ -222,13 +238,11 @@ namespace fftivc.config.zodioverwriter
 
                     if (_configuration!.DisableBattleFilter)
                     {
-                        // User wants filter disabled: Copy the "Disabled" file.
                         string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFilters", "Disabled", $"ffto_screen_filter_{i}.tga");
                         TryCopy(sourcePath, destPath);
                     }
                     else
                     {
-                        // User wants filter enabled (Original): Delete our file.
                         TryDelete(destPath);
                     }
                 }
@@ -247,12 +261,10 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.PartyMenuColorOption == PartyMenuColorOption.Original)
                 {
-                    // User wants Original: Delete our file.
                     TryDelete(destPath);
                 }
                 else
                 {
-                    // User wants a custom color: Copy the file.
                     string option = _configuration!.PartyMenuColorOption.ToString();
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "PartyMenuColor", option, "ui_bg_stone_uitx.tex");
                     TryCopy(sourcePath, destPath);
@@ -272,12 +284,10 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.UnitHighlightRingOption == UnitHighlightRingOption.Original)
                 {
-                    // User wants Original: Delete our file.
                     TryDelete(destPath);
                 }
                 else
                 {
-                    // User wants custom/removed: Copy the file.
                     string option = _configuration!.UnitHighlightRingOption.ToString();
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitHighlightRing", option, "ui_unit_tex_uitx.tex");
                     TryCopy(sourcePath, destPath);
@@ -289,7 +299,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // --- (Sprite and Portrait logic is already good, no changes needed) ---
         private void ApplySpriteOption(string texturePackDir)
         {
             try
@@ -345,10 +354,6 @@ namespace fftivc.config.zodioverwriter
 
         // --- HELPER METHODS ---
 
-        /// <summary>
-        /// Deletes files from a target directory based on what files exist in a source directory.
-        /// This is used to "uninstall" a file copy.
-        /// </summary>
         private void DeleteManagedFiles(string sourceDir, string targetDir)
         {
             if (!Directory.Exists(sourceDir))
@@ -359,12 +364,11 @@ namespace fftivc.config.zodioverwriter
 
             if (!Directory.Exists(targetDir))
             {
-                return; // Target folder doesn't exist, so nothing to delete.
+                return;
             }
 
             try
             {
-                // Find all files in our mod's "Azure_and_Ivory" folder
                 foreach (var file in Directory.GetFiles(sourceDir, "*", SearchOption.AllDirectories))
                 {
                     string relativePath = file.Substring(sourceDir.Length + 1);
@@ -383,9 +387,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        /// <summary>
-        /// Renames a directory to "disable" it (e.g., "g2d" -> "g2d.disabled_by_config").
-        /// </summary>
         private void DisableDirectory(string path)
         {
             try
@@ -407,9 +408,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        /// <summary>
-        /// Restores a "disabled" directory (e.g., "g2d.disabled_by_config" -> "g2d").
-        /// </summary>
         private void EnableDirectory(string path)
         {
             try
@@ -465,10 +463,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // --- NEW HELPER METHOD ---
-        /// <summary>
-        /// Deletes a file at the destination. Used to restore a default file.
-        /// </summary>
         private void TryDelete(string destination)
         {
             try
