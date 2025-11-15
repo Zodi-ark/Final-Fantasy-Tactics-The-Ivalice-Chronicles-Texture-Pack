@@ -41,9 +41,9 @@ Comparison
 Screenshots
 ======  
 
-> UI Declutter
+> Full UI Declutter
 
-![UI Declutter](https://github.com/user-attachments/assets/ef4770bb-d619-42d0-b927-577e1a840412)
+![UI Declutter](https://github.com/user-attachments/assets/7cb3df63-bcfb-4e88-b40c-efd0d38dd770)
 
 > Maps
 
