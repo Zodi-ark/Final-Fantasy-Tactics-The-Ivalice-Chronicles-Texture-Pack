@@ -36,7 +36,7 @@ If you get a timeout error after launching wait for the [green initialized line]
 
 Comparison
 ======  
-![comparison](https://github.com/user-attachments/assets/f43888c2-b2b2-41e2-86e5-b54b3bfaab5a)
+![comparison](https://github.com/user-attachments/assets/7cb3df63-bcfb-4e88-b40c-efd0d38dd770)
  
 Screenshots
 ======  
