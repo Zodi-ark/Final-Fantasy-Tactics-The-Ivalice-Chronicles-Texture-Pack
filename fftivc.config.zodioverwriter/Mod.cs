@@ -76,10 +76,45 @@ namespace fftivc.config.zodioverwriter
             ApplyPortraitsOption(texturePackDir);
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
-            ApplyMinimalButtonPrompts(texturePackDir); // --- NEW METHOD CALLED HERE ---
+            ApplyMinimalButtonPrompts(texturePackDir);
+            ApplyRemoveTextOnPortraits(texturePackDir); // --- NEW METHOD CALLED HERE ---
         }
 
         // --- NEW METHOD ADDED HERE ---
+        private void ApplyRemoveTextOnPortraits(string texturePackDir)
+        {
+            try
+            {
+                // List of all files managed by this option
+                var filesToManage = new[] { "ui.de.nxd", "ui.en.nxd", "ui.fr.nxd", "ui.ja.nxd" };
+
+                foreach (var fileName in filesToManage)
+                {
+                    string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "nxd", fileName);
+
+                    if (_configuration!.RemoveTextOnPortraits)
+                    {
+                        // User wants text removed: Copy the files.
+                        string sourcePath = Path.Combine(_modRoot!, "Resources", "RemoveTextOnPortraits", fileName);
+                        TryCopy(sourcePath, destPath);
+                    }
+                    else
+                    {
+                        // User wants original text: Delete our files.
+                        TryDelete(destPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying 'Remove Text On Portraits': {ex.Message}");
+            }
+        }
+        // --- END OF NEW METHOD ---
+
+
+        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
+
         private void ApplyMinimalButtonPrompts(string texturePackDir)
         {
             try
@@ -103,10 +138,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying minimal button prompts: {ex.Message}");
             }
         }
-        // --- END OF NEW METHOD ---
-
-
-        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
 
         private void ApplyWorldMap(string texturePackDir)
         {

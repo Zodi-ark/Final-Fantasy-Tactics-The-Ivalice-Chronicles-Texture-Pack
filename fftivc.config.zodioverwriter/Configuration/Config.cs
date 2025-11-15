@@ -70,12 +70,18 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(BattleFrameOption.Removed)]
         public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
 
-        // --- DESCRIPTION UPDATED HERE ---
         [Category("UI & Colors")]
         [DisplayName("Minimal Button Prompts")]
         [Description("Removes many UI button tooltip prompts.")]
         [DefaultValue(false)]
         public bool MinimalButtonPrompts { get; set; } = false;
+
+        // --- NEW PROPERTY ADDED HERE ---
+        [Category("UI & Colors")]
+        [DisplayName("Remove Text On Portraits")]
+        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\" and \"Objective\" text from portraits.")]
+        [DefaultValue(false)]
+        public bool RemoveTextOnPortraits { get; set; } = false;
 
         // --- Category: World Map ---
 
