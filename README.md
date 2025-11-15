@@ -80,7 +80,7 @@ Screenshots
 
 > Highlight Rings (Configurable)
 
-![Image](https://github.com/user-attachments/assets/130cd241-2211-414c-a5f2-93f182c3768b)
+![Image](https://github.com/user-attachments/assets/56c01abd-7d65-4657-88ea-5584512b6b43)
 
 > Azure and Ivory World Map (Configurable)
 
