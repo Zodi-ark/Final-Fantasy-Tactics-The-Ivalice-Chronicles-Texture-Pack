@@ -125,6 +125,7 @@ Texture Pack & Reshade
 - Toggle battle frame from removed, vignette, or orignal.
 - Toggle alternative world map theme "Azure and Ivory."
 - Toggle minimal button prompts.
+- Toggle text on portraits.
 - Configurable burlap and noise battle filters.
 - Configurable burlap party menu filter.
 - Configurable world map blur.
