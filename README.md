@@ -43,7 +43,7 @@ Screenshots
 
 > Full UI Declutter
 
-![UI Declutter](https://github.com/user-attachments/assets/7cb3df63-bcfb-4e88-b40c-efd0d38dd770)
+![UI Declutter](https://github.com/user-attachments/assets/f81b0ef2-ba12-4b31-ab7e-7d568f07b0af)
 
 > Maps
 
