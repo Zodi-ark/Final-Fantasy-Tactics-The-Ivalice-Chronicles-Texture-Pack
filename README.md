@@ -84,7 +84,7 @@ Screenshots
 
 > Azure and Ivory World Map (Configurable)
 
-![Image](https://github.com/user-attachments/assets/c1507eb9-20f4-47f0-b74c-dfc0eba25742)
+![Image](https://github.com/user-attachments/assets/9c791274-6981-4225-93d6-b1572474426e)
 
 Texture Pack & Reshade
 ======  
