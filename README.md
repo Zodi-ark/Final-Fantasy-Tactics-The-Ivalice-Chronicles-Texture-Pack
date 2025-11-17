@@ -20,10 +20,10 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.48 GB)](https://github.com/Zodi-ark/Final
 - Install [Reloaded II Mod Manager](https://github.com/Reloaded-Project/Reloaded-II/releases)
 - Install [FFT: The Ivalice Chronicles Mod Loader](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/4?tab=files) to Reloaded II
 - Install [FFT: The Ivalice Chronicles Texture Pack & Configurator](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases) to Reloaded II
-  - *The zip file is large and Reloaded II shows no install progress, so wait after dragging it in.*
+  - *The zip file is large and Reloaded II shows no install progress, so wait after dragging it in*
 - Set Texture Pack Configurator above Mod Loader
 - Set Texture Pack at the bottom of your mod order
-- Click Texture Pack Configurator then the "Configure Mod" button to customize the texture pack to your liking.
+- Click Texture Pack Configurator then the "Configure Mod" button to customize the texture pack to your liking
 
 If you get a timeout error after launching wait for the [green initialized line](https://github.com/user-attachments/assets/672bb368-dbd0-4d0e-8269-6051712227c9) then click cancel on the Reloaded II error.
 
