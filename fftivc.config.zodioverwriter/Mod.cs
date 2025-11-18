@@ -73,19 +73,47 @@ namespace fftivc.config.zodioverwriter
             ApplyMenuFilter(texturePackDir);
             ApplyBattleFilter(texturePackDir);
             ApplySpriteOption(texturePackDir);
+            ApplyMapOption(texturePackDir); // --- RENAMED METHOD CALLED HERE ---
             ApplyPortraitsOption(texturePackDir);
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
             ApplyMinimalButtonPrompts(texturePackDir);
-            ApplyRemoveTextOnPortraits(texturePackDir); // --- NEW METHOD CALLED HERE ---
+            ApplyRemoveTextOnPortraits(texturePackDir);
         }
 
-        // --- NEW METHOD ADDED HERE ---
+        // --- RENAMED METHOD HERE ---
+        private void ApplyMapOption(string texturePackDir)
+        {
+            try
+            {
+                // We target the parent 'bg' folder. Renaming this is instant.
+                string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "bg");
+
+                if (_configuration!.Maps == MapOption.Original)
+                {
+                    // User wants Original (base game): DISABLE the texture pack's 'bg' folder.
+                    DisableDirectory(targetDir);
+                }
+                else // MapOption.Vibrant
+                {
+                    // User wants Vibrant (texture pack): ENABLE the texture pack's 'bg' folder.
+                    EnableDirectory(targetDir);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying maps: {ex.Message}");
+            }
+        }
+        // --- END OF RENAMED METHOD ---
+
+
+        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
+
         private void ApplyRemoveTextOnPortraits(string texturePackDir)
         {
             try
             {
-                // List of all files managed by this option
                 var filesToManage = new[] { "ui.de.nxd", "ui.en.nxd", "ui.fr.nxd", "ui.ja.nxd" };
 
                 foreach (var fileName in filesToManage)
@@ -94,13 +122,11 @@ namespace fftivc.config.zodioverwriter
 
                     if (_configuration!.RemoveTextOnPortraits)
                     {
-                        // User wants text removed: Copy the files.
                         string sourcePath = Path.Combine(_modRoot!, "Resources", "RemoveTextOnPortraits", fileName);
                         TryCopy(sourcePath, destPath);
                     }
                     else
                     {
-                        // User wants original text: Delete our files.
                         TryDelete(destPath);
                     }
                 }
@@ -110,10 +136,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying 'Remove Text On Portraits': {ex.Message}");
             }
         }
-        // --- END OF NEW METHOD ---
-
-
-        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
 
         private void ApplyMinimalButtonPrompts(string texturePackDir)
         {
@@ -123,13 +145,11 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.MinimalButtonPrompts)
                 {
-                    // User wants minimal prompts: Copy the file.
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "MinimalButtonPrompts", "uibuttonguide.nxd");
                     TryCopy(sourcePath, destPath);
                 }
                 else
                 {
-                    // User wants original prompts: Delete our file.
                     TryDelete(destPath);
                 }
             }

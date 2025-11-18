@@ -26,6 +26,7 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum BattleFrameOption { Removed, Vignette, Original }
     public enum UnitHighlightRingOption { Original, White, Red, Purple, Removed }
     public enum WorldMapOption { Original, Azure_and_Ivory }
+    public enum MapOption { Vibrant, Original }
 
 
     public class Config : Configurable<Config>
@@ -43,6 +44,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select which portrait style to use (Upscaled or Original).")]
         [DefaultValue(PortraitOption.Original)]
         public PortraitOption PortraitsOption { get; set; } = PortraitOption.Original;
+
+        [Category("Asset Swaps")]
+        [DisplayName("Maps")]
+        [Description("Select which map textures to use (Vibrant or Original).")]
+        [DefaultValue(MapOption.Vibrant)]
+        public MapOption Maps { get; set; } = MapOption.Vibrant;
 
         // --- Category: UI & Colors ---
 
@@ -76,7 +83,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(false)]
         public bool MinimalButtonPrompts { get; set; } = false;
 
-        // --- NEW PROPERTY ADDED HERE ---
+        // --- TYPO FIXED HERE ---
         [Category("UI & Colors")]
         [DisplayName("Remove Text On Portraits")]
         [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\" and \"Objective\" text from portraits.")]
