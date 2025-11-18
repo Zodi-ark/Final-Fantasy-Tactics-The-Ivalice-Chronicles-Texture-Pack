@@ -124,6 +124,7 @@ Texture Pack & Reshade
 - Toggle battle pointer from removed, original, PSX, pink, purple, red, green, cyan, blue, white, or black.
 - Toggle battle frame from removed, vignette, or orignal.
 - Toggle alternative world map theme "Azure and Ivory."
+- Toggle vibrant or original maps.
 - Toggle minimal button prompts.
 - Toggle text on portraits.
 - Configurable burlap and noise battle filters.
