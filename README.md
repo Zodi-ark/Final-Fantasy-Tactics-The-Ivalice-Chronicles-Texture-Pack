@@ -21,7 +21,7 @@ __[DOWNLOAD THE MOST RECENT VERSION (5.48 GB)](https://github.com/Zodi-ark/Final
 - Install [FFT: The Ivalice Chronicles Mod Loader](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/4?tab=files) to Reloaded II
 - Install [FFT: The Ivalice Chronicles Texture Pack & Configurator](https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/releases) to Reloaded II
 - Set Texture Pack Configurator above Mod Loader
-- Set Texture Pack at the bottom of your mod order
+- Set Texture Pack below [Dark Knight and Onion Knight (Generic)](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/34) & [WotL Character Repair](https://www.nexusmods.com/finalfantasytacticstheivalicechronicles/mods/33)
 - Click Texture Pack Configurator then the "Configure Mod" button to customize the texture pack to your liking
 
 If you get a timeout error after launching wait for the [green initialized line](https://github.com/user-attachments/assets/672bb368-dbd0-4d0e-8269-6051712227c9) then click cancel on the Reloaded II error
