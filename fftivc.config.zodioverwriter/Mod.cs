@@ -68,6 +68,7 @@ namespace fftivc.config.zodioverwriter
             // Apply options
             ApplyBattlePointer(texturePackDir);
             ApplyBattleFrame(texturePackDir);
+            ApplyDirectionalWaitArrow(texturePackDir); // --- NEW METHOD CALLED HERE ---
             ApplyWorldMapBlur(texturePackDir);
             ApplyWorldMap(texturePackDir);
             ApplyMenuFilter(texturePackDir);
@@ -82,28 +83,68 @@ namespace fftivc.config.zodioverwriter
             ApplyMinimalWarnings(texturePackDir);
         }
 
-        private void ApplyMenuFilter(string texturePackDir)
+        // --- NEW METHOD ADDED HERE ---
+        private void ApplyDirectionalWaitArrow(string texturePackDir)
         {
             try
             {
-                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ffto_screen_filter_uitx.tex");
+                // The destination folder for UI elements
+                string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui");
 
-                // Variable name updated here to match Config.cs
-                if (_configuration!.RemovePartyMenuFilter)
+                // The two files we need to manage
+                var files = new[] { "direction.tga", "direction_select.tga" };
+
+                if (_configuration!.DirectionalWaitArrow == DirectionalWaitArrowOption.Original)
                 {
-                    // User wants filter removed: Copy the "Disabled" file.
-                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MenuFilter", "Disabled", "ffto_screen_filter_uitx.tex");
+                    // User wants Original: Delete both files.
+                    foreach (var file in files)
+                    {
+                        TryDelete(Path.Combine(destDir, file));
+                    }
+                }
+                else
+                {
+                    // User wants a custom color: Copy both files.
+                    string option = _configuration!.DirectionalWaitArrow.ToString();
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "DirectionalWaitArrow", option);
+
+                    foreach (var file in files)
+                    {
+                        string sourcePath = Path.Combine(sourceDir, file);
+                        string destPath = Path.Combine(destDir, file);
+                        TryCopy(sourcePath, destPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying directional wait arrow: {ex.Message}");
+            }
+        }
+        // --- END OF NEW METHOD ---
+
+
+        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
+
+        private void ApplyMinimalWarnings(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "nxd", "uiannounce.nxd");
+
+                if (_configuration!.MinimalWarnings)
+                {
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MinimalWarnings", "uiannounce.nxd");
                     TryCopy(sourcePath, destPath);
                 }
                 else
                 {
-                    // User wants filter enabled (Original): Delete our file.
                     TryDelete(destPath);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying menu filter: {ex.Message}");
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying minimal warnings: {ex.Message}");
             }
         }
 
@@ -130,30 +171,6 @@ namespace fftivc.config.zodioverwriter
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle filter: {ex.Message}");
-            }
-        }
-
-        // --- ALL OTHER METHODS REMAIN UNCHANGED ---
-
-        private void ApplyMinimalWarnings(string texturePackDir)
-        {
-            try
-            {
-                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "nxd", "uiannounce.nxd");
-
-                if (_configuration!.MinimalWarnings)
-                {
-                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MinimalWarnings", "uiannounce.nxd");
-                    TryCopy(sourcePath, destPath);
-                }
-                else
-                {
-                    TryDelete(destPath);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying minimal warnings: {ex.Message}");
             }
         }
 
@@ -325,6 +342,28 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
+        private void ApplyMenuFilter(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ffto_screen_filter_uitx.tex");
+
+                if (_configuration!.RemovePartyMenuFilter)
+                {
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MenuFilter", "Disabled", "ffto_screen_filter_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+                else
+                {
+                    TryDelete(destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying menu filter: {ex.Message}");
+            }
+        }
+
         private void ApplyPartyMenuColor(string texturePackDir)
         {
             try
@@ -422,6 +461,7 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying portraits: {ex.Message}");
             }
         }
+
 
         // --- HELPER METHODS ---
 

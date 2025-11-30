@@ -23,6 +23,20 @@ namespace fftivc.config.zodioverwriter.Configuration
         White,
         Black
     }
+    // --- NEW ENUM ADDED HERE ---
+    public enum DirectionalWaitArrowOption
+    {
+        Original,
+        Pink,
+        Purple,
+        Red,
+        Green,
+        Cyan,
+        Blue,
+        White,
+        Black
+    }
+
     public enum BattleFrameOption { Removed, Vignette, Original }
     public enum UnitHighlightRingOption { Original, White, Red, Purple, Removed }
     public enum WorldMapOption { Original, Azure_and_Ivory }
@@ -78,6 +92,13 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(BattleFrameOption.Removed)]
         public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
 
+        // --- NEW PROPERTY ADDED HERE ---
+        [Category("UI & Colors")]
+        [DisplayName("Directional Wait Arrow")]
+        [Description("Choose the color of the directional selection arrows.")]
+        [DefaultValue(DirectionalWaitArrowOption.Original)]
+        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+
         [Category("UI & Colors")]
         [DisplayName("Minimal Button Prompts")]
         [Description("Removes many UI button tooltip prompts.")]
@@ -115,14 +136,14 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Category("Filters")]
         [DisplayName("Battle Filter")]
         [Description("Select the battle screen filter style.")]
-        [DefaultValue(BattleFilterOption.Removed)] // Default Changed to Removed
-        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Removed; // Default Changed to Removed
+        [DefaultValue(BattleFilterOption.Removed)]
+        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Removed;
 
         [Category("Filters")]
-        [DisplayName("Remove Party Menu Filter")] // Renamed
+        [DisplayName("Remove Party Menu Filter")]
         [Description("Removes the party menu screen filter.")]
         [DefaultValue(true)]
-        public bool RemovePartyMenuFilter { get; set; } = true; // Renamed property
+        public bool RemovePartyMenuFilter { get; set; } = true;
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
