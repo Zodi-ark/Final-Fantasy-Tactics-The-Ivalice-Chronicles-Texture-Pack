@@ -27,6 +27,7 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum UnitHighlightRingOption { Original, White, Red, Purple, Removed }
     public enum WorldMapOption { Original, Azure_and_Ivory }
     public enum MapOption { Vibrant, Original }
+    public enum BattleFilterOption { Original, Removed, Removed_Bright }
 
 
     public class Config : Configurable<Config>
@@ -35,19 +36,19 @@ namespace fftivc.config.zodioverwriter.Configuration
 
         [Category("Asset Swaps")]
         [DisplayName("Sprites")]
-        [Description("Select which sprite style to use (Mobile or Original).")]
+        [Description("Select which sprite style to use.")]
         [DefaultValue(SpriteOption.Mobile)]
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
 
         [Category("Asset Swaps")]
         [DisplayName("Portraits")]
-        [Description("Select which portrait style to use (Upscaled or Original).")]
+        [Description("Select which portrait style to use.")]
         [DefaultValue(PortraitOption.Original)]
         public PortraitOption PortraitsOption { get; set; } = PortraitOption.Original;
 
         [Category("Asset Swaps")]
         [DisplayName("Maps")]
-        [Description("Select which map textures to use (Vibrant or Original).")]
+        [Description("Select which map textures to use.")]
         [DefaultValue(MapOption.Vibrant)]
         public MapOption Maps { get; set; } = MapOption.Vibrant;
 
@@ -83,7 +84,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(false)]
         public bool MinimalButtonPrompts { get; set; } = false;
 
-        // --- TYPO FIXED HERE ---
+        [Category("UI & Colors")]
+        [DisplayName("Minimal Warnings")]
+        [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
+        [DefaultValue(false)]
+        public bool MinimalWarnings { get; set; } = false;
+
         [Category("UI & Colors")]
         [DisplayName("Remove Text On Portraits")]
         [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\" and \"Objective\" text from portraits.")]
@@ -107,16 +113,16 @@ namespace fftivc.config.zodioverwriter.Configuration
         // --- Category: Filters ---
 
         [Category("Filters")]
-        [DisplayName("Disable Menu Filter")]
-        [Description("Disables the menu screen filter.")]
-        [DefaultValue(true)]
-        public bool DisableMenuFilter { get; set; } = true;
+        [DisplayName("Battle Filter")]
+        [Description("Select the battle screen filter style.")]
+        [DefaultValue(BattleFilterOption.Removed)] // Default Changed to Removed
+        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Removed; // Default Changed to Removed
 
         [Category("Filters")]
-        [DisplayName("Disable Battle Filter")]
-        [Description("Disables the battle screen filter.")]
+        [DisplayName("Remove Party Menu Filter")] // Renamed
+        [Description("Removes the party menu screen filter.")]
         [DefaultValue(true)]
-        public bool DisableBattleFilter { get; set; } = true;
+        public bool RemovePartyMenuFilter { get; set; } = true; // Renamed property
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase

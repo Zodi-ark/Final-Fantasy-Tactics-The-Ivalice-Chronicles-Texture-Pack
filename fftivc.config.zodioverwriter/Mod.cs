@@ -73,30 +73,102 @@ namespace fftivc.config.zodioverwriter
             ApplyMenuFilter(texturePackDir);
             ApplyBattleFilter(texturePackDir);
             ApplySpriteOption(texturePackDir);
-            ApplyMapOption(texturePackDir); // --- RENAMED METHOD CALLED HERE ---
+            ApplyMapOption(texturePackDir);
             ApplyPortraitsOption(texturePackDir);
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
             ApplyMinimalButtonPrompts(texturePackDir);
             ApplyRemoveTextOnPortraits(texturePackDir);
+            ApplyMinimalWarnings(texturePackDir);
         }
 
-        // --- RENAMED METHOD HERE ---
+        private void ApplyMenuFilter(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ffto_screen_filter_uitx.tex");
+
+                // Variable name updated here to match Config.cs
+                if (_configuration!.RemovePartyMenuFilter)
+                {
+                    // User wants filter removed: Copy the "Disabled" file.
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MenuFilter", "Disabled", "ffto_screen_filter_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+                else
+                {
+                    // User wants filter enabled (Original): Delete our file.
+                    TryDelete(destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying menu filter: {ex.Message}");
+            }
+        }
+
+        private void ApplyBattleFilter(string texturePackDir)
+        {
+            try
+            {
+                for (int i = 0; i <= 1; i++)
+                {
+                    string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "vfx", "post_process", $"ffto_screen_filter_{i}.tga");
+
+                    if (_configuration!.BattleFilter == BattleFilterOption.Original)
+                    {
+                        TryDelete(destPath);
+                    }
+                    else
+                    {
+                        string option = _configuration!.BattleFilter.ToString();
+                        string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFilters", option, $"ffto_screen_filter_{i}.tga");
+                        TryCopy(sourcePath, destPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle filter: {ex.Message}");
+            }
+        }
+
+        // --- ALL OTHER METHODS REMAIN UNCHANGED ---
+
+        private void ApplyMinimalWarnings(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "nxd", "uiannounce.nxd");
+
+                if (_configuration!.MinimalWarnings)
+                {
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MinimalWarnings", "uiannounce.nxd");
+                    TryCopy(sourcePath, destPath);
+                }
+                else
+                {
+                    TryDelete(destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying minimal warnings: {ex.Message}");
+            }
+        }
+
         private void ApplyMapOption(string texturePackDir)
         {
             try
             {
-                // We target the parent 'bg' folder. Renaming this is instant.
                 string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "bg");
 
                 if (_configuration!.Maps == MapOption.Original)
                 {
-                    // User wants Original (base game): DISABLE the texture pack's 'bg' folder.
                     DisableDirectory(targetDir);
                 }
-                else // MapOption.Vibrant
+                else
                 {
-                    // User wants Vibrant (texture pack): ENABLE the texture pack's 'bg' folder.
                     EnableDirectory(targetDir);
                 }
             }
@@ -105,10 +177,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying maps: {ex.Message}");
             }
         }
-        // --- END OF RENAMED METHOD ---
-
-
-        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
 
         private void ApplyRemoveTextOnPortraits(string texturePackDir)
         {
@@ -172,7 +240,7 @@ namespace fftivc.config.zodioverwriter
                     string customMapSourceDir = Path.Combine(_modRoot!, "Resources", "WorldMap", "Azure_and_Ivory");
                     DeleteManagedFiles(customMapSourceDir, targetDir);
                 }
-                else // Azure_and_Ivory
+                else
                 {
                     if (!Directory.Exists(sourceDir))
                     {
@@ -257,53 +325,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        private void ApplyMenuFilter(string texturePackDir)
-        {
-            try
-            {
-                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ffto_screen_filter_uitx.tex");
-
-                if (_configuration!.DisableMenuFilter)
-                {
-                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MenuFilter", "Disabled", "ffto_screen_filter_uitx.tex");
-                    TryCopy(sourcePath, destPath);
-                }
-                else
-                {
-                    TryDelete(destPath);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying menu filter: {ex.Message}");
-            }
-        }
-
-        private void ApplyBattleFilter(string texturePackDir)
-        {
-            try
-            {
-                for (int i = 0; i <= 1; i++)
-                {
-                    string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "vfx", "post_process", $"ffto_screen_filter_{i}.tga");
-
-                    if (_configuration!.DisableBattleFilter)
-                    {
-                        string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFilters", "Disabled", $"ffto_screen_filter_{i}.tga");
-                        TryCopy(sourcePath, destPath);
-                    }
-                    else
-                    {
-                        TryDelete(destPath);
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle filter: {ex.Message}");
-            }
-        }
-
         private void ApplyPartyMenuColor(string texturePackDir)
         {
             try
@@ -360,7 +381,7 @@ namespace fftivc.config.zodioverwriter
                 {
                     DisableDirectory(targetDir);
                 }
-                else // SpriteOption.Mobile
+                else
                 {
                     EnableDirectory(targetDir);
                 }
@@ -381,7 +402,7 @@ namespace fftivc.config.zodioverwriter
                 {
                     DisableDirectory(targetDir);
                 }
-                else // PortraitOption.Upscaled
+                else
                 {
                     EnableDirectory(targetDir);
                     string sourceDir = Path.Combine(_modRoot!, "Resources", "Portraits", "Upscaled");
@@ -401,7 +422,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying portraits: {ex.Message}");
             }
         }
-
 
         // --- HELPER METHODS ---
 
