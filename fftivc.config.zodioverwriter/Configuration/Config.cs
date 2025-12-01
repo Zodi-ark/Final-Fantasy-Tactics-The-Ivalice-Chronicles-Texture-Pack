@@ -23,7 +23,11 @@ namespace fftivc.config.zodioverwriter.Configuration
         White,
         Black
     }
-    // --- NEW ENUM ADDED HERE ---
+    public enum BattleFrameOption { Removed, Vignette, Original }
+    public enum UnitHighlightRingOption { Original, White, Red, Purple, Removed }
+    public enum WorldMapOption { Original, Azure_and_Ivory }
+    public enum MapOption { Vibrant, Original }
+    public enum BattleFilterOption { Original, Removed, Removed_Bright }
     public enum DirectionalWaitArrowOption
     {
         Original,
@@ -37,11 +41,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         Black
     }
 
-    public enum BattleFrameOption { Removed, Vignette, Original }
-    public enum UnitHighlightRingOption { Original, White, Red, Purple, Removed }
-    public enum WorldMapOption { Original, Azure_and_Ivory }
-    public enum MapOption { Vibrant, Original }
-    public enum BattleFilterOption { Original, Removed, Removed_Bright }
+    // --- NEW ENUM ADDED HERE ---
+    public enum UnitStatusHUDOption { Original, Minimal, Minimal_Blue_HP_Bar }
 
 
     public class Config : Configurable<Config>
@@ -80,6 +81,13 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(UnitHighlightRingOption.Original)]
         public UnitHighlightRingOption UnitHighlightRingOption { get; set; } = UnitHighlightRingOption.Original;
 
+        // --- NEW PROPERTY ADDED HERE ---
+        [Category("UI & Colors")]
+        [DisplayName("Unit Status HUD")]
+        [Description("Select the style for the unit status HUD (HP/MP bars).")]
+        [DefaultValue(UnitStatusHUDOption.Minimal)]
+        public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Minimal;
+
         [Category("UI & Colors")]
         [DisplayName("Battle Pointer")]
         [Description("Choose which battle pointer to use.")]
@@ -92,7 +100,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(BattleFrameOption.Removed)]
         public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
 
-        // --- NEW PROPERTY ADDED HERE ---
         [Category("UI & Colors")]
         [DisplayName("Directional Wait Arrow")]
         [Description("Choose the color of the directional selection arrows.")]

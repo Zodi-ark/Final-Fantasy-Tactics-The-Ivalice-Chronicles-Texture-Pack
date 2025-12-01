@@ -68,7 +68,7 @@ namespace fftivc.config.zodioverwriter
             // Apply options
             ApplyBattlePointer(texturePackDir);
             ApplyBattleFrame(texturePackDir);
-            ApplyDirectionalWaitArrow(texturePackDir); // --- NEW METHOD CALLED HERE ---
+            ApplyDirectionalWaitArrow(texturePackDir);
             ApplyWorldMapBlur(texturePackDir);
             ApplyWorldMap(texturePackDir);
             ApplyMenuFilter(texturePackDir);
@@ -78,25 +78,52 @@ namespace fftivc.config.zodioverwriter
             ApplyPortraitsOption(texturePackDir);
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
+            ApplyUnitStatusHUD(texturePackDir); // --- NEW METHOD CALLED HERE ---
             ApplyMinimalButtonPrompts(texturePackDir);
             ApplyRemoveTextOnPortraits(texturePackDir);
             ApplyMinimalWarnings(texturePackDir);
         }
 
         // --- NEW METHOD ADDED HERE ---
+        private void ApplyUnitStatusHUD(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ui_unit_info_assets_uitx.tex");
+
+                if (_configuration!.UnitStatusHUD == UnitStatusHUDOption.Original)
+                {
+                    // User wants Original: Delete our file.
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    // User wants Minimal or Minimal_Blue_HP_Bar.
+                    string option = _configuration!.UnitStatusHUD.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitStatusHUD", option, "ui_unit_info_assets_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Unit Status HUD: {ex.Message}");
+            }
+        }
+        // --- END OF NEW METHOD ---
+
+
+        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
+
         private void ApplyDirectionalWaitArrow(string texturePackDir)
         {
             try
             {
-                // The destination folder for UI elements
                 string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui");
 
-                // The two files we need to manage
                 var files = new[] { "direction.tga", "direction_select.tga" };
 
                 if (_configuration!.DirectionalWaitArrow == DirectionalWaitArrowOption.Original)
                 {
-                    // User wants Original: Delete both files.
                     foreach (var file in files)
                     {
                         TryDelete(Path.Combine(destDir, file));
@@ -104,7 +131,6 @@ namespace fftivc.config.zodioverwriter
                 }
                 else
                 {
-                    // User wants a custom color: Copy both files.
                     string option = _configuration!.DirectionalWaitArrow.ToString();
                     string sourceDir = Path.Combine(_modRoot!, "Resources", "DirectionalWaitArrow", option);
 
@@ -121,10 +147,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying directional wait arrow: {ex.Message}");
             }
         }
-        // --- END OF NEW METHOD ---
-
-
-        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
 
         private void ApplyMinimalWarnings(string texturePackDir)
         {
