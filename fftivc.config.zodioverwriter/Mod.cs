@@ -78,13 +78,81 @@ namespace fftivc.config.zodioverwriter
             ApplyPortraitsOption(texturePackDir);
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
-            ApplyUnitStatusHUD(texturePackDir); // --- NEW METHOD CALLED HERE ---
+            ApplyUnitStatusHUD(texturePackDir);
+            ApplyStatusIcons(texturePackDir); // --- NEW METHOD ---
+            ApplyZodiacIcons(texturePackDir); // --- NEW METHOD ---
             ApplyMinimalButtonPrompts(texturePackDir);
             ApplyRemoveTextOnPortraits(texturePackDir);
             ApplyMinimalWarnings(texturePackDir);
         }
 
         // --- NEW METHOD ADDED HERE ---
+        private void ApplyStatusIcons(string texturePackDir)
+        {
+            try
+            {
+                string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "icon", "status", "texture");
+
+                if (_configuration!.StatusIcons == StatusIconsOption.Original)
+                {
+                    // User wants Original: Delete the files found in the "PSX" folder.
+                    // We use the PSX folder as a reference for which files to clean up.
+                    string referenceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", "PSX");
+                    DeleteManagedFiles(referenceDir, targetDir);
+                }
+                else // PSX
+                {
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", "PSX");
+                    if (!Directory.Exists(sourceDir))
+                    {
+                        Console.WriteLine($"[fftivc.config.zodioverwriter] Status Icons folder not found: PSX");
+                        return;
+                    }
+                    CopyDirectory(sourceDir, targetDir);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Status Icons: {ex.Message}");
+            }
+        }
+
+        private void ApplyZodiacIcons(string texturePackDir)
+        {
+            try
+            {
+                string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "icon", "zodiac_sign", "texture");
+                string optionName = _configuration!.ZodiacIcons.ToString();
+
+                if (_configuration.ZodiacIcons == ZodiacIconsOption.Original)
+                {
+                    // User wants Original: Delete files.
+                    // We use "Gold" as the reference folder to know filenames.
+                    string referenceDir = Path.Combine(_modRoot!, "Resources", "ZodiacIcons", "Gold");
+                    DeleteManagedFiles(referenceDir, targetDir);
+                }
+                else // Gold, Auracite, or Auracite_Glowing
+                {
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "ZodiacIcons", optionName);
+
+                    if (!Directory.Exists(sourceDir))
+                    {
+                        Console.WriteLine($"[fftivc.config.zodioverwriter] Zodiac Icons folder not found: {optionName}");
+                        return;
+                    }
+                    CopyDirectory(sourceDir, targetDir);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Zodiac Icons: {ex.Message}");
+            }
+        }
+        // --- END OF NEW METHODS ---
+
+
+        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
+
         private void ApplyUnitStatusHUD(string texturePackDir)
         {
             try
@@ -93,12 +161,10 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.UnitStatusHUD == UnitStatusHUDOption.Original)
                 {
-                    // User wants Original: Delete our file.
                     TryDelete(destPath);
                 }
                 else
                 {
-                    // User wants Minimal or Minimal_Blue_HP_Bar.
                     string option = _configuration!.UnitStatusHUD.ToString();
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitStatusHUD", option, "ui_unit_info_assets_uitx.tex");
                     TryCopy(sourcePath, destPath);
@@ -109,17 +175,12 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Unit Status HUD: {ex.Message}");
             }
         }
-        // --- END OF NEW METHOD ---
-
-
-        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
 
         private void ApplyDirectionalWaitArrow(string texturePackDir)
         {
             try
             {
                 string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui");
-
                 var files = new[] { "direction.tga", "direction_select.tga" };
 
                 if (_configuration!.DirectionalWaitArrow == DirectionalWaitArrowOption.Original)

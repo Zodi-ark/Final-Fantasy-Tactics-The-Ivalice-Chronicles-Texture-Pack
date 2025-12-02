@@ -5,14 +5,14 @@ using System.ComponentModel;
 
 namespace fftivc.config.zodioverwriter.Configuration
 {
-    // --- Enums ---
-    public enum SpriteOption { Mobile, Original }
-    public enum PortraitOption { Upscaled, Original }
+    // --- Enums --- 
+    public enum SpriteOption { Original, Mobile }
+    public enum PortraitOption { Original, Upscaled }
     public enum PartyMenuColorOption { Original, Black, Blackara, Blackaga, White }
     public enum BattlePointerChoice
     {
-        Removed,
         Original,
+        Removed,
         PSX,
         Pink,
         Purple,
@@ -23,10 +23,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         White,
         Black
     }
-    public enum BattleFrameOption { Removed, Vignette, Original }
+    public enum BattleFrameOption { Original, Removed, Vignette }
     public enum UnitHighlightRingOption { Original, White, Red, Purple, Removed }
     public enum WorldMapOption { Original, Azure_and_Ivory }
-    public enum MapOption { Vibrant, Original }
+    public enum MapOption { Original, Vibrant }
     public enum BattleFilterOption { Original, Removed, Removed_Bright }
     public enum DirectionalWaitArrowOption
     {
@@ -40,20 +40,23 @@ namespace fftivc.config.zodioverwriter.Configuration
         White,
         Black
     }
-
-    // --- NEW ENUM ADDED HERE ---
     public enum UnitStatusHUDOption { Original, Minimal, Minimal_Blue_HP_Bar }
+    public enum StatusIconsOption { Original, PSX }
+    public enum ZodiacIconsOption { Original, Gold, Auracite, Auracite_Glowing }
 
 
     public class Config : Configurable<Config>
     {
-        // --- Category: Asset Swaps ---
+
+        // ======================================================================== 
+        // 1. ASSET SWAPS (Written FIRST in this block sequence) 
+        // ======================================================================== 
 
         [Category("Asset Swaps")]
-        [DisplayName("Sprites")]
-        [Description("Select which sprite style to use.")]
-        [DefaultValue(SpriteOption.Mobile)]
-        public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
+        [DisplayName("Maps")]
+        [Description("Select which map textures to use.")]
+        [DefaultValue(MapOption.Vibrant)]
+        public MapOption Maps { get; set; } = MapOption.Vibrant;
 
         [Category("Asset Swaps")]
         [DisplayName("Portraits")]
@@ -62,49 +65,30 @@ namespace fftivc.config.zodioverwriter.Configuration
         public PortraitOption PortraitsOption { get; set; } = PortraitOption.Original;
 
         [Category("Asset Swaps")]
-        [DisplayName("Maps")]
-        [Description("Select which map textures to use.")]
-        [DefaultValue(MapOption.Vibrant)]
-        public MapOption Maps { get; set; } = MapOption.Vibrant;
+        [DisplayName("Sprites")]
+        [Description("Select which sprite style to use.")]
+        [DefaultValue(SpriteOption.Mobile)]
+        public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
 
-        // --- Category: UI & Colors ---
+        // ======================================================================== 
+        // 3. WORLD MAP (Written SECOND in this block sequence) 
+        // ======================================================================== 
 
-        [Category("UI & Colors")]
-        [DisplayName("Party Menu Color")]
-        [Description("Select the background color for the party menu.")]
-        [DefaultValue(PartyMenuColorOption.Original)]
-        public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
+        [Category("World Map")]
+        [DisplayName("Disable World Map Blur")]
+        [Description("Disables the blur effect on the world map.")]
+        [DefaultValue(false)]
+        public bool DisableWorldMapBlur { get; set; } = false;
 
-        [Category("UI & Colors")]
-        [DisplayName("Unit Highlight Ring")]
-        [Description("Choose the color of the unit's highlight ring for the party menu.")]
-        [DefaultValue(UnitHighlightRingOption.Original)]
-        public UnitHighlightRingOption UnitHighlightRingOption { get; set; } = UnitHighlightRingOption.Original;
+        [Category("World Map")]
+        [DisplayName("World Map")]
+        [Description("Select the world map to use.")]
+        [DefaultValue(WorldMapOption.Original)]
+        public WorldMapOption WorldMap { get; set; } = WorldMapOption.Original;
 
-        // --- NEW PROPERTY ADDED HERE ---
-        [Category("UI & Colors")]
-        [DisplayName("Unit Status HUD")]
-        [Description("Select the style for the unit status HUD (HP/MP bars).")]
-        [DefaultValue(UnitStatusHUDOption.Minimal)]
-        public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Minimal;
-
-        [Category("UI & Colors")]
-        [DisplayName("Battle Pointer")]
-        [Description("Choose which battle pointer to use.")]
-        [DefaultValue(BattlePointerChoice.Removed)]
-        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
-
-        [Category("UI & Colors")]
-        [DisplayName("Battle Frame")]
-        [Description("Choose which battle frame to use.")]
-        [DefaultValue(BattleFrameOption.Removed)]
-        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
-
-        [Category("UI & Colors")]
-        [DisplayName("Directional Wait Arrow")]
-        [Description("Choose the color of the directional selection arrows.")]
-        [DefaultValue(DirectionalWaitArrowOption.Original)]
-        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+        // ======================================================================== 
+        // 2. UI & COLORS (Written THIRD in this block sequence) 
+        // ======================================================================== 
 
         [Category("UI & Colors")]
         [DisplayName("Minimal Button Prompts")]
@@ -124,21 +108,58 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(false)]
         public bool RemoveTextOnPortraits { get; set; } = false;
 
-        // --- Category: World Map ---
+        [Category("UI & Colors")]
+        [DisplayName("Directional Wait Arrow")]
+        [Description("Choose the color of the directional selection arrows.")]
+        [DefaultValue(DirectionalWaitArrowOption.Original)]
+        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
 
-        [Category("World Map")]
-        [DisplayName("World Map")]
-        [Description("Select the world map to use.")]
-        [DefaultValue(WorldMapOption.Original)]
-        public WorldMapOption WorldMap { get; set; } = WorldMapOption.Original;
+        [Category("UI & Colors")]
+        [DisplayName("Battle Frame")]
+        [Description("Choose which battle frame to use.")]
+        [DefaultValue(BattleFrameOption.Removed)]
+        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
 
-        [Category("World Map")]
-        [DisplayName("Disable World Map Blur")]
-        [Description("Disables the blur effect on the world map.")]
-        [DefaultValue(false)]
-        public bool DisableWorldMapBlur { get; set; } = false;
+        [Category("UI & Colors")]
+        [DisplayName("Battle Pointer")]
+        [Description("Choose which battle pointer to use.")]
+        [DefaultValue(BattlePointerChoice.Removed)]
+        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
 
-        // --- Category: Filters ---
+        [Category("UI & Colors")]
+        [DisplayName("Zodiac Icons")]
+        [Description("Select the style for zodiac sign icons.")]
+        [DefaultValue(ZodiacIconsOption.Original)]
+        public ZodiacIconsOption ZodiacIcons { get; set; } = ZodiacIconsOption.Original;
+
+        [Category("UI & Colors")]
+        [DisplayName("Status Icons")]
+        [Description("Select the style for status effect icons.")]
+        [DefaultValue(StatusIconsOption.Original)]
+        public StatusIconsOption StatusIcons { get; set; } = StatusIconsOption.Original;
+
+        [Category("UI & Colors")]
+        [DisplayName("Unit Status HUD")]
+        [Description("Select the style for the unit status HUD (HP/MP bars).")]
+        [DefaultValue(UnitStatusHUDOption.Minimal)]
+        public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Minimal;
+
+        [Category("UI & Colors")]
+        [DisplayName("Unit Highlight Ring")]
+        [Description("Choose the color of the unit's highlight ring for the party menu.")]
+        [DefaultValue(UnitHighlightRingOption.Original)]
+        public UnitHighlightRingOption UnitHighlightRingOption { get; set; } = UnitHighlightRingOption.Original;
+
+        [Category("UI & Colors")]
+        [DisplayName("Party Menu Color")]
+        [Description("Select the background color for the party menu.")]
+        [DefaultValue(PartyMenuColorOption.Original)]
+        public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
+
+
+        // ======================================================================== 
+        // 4. FILTERS (Written LAST in this block sequence) 
+        // ======================================================================== 
 
         [Category("Filters")]
         [DisplayName("Battle Filter")]
@@ -155,6 +176,6 @@ namespace fftivc.config.zodioverwriter.Configuration
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
     {
-        // Reserved for future UI hooks
+        // Reserved for future UI hooks 
     }
 }
