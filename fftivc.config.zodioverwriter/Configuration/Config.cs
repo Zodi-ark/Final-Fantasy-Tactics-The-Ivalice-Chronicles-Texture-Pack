@@ -24,7 +24,17 @@ namespace fftivc.config.zodioverwriter.Configuration
         Black
     }
     public enum BattleFrameOption { Original, Removed, Vignette }
-    public enum UnitHighlightRingOption { Original, White, Red, Purple, Removed }
+
+    public enum UnitHighlightRingOption
+    {
+        Original,
+        Minimal_Original,
+        Minimal_Removed,
+        Minimal_Purple,
+        Minimal_White,
+        Minimal_Red
+    }
+
     public enum WorldMapOption { Original, Azure_and_Ivory }
     public enum MapOption { Original, Vibrant }
     public enum BattleFilterOption { Original, Removed, Removed_Bright }
@@ -144,9 +154,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(UnitStatusHUDOption.Minimal)]
         public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Minimal;
 
+        // UPDATED: Shortened DisplayName and Expanded Description
         [Category("UI & Colors")]
-        [DisplayName("Unit Highlight Ring")]
-        [Description("Choose the color of the unit's highlight ring for the party menu.")]
+        [DisplayName("Party Menu Style & Ring")]
+        [Description("This setting changes the style of the party menu and also changes the color of the unit highlight ring.")]
         [DefaultValue(UnitHighlightRingOption.Original)]
         public UnitHighlightRingOption UnitHighlightRingOption { get; set; } = UnitHighlightRingOption.Original;
 
