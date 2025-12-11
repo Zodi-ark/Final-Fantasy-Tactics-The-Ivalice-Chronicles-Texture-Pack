@@ -68,6 +68,11 @@ namespace fftivc.config.zodioverwriter
             // Apply options
             ApplyBattlePointer(texturePackDir);
             ApplyBattleFrame(texturePackDir);
+
+            // --- NEW CALL ADDED HERE ---
+            ApplyUnitSelectFrame(texturePackDir);
+            // ---------------------------
+
             ApplyDirectionalWaitArrow(texturePackDir);
             ApplyWorldMapBlur(texturePackDir);
             ApplyWorldMap(texturePackDir);
@@ -79,14 +84,66 @@ namespace fftivc.config.zodioverwriter
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
             ApplyUnitStatusHUD(texturePackDir);
-            ApplyStatusIcons(texturePackDir); // --- NEW METHOD ---
-            ApplyZodiacIcons(texturePackDir); // --- NEW METHOD ---
+            ApplyStatusIcons(texturePackDir);
+            ApplyZodiacIcons(texturePackDir);
             ApplyMinimalButtonPrompts(texturePackDir);
             ApplyRemoveTextOnPortraits(texturePackDir);
             ApplyMinimalWarnings(texturePackDir);
         }
 
-        // --- NEW METHOD ADDED HERE ---
+        // --- NEW METHOD IMPLEMENTATION ---
+        private void ApplyUnitSelectFrame(string texturePackDir)
+        {
+            try
+            {
+                // This targets the specific 'sortie' frame file, distinct from the battle frame
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "battle", "texture", "ui_battle_sortie_frame_uitx.tex");
+
+                if (_configuration!.UnitSelectFrame == UnitSelectFrameOption.Original)
+                {
+                    // If Original is selected, we delete the file from the texture pack folder.
+                    // This forces the game to fall back to its internal default asset.
+                    TryDelete(destPath);
+                }
+                else // Removed
+                {
+                    // If Removed is selected, we copy the custom file.
+                    string option = _configuration!.UnitSelectFrame.ToString(); // "Removed"
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitSelectFrame", option, "ui_battle_sortie_frame_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Unit Select Frame: {ex.Message}");
+            }
+        }
+        // ---------------------------------
+
+        private void ApplyBattleFrame(string texturePackDir)
+        {
+            try
+            {
+                // Note: This targets 'ui_battle_frame_uitx.tex', different from the one above.
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "battle", "texture", "ui_battle_frame_uitx.tex");
+
+                if (_configuration!.BattleFrameOption == BattleFrameOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.BattleFrameOption.ToString().ToLower();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFrame", option, "ui_battle_frame_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle frame: {ex.Message}");
+            }
+        }
+
         private void ApplyStatusIcons(string texturePackDir)
         {
             try
@@ -95,8 +152,6 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.StatusIcons == StatusIconsOption.Original)
                 {
-                    // User wants Original: Delete the files found in the "PSX" folder.
-                    // We use the PSX folder as a reference for which files to clean up.
                     string referenceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", "PSX");
                     DeleteManagedFiles(referenceDir, targetDir);
                 }
@@ -126,8 +181,6 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration.ZodiacIcons == ZodiacIconsOption.Original)
                 {
-                    // User wants Original: Delete files.
-                    // We use "Gold" as the reference folder to know filenames.
                     string referenceDir = Path.Combine(_modRoot!, "Resources", "ZodiacIcons", "Gold");
                     DeleteManagedFiles(referenceDir, targetDir);
                 }
@@ -148,10 +201,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Zodiac Icons: {ex.Message}");
             }
         }
-        // --- END OF NEW METHODS ---
-
-
-        // --- ALL YOUR OTHER METHODS (UNCHANGED) ---
 
         private void ApplyUnitStatusHUD(string texturePackDir)
         {
@@ -377,29 +426,6 @@ namespace fftivc.config.zodioverwriter
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle pointer: {ex.Message}");
-            }
-        }
-
-        private void ApplyBattleFrame(string texturePackDir)
-        {
-            try
-            {
-                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "battle", "texture", "ui_battle_frame_uitx.tex");
-
-                if (_configuration!.BattleFrameOption == BattleFrameOption.Original)
-                {
-                    TryDelete(destPath);
-                }
-                else
-                {
-                    string option = _configuration!.BattleFrameOption.ToString().ToLower();
-                    string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFrame", option, "ui_battle_frame_uitx.tex");
-                    TryCopy(sourcePath, destPath);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle frame: {ex.Message}");
             }
         }
 

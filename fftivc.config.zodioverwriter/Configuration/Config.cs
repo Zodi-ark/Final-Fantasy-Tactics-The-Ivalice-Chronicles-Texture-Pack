@@ -1,14 +1,14 @@
 ﻿using fftivc.config.zodioverwriter.Template.Configuration;
 using Reloaded.Mod.Interfaces.Structs;
-using System;
 using System.ComponentModel;
 
 namespace fftivc.config.zodioverwriter.Configuration
 {
-    // --- Enums --- 
+    // --- Enums ---
     public enum SpriteOption { Original, Mobile }
     public enum PortraitOption { Original, Upscaled }
     public enum PartyMenuColorOption { Original, Black, Blackara, Blackaga, White }
+
     public enum BattlePointerChoice
     {
         Original,
@@ -23,7 +23,9 @@ namespace fftivc.config.zodioverwriter.Configuration
         White,
         Black
     }
+
     public enum BattleFrameOption { Original, Removed, Vignette }
+    public enum UnitSelectFrameOption { Original, Removed }
 
     public enum UnitHighlightRingOption
     {
@@ -38,6 +40,7 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum WorldMapOption { Original, Azure_and_Ivory }
     public enum MapOption { Original, Vibrant }
     public enum BattleFilterOption { Original, Removed, Removed_Bright }
+
     public enum DirectionalWaitArrowOption
     {
         Original,
@@ -50,6 +53,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         White,
         Black
     }
+
     public enum UnitStatusHUDOption { Original, Minimal, Minimal_Blue_HP_Bar }
     public enum StatusIconsOption { Original, PSX }
     public enum ZodiacIconsOption { Original, Gold, Auracite, Auracite_Glowing }
@@ -57,10 +61,9 @@ namespace fftivc.config.zodioverwriter.Configuration
 
     public class Config : Configurable<Config>
     {
-
-        // ======================================================================== 
-        // 1. ASSET SWAPS (Written FIRST in this block sequence) 
-        // ======================================================================== 
+        // ========================================================================
+        // 1. ASSET SWAPS
+        // ========================================================================
 
         [Category("Asset Swaps")]
         [DisplayName("Maps")]
@@ -80,9 +83,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(SpriteOption.Mobile)]
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
 
-        // ======================================================================== 
-        // 3. WORLD MAP (Written SECOND in this block sequence) 
-        // ======================================================================== 
+
+        // ========================================================================
+        // 2. WORLD MAP
+        // ========================================================================
 
         [Category("World Map")]
         [DisplayName("Disable World Map Blur")]
@@ -96,9 +100,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(WorldMapOption.Original)]
         public WorldMapOption WorldMap { get; set; } = WorldMapOption.Original;
 
-        // ======================================================================== 
-        // 2. UI & COLORS (Written THIRD in this block sequence) 
-        // ======================================================================== 
+
+        // ========================================================================
+        // 3. UI & COLORS
+        // ========================================================================
 
         [Category("UI & Colors")]
         [DisplayName("Minimal Button Prompts")]
@@ -113,16 +118,16 @@ namespace fftivc.config.zodioverwriter.Configuration
         public bool MinimalWarnings { get; set; } = false;
 
         [Category("UI & Colors")]
-        [DisplayName("Remove Text On Portraits")]
-        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\" and \"Objective\" text from portraits.")]
-        [DefaultValue(false)]
-        public bool RemoveTextOnPortraits { get; set; } = false;
-
-        [Category("UI & Colors")]
         [DisplayName("Directional Wait Arrow")]
         [Description("Choose the color of the directional selection arrows.")]
         [DefaultValue(DirectionalWaitArrowOption.Original)]
         public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+
+        [Category("UI & Colors")]
+        [DisplayName("Remove Text On Portraits")]
+        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\" and \"Objective\" text from portraits.")]
+        [DefaultValue(false)]
+        public bool RemoveTextOnPortraits { get; set; } = false;
 
         [Category("UI & Colors")]
         [DisplayName("Battle Frame")]
@@ -135,6 +140,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Choose which battle pointer to use.")]
         [DefaultValue(BattlePointerChoice.Removed)]
         public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
+
+        [Category("UI & Colors")]
+        [DisplayName("Unit Select Frame")]
+        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
+        [DefaultValue(UnitSelectFrameOption.Original)]
+        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Zodiac Icons")]
@@ -154,7 +165,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(UnitStatusHUDOption.Minimal)]
         public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Minimal;
 
-        // UPDATED: Shortened DisplayName and Expanded Description
         [Category("UI & Colors")]
         [DisplayName("Party Menu Style & Ring")]
         [Description("This setting changes the style of the party menu and also changes the color of the unit highlight ring.")]
@@ -168,9 +178,9 @@ namespace fftivc.config.zodioverwriter.Configuration
         public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
 
 
-        // ======================================================================== 
-        // 4. FILTERS (Written LAST in this block sequence) 
-        // ======================================================================== 
+        // ========================================================================
+        // 4. FILTERS
+        // ========================================================================
 
         [Category("Filters")]
         [DisplayName("Battle Filter")]
@@ -187,6 +197,6 @@ namespace fftivc.config.zodioverwriter.Configuration
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
     {
-        // Reserved for future UI hooks 
+        // Reserved for future UI hooks
     }
 }
