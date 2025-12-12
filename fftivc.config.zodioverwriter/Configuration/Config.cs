@@ -8,7 +8,6 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum SpriteOption { Original, Mobile }
     public enum PortraitOption { Original, Upscaled }
 
-    // Updated Order: Black variants moved up
     public enum PartyMenuColorOption
     {
         Original,
@@ -40,6 +39,12 @@ namespace fftivc.config.zodioverwriter.Configuration
 
     public enum BattleFrameOption { Original, Removed, Vignette }
     public enum UnitSelectFrameOption { Original, Removed }
+
+    // ********************************************************************
+    // ************ USER REQUEST: New Enum Added ************
+    // ********************************************************************
+    public enum CursorFingerOption { Original, PSX, Dissidia, Crisis_Core, Black }
+    // ********************************************************************
 
     public enum UnitHighlightRingOption
     {
@@ -145,16 +150,16 @@ namespace fftivc.config.zodioverwriter.Configuration
         public bool MinimalWarnings { get; set; } = false;
 
         [Category("UI & Colors")]
-        [DisplayName("Directional Wait Arrow")]
-        [Description("Choose the color of the directional selection arrows.")]
-        [DefaultValue(DirectionalWaitArrowOption.Original)]
-        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
-
-        [Category("UI & Colors")]
         [DisplayName("Remove Text On Portraits")]
         [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\" and \"Objective\" text from portraits.")]
         [DefaultValue(false)]
         public bool RemoveTextOnPortraits { get; set; } = false;
+
+        [Category("UI & Colors")]
+        [DisplayName("Directional Wait Arrow")]
+        [Description("Choose the color of the directional selection arrows.")]
+        [DefaultValue(DirectionalWaitArrowOption.Original)]
+        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Battle Frame")]
@@ -167,6 +172,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Choose which battle pointer to use.")]
         [DefaultValue(BattlePointerChoice.Removed)]
         public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
+
+        [Category("UI & Colors")]
+        [DisplayName("Cursor Finger")]
+        [Description("Select the style for the cursor finger.")]
+        [DefaultValue(CursorFingerOption.Original)]
+        public CursorFingerOption CursorFinger { get; set; } = CursorFingerOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Unit Select Frame")]

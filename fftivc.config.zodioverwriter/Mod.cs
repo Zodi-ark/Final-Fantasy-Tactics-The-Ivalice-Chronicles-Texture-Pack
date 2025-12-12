@@ -68,11 +68,7 @@ namespace fftivc.config.zodioverwriter
             // Apply options
             ApplyBattlePointer(texturePackDir);
             ApplyBattleFrame(texturePackDir);
-
-            // --- NEW CALL ADDED HERE ---
             ApplyUnitSelectFrame(texturePackDir);
-            // ---------------------------
-
             ApplyDirectionalWaitArrow(texturePackDir);
             ApplyWorldMapBlur(texturePackDir);
             ApplyWorldMap(texturePackDir);
@@ -89,58 +85,60 @@ namespace fftivc.config.zodioverwriter
             ApplyMinimalButtonPrompts(texturePackDir);
             ApplyRemoveTextOnPortraits(texturePackDir);
             ApplyMinimalWarnings(texturePackDir);
+
+            // --- NEW CALL ADDED HERE ---
+            ApplyCursorFinger(texturePackDir);
+            // ---------------------------
         }
 
         // --- NEW METHOD IMPLEMENTATION ---
+        private void ApplyCursorFinger(string texturePackDir)
+        {
+            try
+            {
+                // Target file path in the texture pack
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ui_common_02_uitx.tex");
+
+                if (_configuration!.CursorFinger == CursorFingerOption.Original)
+                {
+                    // User wants Original: Delete the modded file so the game loads the default.
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    // User wants PSX, Dissidia, Crisis_Core, or Black
+                    string option = _configuration!.CursorFinger.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "CursorFinger", option, "ui_common_02_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Cursor Finger: {ex.Message}");
+            }
+        }
+        // ---------------------------------
+
         private void ApplyUnitSelectFrame(string texturePackDir)
         {
             try
             {
-                // This targets the specific 'sortie' frame file, distinct from the battle frame
-                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "battle", "texture", "ui_battle_sortie_frame_uitx.tex");
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "battle", "texture", "ui_unit_select_frame_uitx.tex");
 
                 if (_configuration!.UnitSelectFrame == UnitSelectFrameOption.Original)
                 {
-                    // If Original is selected, we delete the file from the texture pack folder.
-                    // This forces the game to fall back to its internal default asset.
                     TryDelete(destPath);
                 }
-                else // Removed
+                else
                 {
-                    // If Removed is selected, we copy the custom file.
-                    string option = _configuration!.UnitSelectFrame.ToString(); // "Removed"
-                    string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitSelectFrame", option, "ui_battle_sortie_frame_uitx.tex");
+                    string option = _configuration!.UnitSelectFrame.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitSelectFrame", option, "ui_unit_select_frame_uitx.tex");
                     TryCopy(sourcePath, destPath);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Unit Select Frame: {ex.Message}");
-            }
-        }
-        // ---------------------------------
-
-        private void ApplyBattleFrame(string texturePackDir)
-        {
-            try
-            {
-                // Note: This targets 'ui_battle_frame_uitx.tex', different from the one above.
-                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "battle", "texture", "ui_battle_frame_uitx.tex");
-
-                if (_configuration!.BattleFrameOption == BattleFrameOption.Original)
-                {
-                    TryDelete(destPath);
-                }
-                else
-                {
-                    string option = _configuration!.BattleFrameOption.ToString().ToLower();
-                    string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFrame", option, "ui_battle_frame_uitx.tex");
-                    TryCopy(sourcePath, destPath);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle frame: {ex.Message}");
             }
         }
 
@@ -155,7 +153,7 @@ namespace fftivc.config.zodioverwriter
                     string referenceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", "PSX");
                     DeleteManagedFiles(referenceDir, targetDir);
                 }
-                else // PSX
+                else
                 {
                     string sourceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", "PSX");
                     if (!Directory.Exists(sourceDir))
@@ -184,7 +182,7 @@ namespace fftivc.config.zodioverwriter
                     string referenceDir = Path.Combine(_modRoot!, "Resources", "ZodiacIcons", "Gold");
                     DeleteManagedFiles(referenceDir, targetDir);
                 }
-                else // Gold, Auracite, or Auracite_Glowing
+                else
                 {
                     string sourceDir = Path.Combine(_modRoot!, "Resources", "ZodiacIcons", optionName);
 
@@ -426,6 +424,29 @@ namespace fftivc.config.zodioverwriter
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle pointer: {ex.Message}");
+            }
+        }
+
+        private void ApplyBattleFrame(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "battle", "texture", "ui_battle_frame_uitx.tex");
+
+                if (_configuration!.BattleFrameOption == BattleFrameOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.BattleFrameOption.ToString().ToLower();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "BattleFrame", option, "ui_battle_frame_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle frame: {ex.Message}");
             }
         }
 
