@@ -7,7 +7,20 @@ namespace fftivc.config.zodioverwriter.Configuration
     // --- Enums ---
     public enum SpriteOption { Original, Mobile }
     public enum PortraitOption { Original, Upscaled }
-    public enum PartyMenuColorOption { Original, Black, Blackara, Blackaga, White }
+
+    // Updated Order: Black variants moved up
+    public enum PartyMenuColorOption
+    {
+        Original,
+        Black,
+        Blackara,
+        Blackaga,
+        Teal,
+        Red,
+        Purple,
+        White,
+        White_HDR
+    }
 
     public enum BattlePointerChoice
     {
@@ -16,6 +29,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         PSX,
         Pink,
         Purple,
+        Purple_HDR,
         Red,
         Green,
         Cyan,
@@ -56,13 +70,26 @@ namespace fftivc.config.zodioverwriter.Configuration
 
     public enum UnitStatusHUDOption { Original, Minimal, Minimal_Blue_HP_Bar }
     public enum StatusIconsOption { Original, PSX }
-    public enum ZodiacIconsOption { Original, Gold, Auracite, Auracite_Glowing }
+
+    public enum ZodiacIconsOption
+    {
+        Original,
+        Auracite,
+        Auracite_Pixelated,
+        Auracite_Pixelated_Extra,
+        Auracite_Glowing,
+        Auracite_Glowing_Pixelated,
+        Auracite_Glowing_Pixelated_Extra,
+        Gold,
+        Gold_Pixelated,
+        Gold_Pixelated_Extra
+    }
 
 
     public class Config : Configurable<Config>
     {
         // ========================================================================
-        // 1. ASSET SWAPS
+        // 1. ASSET SWAPS (Written FIRST in this block sequence)
         // ========================================================================
 
         [Category("Asset Swaps")]
@@ -85,7 +112,7 @@ namespace fftivc.config.zodioverwriter.Configuration
 
 
         // ========================================================================
-        // 2. WORLD MAP
+        // 2. WORLD MAP (Written SECOND in this block sequence)
         // ========================================================================
 
         [Category("World Map")]
@@ -102,7 +129,7 @@ namespace fftivc.config.zodioverwriter.Configuration
 
 
         // ========================================================================
-        // 3. UI & COLORS
+        // 3. UI & COLORS (Written THIRD in this block sequence)
         // ========================================================================
 
         [Category("UI & Colors")]
@@ -179,7 +206,7 @@ namespace fftivc.config.zodioverwriter.Configuration
 
 
         // ========================================================================
-        // 4. FILTERS
+        // 4. FILTERS (Written LAST in this block sequence)
         // ========================================================================
 
         [Category("Filters")]
