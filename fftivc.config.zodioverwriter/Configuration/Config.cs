@@ -39,12 +39,8 @@ namespace fftivc.config.zodioverwriter.Configuration
 
     public enum BattleFrameOption { Original, Removed, Vignette }
     public enum UnitSelectFrameOption { Original, Removed }
-
-    // ********************************************************************
-    // ************ USER REQUEST: New Enum Added ************
-    // ********************************************************************
+    public enum SpeechBubbleOption { Original, PSX_Upscaled }
     public enum CursorFingerOption { Original, PSX, Dissidia, Crisis_Core, Black }
-    // ********************************************************************
 
     public enum UnitHighlightRingOption
     {
@@ -137,17 +133,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         // 3. UI & COLORS (Written THIRD in this block sequence)
         // ========================================================================
 
-        [Category("UI & Colors")]
-        [DisplayName("Minimal Button Prompts")]
-        [Description("Removes many UI button tooltip prompts.")]
-        [DefaultValue(false)]
-        public bool MinimalButtonPrompts { get; set; } = false;
-
-        [Category("UI & Colors")]
-        [DisplayName("Minimal Warnings")]
-        [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
-        [DefaultValue(false)]
-        public bool MinimalWarnings { get; set; } = false;
+        // --- BOOLEAN TOGGLES (Grouped at top) ---
 
         [Category("UI & Colors")]
         [DisplayName("Remove Text On Portraits")]
@@ -156,10 +142,30 @@ namespace fftivc.config.zodioverwriter.Configuration
         public bool RemoveTextOnPortraits { get; set; } = false;
 
         [Category("UI & Colors")]
+        [DisplayName("Minimal Warnings")]
+        [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
+        [DefaultValue(false)]
+        public bool MinimalWarnings { get; set; } = false;
+
+        [Category("UI & Colors")]
+        [DisplayName("Minimal Button Prompts")]
+        [Description("Removes many UI button tooltip prompts.")]
+        [DefaultValue(false)]
+        public bool MinimalButtonPrompts { get; set; } = false;
+
+        // --- DROPDOWN MENUS (Grouped below toggles) ---
+
+        [Category("UI & Colors")]
         [DisplayName("Directional Wait Arrow")]
         [Description("Choose the color of the directional selection arrows.")]
         [DefaultValue(DirectionalWaitArrowOption.Original)]
         public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+
+        [Category("UI & Colors")]
+        [DisplayName("Unit Select Frame")]
+        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
+        [DefaultValue(UnitSelectFrameOption.Removed)]
+        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Removed;
 
         [Category("UI & Colors")]
         [DisplayName("Battle Frame")]
@@ -180,10 +186,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         public CursorFingerOption CursorFinger { get; set; } = CursorFingerOption.Original;
 
         [Category("UI & Colors")]
-        [DisplayName("Unit Select Frame")]
-        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
-        [DefaultValue(UnitSelectFrameOption.Original)]
-        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Original;
+        [DisplayName("Speech Bubble")]
+        [Description("Select the style for speech bubbles.")]
+        [DefaultValue(SpeechBubbleOption.Original)]
+        public SpeechBubbleOption SpeechBubble { get; set; } = SpeechBubbleOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Zodiac Icons")]

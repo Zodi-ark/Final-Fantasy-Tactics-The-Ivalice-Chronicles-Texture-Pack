@@ -85,28 +85,69 @@ namespace fftivc.config.zodioverwriter
             ApplyMinimalButtonPrompts(texturePackDir);
             ApplyRemoveTextOnPortraits(texturePackDir);
             ApplyMinimalWarnings(texturePackDir);
+            ApplyCursorFinger(texturePackDir);
 
             // --- NEW CALL ADDED HERE ---
-            ApplyCursorFinger(texturePackDir);
+            ApplySpeechBubble(texturePackDir);
             // ---------------------------
         }
 
         // --- NEW METHOD IMPLEMENTATION ---
+        private void ApplySpeechBubble(string texturePackDir)
+        {
+            try
+            {
+                string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "event", "texture");
+
+                // The 5 specific files for speech bubbles
+                var files = new[] {
+                    "ui_event_balloon_normal_uitx.tex",
+                    "ui_event_balloon_round_uitx.tex",
+                    "ui_event_balloon_spike_uitx.tex",
+                    "ui_event_balloon_tail_uitx.tex",
+                    "ui_event_balloon_mask_face_uitx.tex"
+                };
+
+                if (_configuration!.SpeechBubble == SpeechBubbleOption.Original)
+                {
+                    // User wants Original: Delete all 5 files to restore defaults.
+                    foreach (var file in files)
+                    {
+                        TryDelete(Path.Combine(destDir, file));
+                    }
+                }
+                else // PSX_Upscaled
+                {
+                    // User wants PSX_Upscaled: Copy the 5 files.
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "SpeechBubble", "PSX_Upscaled");
+
+                    foreach (var file in files)
+                    {
+                        string sourcePath = Path.Combine(sourceDir, file);
+                        string destPath = Path.Combine(destDir, file);
+                        TryCopy(sourcePath, destPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Speech Bubble: {ex.Message}");
+            }
+        }
+        // ---------------------------------
+
         private void ApplyCursorFinger(string texturePackDir)
         {
             try
             {
-                // Target file path in the texture pack
                 string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ui_common_02_uitx.tex");
 
                 if (_configuration!.CursorFinger == CursorFingerOption.Original)
                 {
-                    // User wants Original: Delete the modded file so the game loads the default.
                     TryDelete(destPath);
                 }
                 else
                 {
-                    // User wants PSX, Dissidia, Crisis_Core, or Black
                     string option = _configuration!.CursorFinger.ToString();
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "CursorFinger", option, "ui_common_02_uitx.tex");
                     TryCopy(sourcePath, destPath);
@@ -117,7 +158,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Cursor Finger: {ex.Message}");
             }
         }
-        // ---------------------------------
 
         private void ApplyUnitSelectFrame(string texturePackDir)
         {
