@@ -90,7 +90,7 @@ namespace fftivc.config.zodioverwriter.Configuration
     public class Config : Configurable<Config>
     {
         // ========================================================================
-        // 1. ASSET SWAPS (Written FIRST in this block sequence)
+        // 1. ASSET SWAPS
         // ========================================================================
 
         [Category("Asset Swaps")]
@@ -113,7 +113,7 @@ namespace fftivc.config.zodioverwriter.Configuration
 
 
         // ========================================================================
-        // 2. WORLD MAP (Written SECOND in this block sequence)
+        // 2. WORLD MAP
         // ========================================================================
 
         [Category("World Map")]
@@ -130,30 +130,8 @@ namespace fftivc.config.zodioverwriter.Configuration
 
 
         // ========================================================================
-        // 3. UI & COLORS (Written THIRD in this block sequence)
+        // 3. UI & COLORS (Styles and Variants)
         // ========================================================================
-
-        // --- BOOLEAN TOGGLES (Grouped at top) ---
-
-        [Category("UI & Colors")]
-        [DisplayName("Remove Text On Portraits")]
-        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\" and \"Objective\" text from portraits.")]
-        [DefaultValue(false)]
-        public bool RemoveTextOnPortraits { get; set; } = false;
-
-        [Category("UI & Colors")]
-        [DisplayName("Minimal Warnings")]
-        [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
-        [DefaultValue(false)]
-        public bool MinimalWarnings { get; set; } = false;
-
-        [Category("UI & Colors")]
-        [DisplayName("Minimal Button Prompts")]
-        [Description("Removes many UI button tooltip prompts.")]
-        [DefaultValue(false)]
-        public bool MinimalButtonPrompts { get; set; } = false;
-
-        // --- DROPDOWN MENUS (Grouped below toggles) ---
 
         [Category("UI & Colors")]
         [DisplayName("Directional Wait Arrow")]
@@ -223,7 +201,30 @@ namespace fftivc.config.zodioverwriter.Configuration
 
 
         // ========================================================================
-        // 4. FILTERS (Written LAST in this block sequence)
+        // 4. INTERFACE TOGGLES (New Category for Boolean Options)
+        // ========================================================================
+
+        [Category("Interface Toggles")]
+        [DisplayName("Minimal Button Prompts")]
+        [Description("Removes many UI button tooltip prompts.")]
+        [DefaultValue(false)]
+        public bool MinimalButtonPrompts { get; set; } = false;
+
+        [Category("Interface Toggles")]
+        [DisplayName("Minimal Warnings")]
+        [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
+        [DefaultValue(false)]
+        public bool MinimalWarnings { get; set; } = false;
+
+        [Category("Interface Toggles")]
+        [DisplayName("Remove Text On Portraits")]
+        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\" and \"Objective\" text from portraits.")]
+        [DefaultValue(false)]
+        public bool RemoveTextOnPortraits { get; set; } = false;
+
+
+        // ========================================================================
+        // 5. FILTERS
         // ========================================================================
 
         [Category("Filters")]
