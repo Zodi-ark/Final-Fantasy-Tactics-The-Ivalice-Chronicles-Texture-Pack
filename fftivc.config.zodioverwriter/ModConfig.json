@@ -12,12 +12,37 @@
   "ModNativeDll64": "",
   "Tags": [
     "Texture",
-    "GUI/HUD"
+    "GUI/HUD",
+    "Configurator"
   ],
   "CanUnload": false,
   "HasExports": false,
   "IsLibrary": false,
   "ReleaseMetadataFileName": "Sewer56.Update.ReleaseMetadata.json",
+  "PluginData": {
+    "GitHubDependencies": {
+      "IdToConfigMap": {
+        "Reloaded.Memory.SigScan.ReloadedII": {
+          "Config": {
+            "UserName": "Reloaded-Project",
+            "RepositoryName": "Reloaded.Memory.SigScan",
+            "UseReleaseTag": false,
+            "AssetFileName": "Mod.zip"
+          },
+          "ReleaseMetadataName": "Reloaded.Memory.SigScan.ReloadedII.ReleaseMetadata.json"
+        },
+        "reloaded.sharedlib.hooks": {
+          "Config": {
+            "UserName": "Sewer56",
+            "RepositoryName": "Reloaded.SharedLib.Hooks.ReloadedII",
+            "UseReleaseTag": true,
+            "AssetFileName": "reloaded.sharedlib.hooks.zip"
+          },
+          "ReleaseMetadataName": "Sewer56.Update.ReleaseMetadata.json"
+        }
+      }
+    }
+  },
   "IgnoreRegexes": [
     ".*\\.json"
   ],
@@ -25,12 +50,17 @@
     "\\.deps\\.json",
     "\\.runtimeconfig\\.json"
   ],
-  "PluginData": {},
   "IsUniversalMod": false,
-  "ModDependencies": [],
+  "ModDependencies": [
+    "reloaded.sharedlib.hooks"
+  ],
   "OptionalDependencies": [],
   "SupportedAppId": [
     "fft_enhanced.exe"
   ],
-  "ProjectUrl": "https://github.com/Zodi-ark"
+  "ProjectUrl": "https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack",
+  "UpdateServer": "https://raw.githubusercontent.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/main/update.json",
+  "UpdateInfo": {
+    "ModId": "fftivc.config.zodioverwriter"
+  }
 }
