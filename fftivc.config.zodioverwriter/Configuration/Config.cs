@@ -39,7 +39,6 @@ namespace fftivc.config.zodioverwriter.Configuration
 
     public enum BattleFrameOption { Original, Removed, Vignette }
     public enum UnitSelectFrameOption { Original, Removed }
-    public enum SpeechBubbleOption { Original, PSX_Upscaled }
     public enum CursorFingerOption { Original, PSX, Dissidia, Crisis_Core, Black }
 
     public enum UnitHighlightRingOption
@@ -86,6 +85,13 @@ namespace fftivc.config.zodioverwriter.Configuration
         Gold_Pixelated_Extra
     }
 
+    // ********************************************************************
+    // ************ NEW ENUMS FOR DIALOG ************
+    // ********************************************************************
+    public enum SpeechBubbleOption { Original, PSX_Upscaled }
+    public enum SpeechBubbleTypefaceOption { Original, Old_English }
+    // ********************************************************************
+
 
     public class Config : Configurable<Config>
     {
@@ -128,9 +134,25 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(WorldMapOption.Original)]
         public WorldMapOption WorldMap { get; set; } = WorldMapOption.Original;
 
+        // ========================================================================
+        // 4. DIALOG
+        // ========================================================================
+
+        [Category("Dialog")]
+        [DisplayName("Speech Bubble Style")]
+        [Description("Select the style for speech bubbles.")]
+        [DefaultValue(SpeechBubbleOption.Original)]
+        public SpeechBubbleOption SpeechBubble { get; set; } = SpeechBubbleOption.Original;
+
+        [Category("Dialog")]
+        [DisplayName("Speech Bubble Typeface")]
+        [Description("Select the typeface style for speech bubbles.")]
+        [DefaultValue(SpeechBubbleTypefaceOption.Original)]
+        public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
+
 
         // ========================================================================
-        // 3. UI & COLORS (Styles and Variants)
+        // 3. UI & COLORS
         // ========================================================================
 
         [Category("UI & Colors")]
@@ -164,12 +186,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         public CursorFingerOption CursorFinger { get; set; } = CursorFingerOption.Original;
 
         [Category("UI & Colors")]
-        [DisplayName("Speech Bubble")]
-        [Description("Select the style for speech bubbles.")]
-        [DefaultValue(SpeechBubbleOption.Original)]
-        public SpeechBubbleOption SpeechBubble { get; set; } = SpeechBubbleOption.Original;
-
-        [Category("UI & Colors")]
         [DisplayName("Zodiac Icons")]
         [Description("Select the style for zodiac sign icons.")]
         [DefaultValue(ZodiacIconsOption.Original)]
@@ -199,9 +215,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(PartyMenuColorOption.Original)]
         public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
 
-
         // ========================================================================
-        // 4. INTERFACE TOGGLES (New Category for Boolean Options)
+        // 5. INTERFACE TOGGLES
         // ========================================================================
 
         [Category("Interface Toggles")]
@@ -224,7 +239,7 @@ namespace fftivc.config.zodioverwriter.Configuration
 
 
         // ========================================================================
-        // 5. FILTERS
+        // 6. FILTERS
         // ========================================================================
 
         [Category("Filters")]

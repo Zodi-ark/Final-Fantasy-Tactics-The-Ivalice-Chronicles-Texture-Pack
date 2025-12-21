@@ -86,13 +86,43 @@ namespace fftivc.config.zodioverwriter
             ApplyRemoveTextOnPortraits(texturePackDir);
             ApplyMinimalWarnings(texturePackDir);
             ApplyCursorFinger(texturePackDir);
+            ApplySpeechBubble(texturePackDir);
 
             // --- NEW CALL ADDED HERE ---
-            ApplySpeechBubble(texturePackDir);
+            ApplySpeechBubbleText(texturePackDir);
             // ---------------------------
         }
 
         // --- NEW METHOD IMPLEMENTATION ---
+        private void ApplySpeechBubbleText(string texturePackDir)
+        {
+            try
+            {
+                // Destination: fftivc.asset.zoditexturepack\FFTIVC\data\enhanced\system\graphics\font2
+                string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "system", "graphics", "font2");
+                string fileName = "ffto_bouwsmatext-master_font.tex";
+                string destPath = Path.Combine(destDir, fileName);
+
+                if (_configuration!.SpeechBubbleTypeface == SpeechBubbleTypefaceOption.Original)
+                {
+                    // User wants Original: Delete the file so game uses default
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    // User wants Old_English
+                    // Source: fftivc.config.zodioverwriter\Resources\SpeechBubbleText\Old_English
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "SpeechBubbleText", "Old_English", fileName);
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Speech Bubble Text: {ex.Message}");
+            }
+        }
+        // ---------------------------------
+
         private void ApplySpeechBubble(string texturePackDir)
         {
             try
@@ -134,7 +164,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Speech Bubble: {ex.Message}");
             }
         }
-        // ---------------------------------
 
         private void ApplyCursorFinger(string texturePackDir)
         {
@@ -632,7 +661,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-
         // --- HELPER METHODS ---
 
         private void DeleteManagedFiles(string sourceDir, string targetDir)
@@ -759,7 +787,6 @@ namespace fftivc.config.zodioverwriter
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Failed to delete {Path.GetFileName(destination)}: {ex.Message}");
             }
         }
-
 
         public void Suspend() { }
         public void Resume() { }
