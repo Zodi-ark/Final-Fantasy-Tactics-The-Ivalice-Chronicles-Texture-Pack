@@ -4,7 +4,6 @@ F:\The Ivalice Chronicles\Reloaded II\Mods\fftivc.config.zodioverwriter\obj\Rele
 F:\The Ivalice Chronicles\Reloaded II\Mods\fftivc.config.zodioverwriter\obj\Release\fftivc.config.zodioverwriter.AssemblyInfo.cs
 F:\The Ivalice Chronicles\Reloaded II\Mods\fftivc.config.zodioverwriter\obj\Release\fftivc.config.zodioverwriter.csproj.CoreCompileInputs.cache
 F:\The Ivalice Chronicles\Reloaded II\Mods\fftivc.config.zodioverwriter\obj\Release\fftivc.c.D33A756C.Up2Date
-F:\The Ivalice Chronicles\Reloaded II\Mods\fftivc.config.zodioverwriter\ModConfig.json
 F:\The Ivalice Chronicles\Reloaded II\Mods\fftivc.config.zodioverwriter\obj\Release\fftivc.config.zodioverwriter.dll
 F:\The Ivalice Chronicles\Reloaded II\Mods\fftivc.config.zodioverwriter\obj\Release\refint\fftivc.config.zodioverwriter.dll
 F:\The Ivalice Chronicles\Reloaded II\Mods\fftivc.config.zodioverwriter\obj\Release\fftivc.config.zodioverwriter.pdb

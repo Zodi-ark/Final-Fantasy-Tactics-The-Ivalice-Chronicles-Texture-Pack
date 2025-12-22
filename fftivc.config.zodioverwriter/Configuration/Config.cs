@@ -8,6 +8,16 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum SpriteOption { Original, Mobile }
     public enum PortraitOption { Original, Upscaled }
 
+    public enum EquipmentOption
+    {
+        Original,
+        Original_With_Drop_Shadow,
+        PSX,
+        PSX_With_Drop_Shadow,
+        PSX_Upscaled,
+        PSX_Upscaled_With_Drop_Shadow
+    }
+
     public enum PartyMenuColorOption
     {
         Original,
@@ -34,12 +44,28 @@ namespace fftivc.config.zodioverwriter.Configuration
         Cyan,
         Blue,
         White,
-        Black
+        Black,
+        Tactics_Ogre,                 // Added
+        Tactics_Ogre_Reborn,          // Added
+        Tactics_Ogre_Reborn_Alt,      // Added
+        Tactics_Ogre_Reborn_Quil,     // Added
+        Tactics_Ogre_Reborn_Quil_Alt  // Added
     }
 
     public enum BattleFrameOption { Original, Removed, Vignette }
     public enum UnitSelectFrameOption { Original, Removed }
-    public enum CursorFingerOption { Original, PSX, Dissidia, Crisis_Core, Black }
+
+    public enum CursorFingerOption
+    {
+        Original,
+        PSX,
+        Dissidia,
+        Crisis_Core,
+        Black,
+        Tactics_Ogre,            // Added
+        Tactics_Ogre_Upscaled,   // Added
+        Tactics_Ogre_Reborn      // Added
+    }
 
     public enum UnitHighlightRingOption
     {
@@ -65,7 +91,9 @@ namespace fftivc.config.zodioverwriter.Configuration
         Cyan,
         Blue,
         White,
-        Black
+        Black,
+        Tactics_Ogre,    // Added
+        Tactics_Ogre_Alt // Added
     }
 
     public enum UnitStatusHUDOption { Original, Minimal, Minimal_Blue_HP_Bar }
@@ -106,6 +134,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         public MapOption Maps { get; set; } = MapOption.Vibrant;
 
         [Category("Asset Swaps")]
+        [DisplayName("Equipment")]
+        [Description("Select the style for equipment icons.")]
+        [DefaultValue(EquipmentOption.Original)]
+        public EquipmentOption Equipment { get; set; } = EquipmentOption.Original;
+
+        [Category("Asset Swaps")]
         [DisplayName("Portraits")]
         [Description("Select which portrait style to use.")]
         [DefaultValue(PortraitOption.Original)]
@@ -116,6 +150,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select which sprite style to use.")]
         [DefaultValue(SpriteOption.Mobile)]
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
+
+
 
 
         // ========================================================================
@@ -134,22 +170,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(WorldMapOption.Original)]
         public WorldMapOption WorldMap { get; set; } = WorldMapOption.Original;
 
-        // ========================================================================
-        // 4. DIALOG
-        // ========================================================================
-
-        [Category("Dialog")]
-        [DisplayName("Speech Bubble Style")]
-        [Description("Select the style for speech bubbles.")]
-        [DefaultValue(SpeechBubbleOption.Original)]
-        public SpeechBubbleOption SpeechBubble { get; set; } = SpeechBubbleOption.Original;
-
-        [Category("Dialog")]
-        [DisplayName("Speech Bubble Typeface")]
-        [Description("Select the typeface style for speech bubbles.")]
-        [DefaultValue(SpeechBubbleTypefaceOption.Original)]
-        public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
-
 
         // ========================================================================
         // 3. UI & COLORS
@@ -157,27 +177,21 @@ namespace fftivc.config.zodioverwriter.Configuration
 
         [Category("UI & Colors")]
         [DisplayName("Directional Wait Arrow")]
-        [Description("Choose the color of the directional selection arrows.")]
+        [Description("Choose the color or style of the directional selection arrows.")]
         [DefaultValue(DirectionalWaitArrowOption.Original)]
         public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Unit Select Frame")]
-        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
-        [DefaultValue(UnitSelectFrameOption.Removed)]
-        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Removed;
-
-        [Category("UI & Colors")]
-        [DisplayName("Battle Frame")]
-        [Description("Choose which battle frame to use.")]
-        [DefaultValue(BattleFrameOption.Removed)]
-        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
 
         [Category("UI & Colors")]
         [DisplayName("Battle Pointer")]
         [Description("Choose which battle pointer to use.")]
         [DefaultValue(BattlePointerChoice.Removed)]
         public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
+
+        [Category("UI & Colors")]
+        [DisplayName("Battle Frame")]
+        [Description("Choose which battle frame to use.")]
+        [DefaultValue(BattleFrameOption.Removed)]
+        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
 
         [Category("UI & Colors")]
         [DisplayName("Cursor Finger")]
@@ -198,6 +212,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         public StatusIconsOption StatusIcons { get; set; } = StatusIconsOption.Original;
 
         [Category("UI & Colors")]
+        [DisplayName("Unit Select Frame")]
+        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
+        [DefaultValue(UnitSelectFrameOption.Removed)]
+        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Removed;
+
+        [Category("UI & Colors")]
         [DisplayName("Unit Status HUD")]
         [Description("Select the style for the unit status HUD (HP/MP bars).")]
         [DefaultValue(UnitStatusHUDOption.Minimal)]
@@ -214,6 +234,24 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select the background color for the party menu.")]
         [DefaultValue(PartyMenuColorOption.Original)]
         public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
+
+
+        // ========================================================================
+        // 4. DIALOG
+        // ========================================================================
+
+        [Category("Dialog")]
+        [DisplayName("Speech Bubble Style")]
+        [Description("Select the style for speech bubbles.")]
+        [DefaultValue(SpeechBubbleOption.Original)]
+        public SpeechBubbleOption SpeechBubble { get; set; } = SpeechBubbleOption.Original;
+
+        [Category("Dialog")]
+        [DisplayName("Speech Bubble Typeface")]
+        [Description("Select the typeface style for speech bubbles.")]
+        [DefaultValue(SpeechBubbleTypefaceOption.Original)]
+        public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
+
 
         // ========================================================================
         // 5. INTERFACE TOGGLES

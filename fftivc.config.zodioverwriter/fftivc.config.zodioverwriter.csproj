@@ -24,12 +24,12 @@
 	<ItemGroup>
 		<Compile Include="**\*.cs" Exclude="obj\**\*.cs" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Include="ModConfig.json" />
+	</ItemGroup>
 
 	<!-- Copy ModConfig + resources -->
 	<ItemGroup>
-		<Content Include="ModConfig.json">
-			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
-		</Content>
 
 		<None Update="Preview.png">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -77,6 +77,11 @@ namespace fftivc.config.zodioverwriter
             ApplySpriteOption(texturePackDir);
             ApplyMapOption(texturePackDir);
             ApplyPortraitsOption(texturePackDir);
+
+            // --- NEW CALL ---
+            ApplyEquipment(texturePackDir);
+            // ----------------
+
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
             ApplyUnitStatusHUD(texturePackDir);
@@ -87,41 +92,63 @@ namespace fftivc.config.zodioverwriter
             ApplyMinimalWarnings(texturePackDir);
             ApplyCursorFinger(texturePackDir);
             ApplySpeechBubble(texturePackDir);
-
-            // --- NEW CALL ADDED HERE ---
-            ApplySpeechBubbleText(texturePackDir);
-            // ---------------------------
+            ApplySpeechBubbleTypeface(texturePackDir);
         }
 
-        // --- NEW METHOD IMPLEMENTATION ---
-        private void ApplySpeechBubbleText(string texturePackDir)
+        private void ApplyEquipment(string texturePackDir)
         {
             try
             {
-                // Destination: fftivc.asset.zoditexturepack\FFTIVC\data\enhanced\system\graphics\font2
+                string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "icon", "equip_item_s", "texture");
+
+                if (_configuration!.Equipment == EquipmentOption.Original)
+                {
+                    // Use PSX folder as a reference for what files to delete to restore vanilla
+                    string referenceDir = Path.Combine(_modRoot!, "Resources", "Equipment", "PSX");
+                    DeleteManagedFiles(referenceDir, targetDir);
+                }
+                else
+                {
+                    string option = _configuration!.Equipment.ToString();
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "Equipment", option);
+
+                    if (!Directory.Exists(sourceDir))
+                    {
+                        Console.WriteLine($"[fftivc.config.zodioverwriter] Equipment folder not found: {option}");
+                        return;
+                    }
+                    CopyDirectory(sourceDir, targetDir);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Equipment: {ex.Message}");
+            }
+        }
+
+        private void ApplySpeechBubbleTypeface(string texturePackDir)
+        {
+            try
+            {
                 string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "system", "graphics", "font2");
                 string fileName = "ffto_bouwsmatext-master_font.tex";
                 string destPath = Path.Combine(destDir, fileName);
 
                 if (_configuration!.SpeechBubbleTypeface == SpeechBubbleTypefaceOption.Original)
                 {
-                    // User wants Original: Delete the file so game uses default
                     TryDelete(destPath);
                 }
                 else
                 {
-                    // User wants Old_English
-                    // Source: fftivc.config.zodioverwriter\Resources\SpeechBubbleText\Old_English
-                    string sourcePath = Path.Combine(_modRoot!, "Resources", "SpeechBubbleText", "Old_English", fileName);
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "SpeechBubbleTypeface", "Old_English", fileName);
                     TryCopy(sourcePath, destPath);
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Speech Bubble Text: {ex.Message}");
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Speech Bubble Typeface: {ex.Message}");
             }
         }
-        // ---------------------------------
 
         private void ApplySpeechBubble(string texturePackDir)
         {
@@ -129,7 +156,6 @@ namespace fftivc.config.zodioverwriter
             {
                 string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "event", "texture");
 
-                // The 5 specific files for speech bubbles
                 var files = new[] {
                     "ui_event_balloon_normal_uitx.tex",
                     "ui_event_balloon_round_uitx.tex",
@@ -140,15 +166,13 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.SpeechBubble == SpeechBubbleOption.Original)
                 {
-                    // User wants Original: Delete all 5 files to restore defaults.
                     foreach (var file in files)
                     {
                         TryDelete(Path.Combine(destDir, file));
                     }
                 }
-                else // PSX_Upscaled
+                else
                 {
-                    // User wants PSX_Upscaled: Copy the 5 files.
                     string sourceDir = Path.Combine(_modRoot!, "Resources", "SpeechBubble", "PSX_Upscaled");
 
                     foreach (var file in files)
@@ -667,7 +691,8 @@ namespace fftivc.config.zodioverwriter
         {
             if (!Directory.Exists(sourceDir))
             {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Missing source directory, cannot delete files: {sourceDir}");
+                // Note: Not printing error here to avoid log spam if user just hasn't made the folder yet
+                // But generally this folder should exist for correct cleanup.
                 return;
             }
 
