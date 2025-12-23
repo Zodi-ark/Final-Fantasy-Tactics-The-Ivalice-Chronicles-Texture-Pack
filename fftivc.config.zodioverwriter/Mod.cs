@@ -78,9 +78,8 @@ namespace fftivc.config.zodioverwriter
             ApplyMapOption(texturePackDir);
             ApplyPortraitsOption(texturePackDir);
 
-            // --- NEW CALL ---
-            ApplyEquipment(texturePackDir);
-            // ----------------
+            // Replaced old ApplyEquipment with new ApplyEquipmentIcons
+            ApplyEquipmentIcons(texturePackDir);
 
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
@@ -95,13 +94,13 @@ namespace fftivc.config.zodioverwriter
             ApplySpeechBubbleTypeface(texturePackDir);
         }
 
-        private void ApplyEquipment(string texturePackDir)
+        private void ApplyEquipmentIcons(string texturePackDir)
         {
             try
             {
                 string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "icon", "equip_item_s", "texture");
 
-                if (_configuration!.Equipment == EquipmentOption.Original)
+                if (_configuration!.EquipmentIcons == EquipmentOption.Original)
                 {
                     // Use PSX folder as a reference for what files to delete to restore vanilla
                     string referenceDir = Path.Combine(_modRoot!, "Resources", "Equipment", "PSX");
@@ -109,7 +108,7 @@ namespace fftivc.config.zodioverwriter
                 }
                 else
                 {
-                    string option = _configuration!.Equipment.ToString();
+                    string option = _configuration!.EquipmentIcons.ToString();
                     string sourceDir = Path.Combine(_modRoot!, "Resources", "Equipment", option);
 
                     if (!Directory.Exists(sourceDir))
@@ -122,7 +121,7 @@ namespace fftivc.config.zodioverwriter
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Equipment: {ex.Message}");
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Equipment Icons: {ex.Message}");
             }
         }
 

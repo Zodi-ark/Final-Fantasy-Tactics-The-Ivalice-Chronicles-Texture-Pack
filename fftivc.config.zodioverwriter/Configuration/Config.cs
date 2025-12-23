@@ -13,9 +13,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original,
         Original_With_Drop_Shadow,
         PSX,
-        PSX_With_Drop_Shadow,
-        PSX_Upscaled,
-        PSX_Upscaled_With_Drop_Shadow
+        PSX_With_Drop_Shadow
     }
 
     public enum PartyMenuColorOption
@@ -45,11 +43,11 @@ namespace fftivc.config.zodioverwriter.Configuration
         Blue,
         White,
         Black,
-        Tactics_Ogre,                 // Added
-        Tactics_Ogre_Reborn,          // Added
-        Tactics_Ogre_Reborn_Alt,      // Added
-        Tactics_Ogre_Reborn_Quil,     // Added
-        Tactics_Ogre_Reborn_Quil_Alt  // Added
+        Tactics_Ogre,
+        Tactics_Ogre_Reborn,
+        Tactics_Ogre_Reborn_Alt,
+        Tactics_Ogre_Reborn_Quil,
+        Tactics_Ogre_Reborn_Quil_Alt
     }
 
     public enum BattleFrameOption { Original, Removed, Vignette }
@@ -62,9 +60,9 @@ namespace fftivc.config.zodioverwriter.Configuration
         Dissidia,
         Crisis_Core,
         Black,
-        Tactics_Ogre,            // Added
-        Tactics_Ogre_Upscaled,   // Added
-        Tactics_Ogre_Reborn      // Added
+        Tactics_Ogre,
+        Tactics_Ogre_Upscaled,
+        Tactics_Ogre_Reborn
     }
 
     public enum UnitHighlightRingOption
@@ -92,8 +90,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         Blue,
         White,
         Black,
-        Tactics_Ogre,    // Added
-        Tactics_Ogre_Alt // Added
+        Tactics_Ogre,
+        Tactics_Ogre_Alt
     }
 
     public enum UnitStatusHUDOption { Original, Minimal, Minimal_Blue_HP_Bar }
@@ -134,12 +132,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         public MapOption Maps { get; set; } = MapOption.Vibrant;
 
         [Category("Asset Swaps")]
-        [DisplayName("Equipment")]
-        [Description("Select the style for equipment icons.")]
-        [DefaultValue(EquipmentOption.Original)]
-        public EquipmentOption Equipment { get; set; } = EquipmentOption.Original;
-
-        [Category("Asset Swaps")]
         [DisplayName("Portraits")]
         [Description("Select which portrait style to use.")]
         [DefaultValue(PortraitOption.Original)]
@@ -150,8 +142,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select which sprite style to use.")]
         [DefaultValue(SpriteOption.Mobile)]
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
-
-
 
 
         // ========================================================================
@@ -182,10 +172,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
 
         [Category("UI & Colors")]
-        [DisplayName("Battle Pointer")]
-        [Description("Choose which battle pointer to use.")]
-        [DefaultValue(BattlePointerChoice.Removed)]
-        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
+        [DisplayName("Unit Select Frame")]
+        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
+        [DefaultValue(UnitSelectFrameOption.Removed)]
+        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Removed;
 
         [Category("UI & Colors")]
         [DisplayName("Battle Frame")]
@@ -194,28 +184,16 @@ namespace fftivc.config.zodioverwriter.Configuration
         public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
 
         [Category("UI & Colors")]
+        [DisplayName("Battle Pointer")]
+        [Description("Choose which battle pointer to use.")]
+        [DefaultValue(BattlePointerChoice.Removed)]
+        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
+
+        [Category("UI & Colors")]
         [DisplayName("Cursor Finger")]
         [Description("Select the style for the cursor finger.")]
         [DefaultValue(CursorFingerOption.Original)]
         public CursorFingerOption CursorFinger { get; set; } = CursorFingerOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Zodiac Icons")]
-        [Description("Select the style for zodiac sign icons.")]
-        [DefaultValue(ZodiacIconsOption.Original)]
-        public ZodiacIconsOption ZodiacIcons { get; set; } = ZodiacIconsOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Status Icons")]
-        [Description("Select the style for status effect icons.")]
-        [DefaultValue(StatusIconsOption.Original)]
-        public StatusIconsOption StatusIcons { get; set; } = StatusIconsOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Unit Select Frame")]
-        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
-        [DefaultValue(UnitSelectFrameOption.Removed)]
-        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Removed;
 
         [Category("UI & Colors")]
         [DisplayName("Unit Status HUD")]
@@ -277,7 +255,30 @@ namespace fftivc.config.zodioverwriter.Configuration
 
 
         // ========================================================================
-        // 6. FILTERS
+        // 6. ICONS
+        // ========================================================================
+
+        [Category("Icons")]
+        [DisplayName("Equipment Icons")]
+        [Description("Select the style for equipment icons.")]
+        [DefaultValue(EquipmentOption.Original)]
+        public EquipmentOption EquipmentIcons { get; set; } = EquipmentOption.Original;
+
+        [Category("Icons")]
+        [DisplayName("Zodiac Icons")]
+        [Description("Select the style for zodiac sign icons.")]
+        [DefaultValue(ZodiacIconsOption.Original)]
+        public ZodiacIconsOption ZodiacIcons { get; set; } = ZodiacIconsOption.Original;
+
+        [Category("Icons")]
+        [DisplayName("Status Icons")]
+        [Description("Select the style for status effect icons.")]
+        [DefaultValue(StatusIconsOption.Original)]
+        public StatusIconsOption StatusIcons { get; set; } = StatusIconsOption.Original;
+
+
+        // ========================================================================
+        // 7. FILTERS
         // ========================================================================
 
         [Category("Filters")]
