@@ -1,1 +1,5 @@
 Recommend Preset 1 and 5
+
+Hello! The only shader I could not package was a qUINT shader.
+Please download qUINT shaders on ReShade install to have the complete set.
+Should be noted it is not necessary; it'll still look fine without.
