@@ -17,6 +17,15 @@
   "CanUnload": true,
   "HasExports": false,
   "IsLibrary": false,
+  "ReleaseMetadataFileName": "Sewer56.Update.ReleaseMetadata.json",
+  "IgnoreRegexes": [
+    ".*\\.json"
+  ],
+  "IncludeRegexes": [
+    "\\.deps\\.json",
+    "\\.runtimeconfig\\.json",
+    "ModConfig\\.json"
+  ],
   "PluginData": {
     "GitHubDependencies": {
       "IdToConfigMap": {
@@ -58,9 +67,5 @@
   "SupportedAppId": [
     "fft_enhanced.exe"
   ],
-  "ProjectUrl": "",
-  "UpdateServer": "https://raw.githubusercontent.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/main/update.json",
-  "UpdateInfo": {
-    "ModId": "fftivc.asset.zoditexturepack"
-  }
+  "ProjectUrl": "https://github.com/Zodi-ark"
 }
