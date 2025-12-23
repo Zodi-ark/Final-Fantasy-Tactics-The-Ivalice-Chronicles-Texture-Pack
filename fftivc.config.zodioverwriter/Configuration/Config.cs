@@ -56,10 +56,10 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum CursorFingerOption
     {
         Original,
+        Black,
         PSX,
         Dissidia,
         Crisis_Core,
-        Black,
         Tactics_Ogre,
         Tactics_Ogre_Upscaled,
         Tactics_Ogre_Reborn
@@ -122,7 +122,7 @@ namespace fftivc.config.zodioverwriter.Configuration
     public class Config : Configurable<Config>
     {
         // ========================================================================
-        // 1. ASSET SWAPS
+        // ASSET SWAPS
         // ========================================================================
 
         [Category("Asset Swaps")]
@@ -143,9 +143,24 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(SpriteOption.Mobile)]
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
 
+        // ========================================================================
+        // FILTERS
+        // ========================================================================
+
+        [Category("Filters")]
+        [DisplayName("Remove Party Menu Filter")]
+        [Description("Removes the party menu screen filter.")]
+        [DefaultValue(true)]
+        public bool RemovePartyMenuFilter { get; set; } = true;
+
+        [Category("Filters")]
+        [DisplayName("Battle Filter")]
+        [Description("Select the battle screen filter style.")]
+        [DefaultValue(BattleFilterOption.Removed)]
+        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Removed;
 
         // ========================================================================
-        // 2. WORLD MAP
+        // WORLD MAP
         // ========================================================================
 
         [Category("World Map")]
@@ -160,22 +175,9 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(WorldMapOption.Original)]
         public WorldMapOption WorldMap { get; set; } = WorldMapOption.Original;
 
-
         // ========================================================================
-        // 3. UI & COLORS
+        // UI & COLORS
         // ========================================================================
-
-        [Category("UI & Colors")]
-        [DisplayName("Directional Wait Arrow")]
-        [Description("Choose the color or style of the directional selection arrows.")]
-        [DefaultValue(DirectionalWaitArrowOption.Original)]
-        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Unit Select Frame")]
-        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
-        [DefaultValue(UnitSelectFrameOption.Removed)]
-        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Removed;
 
         [Category("UI & Colors")]
         [DisplayName("Battle Frame")]
@@ -190,10 +192,16 @@ namespace fftivc.config.zodioverwriter.Configuration
         public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
 
         [Category("UI & Colors")]
-        [DisplayName("Cursor Finger")]
-        [Description("Select the style for the cursor finger.")]
-        [DefaultValue(CursorFingerOption.Original)]
-        public CursorFingerOption CursorFinger { get; set; } = CursorFingerOption.Original;
+        [DisplayName("Unit Select Frame")]
+        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
+        [DefaultValue(UnitSelectFrameOption.Removed)]
+        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Removed;
+
+        [Category("UI & Colors")]
+        [DisplayName("Directional Wait Arrow")]
+        [Description("Choose the color or style of the directional selection arrows.")]
+        [DefaultValue(DirectionalWaitArrowOption.Original)]
+        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Unit Status HUD")]
@@ -213,9 +221,58 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(PartyMenuColorOption.Original)]
         public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
 
+        [Category("UI & Colors")]
+        [DisplayName("Cursor Finger")]
+        [Description("Select the style for the cursor finger.")]
+        [DefaultValue(CursorFingerOption.Original)]
+        public CursorFingerOption CursorFinger { get; set; } = CursorFingerOption.Original;
 
         // ========================================================================
-        // 4. DIALOG
+        // INTERFACE TOGGLES
+        // ========================================================================
+
+        [Category("Interface Toggles")]
+        [DisplayName("Minimal Warnings")]
+        [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
+        [DefaultValue(false)]
+        public bool MinimalWarnings { get; set; } = false;
+
+        [Category("Interface Toggles")]
+        [DisplayName("Minimal Button Prompts")]
+        [Description("Removes many UI button tooltip prompts.")]
+        [DefaultValue(false)]
+        public bool MinimalButtonPrompts { get; set; } = false;
+
+        [Category("Interface Toggles")]
+        [DisplayName("Remove Text On Portraits")]
+        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\"  \"Auto,\" and \"Objective\" text from portraits and sprites.")]
+        [DefaultValue(false)]
+        public bool RemoveTextOnPortraits { get; set; } = false;
+
+        // ========================================================================
+        // ICONS
+        // ========================================================================
+
+        [Category("Icons")]
+        [DisplayName("Status Icons")]
+        [Description("Select the style for status effect icons.")]
+        [DefaultValue(StatusIconsOption.Original)]
+        public StatusIconsOption StatusIcons { get; set; } = StatusIconsOption.Original;
+
+        [Category("Icons")]
+        [DisplayName("Zodiac Icons")]
+        [Description("Select the style for zodiac sign icons.")]
+        [DefaultValue(ZodiacIconsOption.Original)]
+        public ZodiacIconsOption ZodiacIcons { get; set; } = ZodiacIconsOption.Original;
+
+        [Category("Icons")]
+        [DisplayName("Equipment Icons")]
+        [Description("Select the style for equipment icons.")]
+        [DefaultValue(EquipmentOption.Original)]
+        public EquipmentOption EquipmentIcons { get; set; } = EquipmentOption.Original;
+
+        // ========================================================================
+        // DIALOG
         // ========================================================================
 
         [Category("Dialog")]
@@ -230,68 +287,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(SpeechBubbleTypefaceOption.Original)]
         public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
 
-
-        // ========================================================================
-        // 5. INTERFACE TOGGLES
-        // ========================================================================
-
-        [Category("Interface Toggles")]
-        [DisplayName("Minimal Button Prompts")]
-        [Description("Removes many UI button tooltip prompts.")]
-        [DefaultValue(false)]
-        public bool MinimalButtonPrompts { get; set; } = false;
-
-        [Category("Interface Toggles")]
-        [DisplayName("Minimal Warnings")]
-        [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
-        [DefaultValue(false)]
-        public bool MinimalWarnings { get; set; } = false;
-
-        [Category("Interface Toggles")]
-        [DisplayName("Remove Text On Portraits")]
-        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\" and \"Objective\" text from portraits.")]
-        [DefaultValue(false)]
-        public bool RemoveTextOnPortraits { get; set; } = false;
-
-
-        // ========================================================================
-        // 6. ICONS
-        // ========================================================================
-
-        [Category("Icons")]
-        [DisplayName("Equipment Icons")]
-        [Description("Select the style for equipment icons.")]
-        [DefaultValue(EquipmentOption.Original)]
-        public EquipmentOption EquipmentIcons { get; set; } = EquipmentOption.Original;
-
-        [Category("Icons")]
-        [DisplayName("Zodiac Icons")]
-        [Description("Select the style for zodiac sign icons.")]
-        [DefaultValue(ZodiacIconsOption.Original)]
-        public ZodiacIconsOption ZodiacIcons { get; set; } = ZodiacIconsOption.Original;
-
-        [Category("Icons")]
-        [DisplayName("Status Icons")]
-        [Description("Select the style for status effect icons.")]
-        [DefaultValue(StatusIconsOption.Original)]
-        public StatusIconsOption StatusIcons { get; set; } = StatusIconsOption.Original;
-
-
-        // ========================================================================
-        // 7. FILTERS
-        // ========================================================================
-
-        [Category("Filters")]
-        [DisplayName("Battle Filter")]
-        [Description("Select the battle screen filter style.")]
-        [DefaultValue(BattleFilterOption.Removed)]
-        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Removed;
-
-        [Category("Filters")]
-        [DisplayName("Remove Party Menu Filter")]
-        [Description("Removes the party menu screen filter.")]
-        [DefaultValue(true)]
-        public bool RemovePartyMenuFilter { get; set; } = true;
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
