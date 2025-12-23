@@ -18,19 +18,17 @@
   "CanUnload": false,
   "HasExports": false,
   "IsLibrary": false,
-  "ReleaseMetadataFileName": "Sewer56.Update.ReleaseMetadata.json",
+  "ReleaseMetadataFileName": "update.json",
+  "IgnoreRegexes": [
+    ".*\\.json"
+  ],
+  "IncludeRegexes": [
+    "\\.deps\\.json",
+    "\\.runtimeconfig\\.json"
+  ],
   "PluginData": {
     "GitHubDependencies": {
       "IdToConfigMap": {
-        "Reloaded.Memory.SigScan.ReloadedII": {
-          "Config": {
-            "UserName": "Reloaded-Project",
-            "RepositoryName": "Reloaded.Memory.SigScan",
-            "UseReleaseTag": false,
-            "AssetFileName": "Mod.zip"
-          },
-          "ReleaseMetadataName": "Reloaded.Memory.SigScan.ReloadedII.ReleaseMetadata.json"
-        },
         "reloaded.sharedlib.hooks": {
           "Config": {
             "UserName": "Sewer56",
@@ -43,13 +41,6 @@
       }
     }
   },
-  "IgnoreRegexes": [
-    ".*\\.json"
-  ],
-  "IncludeRegexes": [
-    "\\.deps\\.json",
-    "\\.runtimeconfig\\.json"
-  ],
   "IsUniversalMod": false,
   "ModDependencies": [
     "reloaded.sharedlib.hooks"
@@ -58,9 +49,5 @@
   "SupportedAppId": [
     "fft_enhanced.exe"
   ],
-  "ProjectUrl": "https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack",
-  "UpdateServer": "https://raw.githubusercontent.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack/main/update.json",
-  "UpdateInfo": {
-    "ModId": "fftivc.config.zodioverwriter"
-  }
+  "ProjectUrl": "https://github.com/Zodi-ark/Final-Fantasy-Tactics-The-Ivalice-Chronicles-Texture-Pack"
 }
