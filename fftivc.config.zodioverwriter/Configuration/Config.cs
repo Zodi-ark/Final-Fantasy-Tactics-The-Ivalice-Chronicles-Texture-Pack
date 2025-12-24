@@ -56,10 +56,12 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum CursorFingerOption
     {
         Original,
-        Black,
         PSX,
-        Dissidia,
+        Black,
         Crisis_Core,
+        Crisis_Core_Upscaled,
+        Dissidia,
+        Dissidia_Upscaled,
         Tactics_Ogre,
         Tactics_Ogre_Upscaled,
         Tactics_Ogre_Reborn
@@ -91,6 +93,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         White,
         Black,
         Tactics_Ogre,
+        Tactics_Ogre_Greyscale,
         Tactics_Ogre_Alt
     }
 
@@ -100,6 +103,9 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum ZodiacIconsOption
     {
         Original,
+        Original_Alt,
+        Original_Alt_Vibrant,
+        Original_Alt_Greyscale,
         Auracite,
         Auracite_Pixelated,
         Auracite_Pixelated_Extra,
