@@ -83,6 +83,7 @@ namespace fftivc.config.zodioverwriter
 
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
+            ApplyUnitShiftArrow(texturePackDir); // <--- Added New Method Call Here
             ApplyUnitStatusHUD(texturePackDir);
             ApplyStatusIcons(texturePackDir);
             ApplyZodiacIcons(texturePackDir);
@@ -632,6 +633,36 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
+        // ========================================================================================================
+        // NEW METHOD: UNIT SHIFT ARROW
+        // ========================================================================================================
+        private void ApplyUnitShiftArrow(string texturePackDir)
+        {
+            try
+            {
+                // Destination: .../ui/ffto/unit/texture/ui_jobchange_uitx.tex
+                // This folder is shared with UnitHighlightRing.
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "unit", "texture", "ui_jobchange_uitx.tex");
+
+                if (_configuration!.UnitShiftArrow == UnitShiftArrowOption.Original)
+                {
+                    // Restore texture pack default (or vanilla)
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.UnitShiftArrow.ToString();
+                    // Source: Resources/UnitShiftArrow/{Option}/ui_jobchange_uitx.tex
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitShiftArrow", option, "ui_jobchange_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Unit Shift Arrow: {ex.Message}");
+            }
+        }
+
         private void ApplySpriteOption(string texturePackDir)
         {
             try
@@ -781,6 +812,8 @@ namespace fftivc.config.zodioverwriter
             {
                 if (File.Exists(source))
                 {
+                    // This handles creating the folder if it doesn't exist,
+                    // which is safe even if UnitHighlightRing already created it.
                     Directory.CreateDirectory(Path.GetDirectoryName(destination)!);
                     File.Copy(source, destination, true);
                     Console.WriteLine($"[fftivc.config.zodioverwriter] Copied: {Path.GetFileName(source)}");
@@ -812,6 +845,9 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
+        // ========================================================================================================
+        // INTERFACE METHODS (Required by IModV1)
+        // ========================================================================================================
         public void Suspend() { }
         public void Resume() { }
         public void Unload() { }

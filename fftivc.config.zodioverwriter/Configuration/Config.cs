@@ -77,6 +77,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         Minimal_Red
     }
 
+    public enum UnitShiftArrowOption { Original, Removed, Greyscale } // <--- NEW ENUM
+
     public enum WorldMapOption { Original, Azure_and_Ivory }
     public enum MapOption { Original, Vibrant }
     public enum BattleFilterOption { Original, Removed, Removed_Bright }
@@ -186,6 +188,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         // ========================================================================
 
         [Category("UI & Colors")]
+        [DisplayName("Directional Wait Arrows")]
+        [Description("Choose the color or style of the directional selection arrows.")]
+        [DefaultValue(DirectionalWaitArrowOption.Original)]
+        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+
+        [Category("UI & Colors")]
         [DisplayName("Battle Frame")]
         [Description("Choose which battle frame to use.")]
         [DefaultValue(BattleFrameOption.Removed)]
@@ -204,10 +212,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Removed;
 
         [Category("UI & Colors")]
-        [DisplayName("Directional Wait Arrow")]
-        [Description("Choose the color or style of the directional selection arrows.")]
-        [DefaultValue(DirectionalWaitArrowOption.Original)]
-        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+        [DisplayName("Unit Shift Arrows")]
+        [Description("Select the style for the unit shift arrow on the unit status and job page.")]
+        [DefaultValue(UnitShiftArrowOption.Original)]
+        public UnitShiftArrowOption UnitShiftArrow { get; set; } = UnitShiftArrowOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Unit Status HUD")]
