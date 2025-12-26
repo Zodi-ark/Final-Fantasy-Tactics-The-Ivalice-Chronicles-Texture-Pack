@@ -77,7 +77,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         Minimal_Red
     }
 
-    public enum UnitShiftArrowOption { Original, Removed, Greyscale } // <--- NEW ENUM
+    public enum UnitShiftArrowOption { Original, Removed, Greyscale }
 
     public enum WorldMapOption { Original, Azure_and_Ivory }
     public enum MapOption { Original, Vibrant }
@@ -119,12 +119,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         Gold_Pixelated_Extra
     }
 
-    // ********************************************************************
-    // ************ NEW ENUMS FOR DIALOG ************
-    // ********************************************************************
     public enum SpeechBubbleOption { Original, PSX_Upscaled }
     public enum SpeechBubbleTypefaceOption { Original, Old_English }
-    // ********************************************************************
 
 
     public class Config : Configurable<Config>
@@ -152,22 +148,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
 
         // ========================================================================
-        // FILTERS
-        // ========================================================================
-
-        [Category("Filters")]
-        [DisplayName("Remove Party Menu Filter")]
-        [Description("Removes the party menu screen filter.")]
-        [DefaultValue(true)]
-        public bool RemovePartyMenuFilter { get; set; } = true;
-
-        [Category("Filters")]
-        [DisplayName("Battle Filter")]
-        [Description("Select the battle screen filter style.")]
-        [DefaultValue(BattleFilterOption.Removed)]
-        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Removed;
-
-        // ========================================================================
         // WORLD MAP
         // ========================================================================
 
@@ -182,6 +162,22 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select the world map to use.")]
         [DefaultValue(WorldMapOption.Original)]
         public WorldMapOption WorldMap { get; set; } = WorldMapOption.Original;
+
+        // ========================================================================
+        // DIALOG
+        // ========================================================================
+
+        [Category("Dialog")]
+        [DisplayName("Speech Bubble Style")]
+        [Description("Select the style for speech bubbles.")]
+        [DefaultValue(SpeechBubbleOption.Original)]
+        public SpeechBubbleOption SpeechBubble { get; set; } = SpeechBubbleOption.Original;
+
+        [Category("Dialog")]
+        [DisplayName("Speech Bubble Typeface")]
+        [Description("Select the typeface style for speech bubbles.")]
+        [DefaultValue(SpeechBubbleTypefaceOption.Original)]
+        public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
 
         // ========================================================================
         // UI & COLORS
@@ -286,21 +282,20 @@ namespace fftivc.config.zodioverwriter.Configuration
         public EquipmentOption EquipmentIcons { get; set; } = EquipmentOption.Original;
 
         // ========================================================================
-        // DIALOG
+        // FILTERS
         // ========================================================================
 
-        [Category("Dialog")]
-        [DisplayName("Speech Bubble Style")]
-        [Description("Select the style for speech bubbles.")]
-        [DefaultValue(SpeechBubbleOption.Original)]
-        public SpeechBubbleOption SpeechBubble { get; set; } = SpeechBubbleOption.Original;
+        [Category("Filters")]
+        [DisplayName("Battle Filter")]
+        [Description("Select the battle screen filter style.")]
+        [DefaultValue(BattleFilterOption.Removed)]
+        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Removed;
 
-        [Category("Dialog")]
-        [DisplayName("Speech Bubble Typeface")]
-        [Description("Select the typeface style for speech bubbles.")]
-        [DefaultValue(SpeechBubbleTypefaceOption.Original)]
-        public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
-
+        [Category("Filters")]
+        [DisplayName("Remove Party Menu Filter")]
+        [Description("Removes the party menu screen filter.")]
+        [DefaultValue(true)]
+        public bool RemovePartyMenuFilter { get; set; } = true;
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
