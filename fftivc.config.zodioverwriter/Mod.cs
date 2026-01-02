@@ -243,15 +243,20 @@ namespace fftivc.config.zodioverwriter
 
                 if (_configuration!.StatusIcons == StatusIconsOption.Original)
                 {
+                    // We use the PSX folder as a "reference list" of files to delete to restore vanilla.
+                    // This assumes PSX and Original_Greyscale modify the same set of files.
                     string referenceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", "PSX");
                     DeleteManagedFiles(referenceDir, targetDir);
                 }
                 else
                 {
-                    string sourceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", "PSX");
+                    // FIX: Use the selected option's name ("Original_Greyscale" or "PSX") instead of hardcoding "PSX"
+                    string option = _configuration!.StatusIcons.ToString();
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", option);
+
                     if (!Directory.Exists(sourceDir))
                     {
-                        Console.WriteLine($"[fftivc.config.zodioverwriter] Status Icons folder not found: PSX");
+                        Console.WriteLine($"[fftivc.config.zodioverwriter] Status Icons folder not found: {option}");
                         return;
                     }
                     CopyDirectory(sourceDir, targetDir);

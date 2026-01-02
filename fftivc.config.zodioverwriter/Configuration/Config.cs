@@ -99,8 +99,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         Tactics_Ogre_Alt
     }
 
-    public enum UnitStatusHUDOption { Original, Minimal, Minimal_Blue_HP_Bar }
-    public enum StatusIconsOption { Original, PSX }
+    public enum UnitStatusHUDOption { Original, Minimal, Minimal_Blue_HP_Bar, Minimal_PSX }
+    public enum StatusIconsOption { Original, Greyscale, Minimal, Minimal_Greyscale, PSX, PSX_Dark }
 
     public enum ZodiacIconsOption
     {
