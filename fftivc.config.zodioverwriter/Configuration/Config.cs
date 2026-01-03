@@ -1,18 +1,33 @@
 ﻿using fftivc.config.zodioverwriter.Template.Configuration;
 using Reloaded.Mod.Interfaces.Structs;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations; // Required for [Display]
 
 namespace fftivc.config.zodioverwriter.Configuration
 {
     // --- Enums ---
-    public enum SpriteOption { Original, Mobile }
-    public enum PortraitOption { Original, Upscaled }
+    public enum SpriteOption
+    {
+        Original,
+        Mobile
+    }
+
+    public enum PortraitOption
+    {
+        Original,
+        Upscaled
+    }
 
     public enum EquipmentOption
     {
         Original,
+
+        [Display(Name = "Original — Drop Shadow")]
         Original_With_Drop_Shadow,
+
         PSX,
+
+        [Display(Name = "PSX — Drop Shadow")]
         PSX_With_Drop_Shadow
     }
 
@@ -26,6 +41,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         Red,
         Purple,
         White,
+
+        [Display(Name = "White — HDR")]
         White_HDR
     }
 
@@ -36,17 +53,30 @@ namespace fftivc.config.zodioverwriter.Configuration
         PSX,
         Pink,
         Purple,
+
+        [Display(Name = "Purple — HDR")]
         Purple_HDR,
+
         Red,
         Green,
         Cyan,
         Blue,
         White,
         Black,
+
+        [Display(Name = "Tactics Ogre")]
         Tactics_Ogre,
+
+        [Display(Name = "Tactics Ogre Reborn")]
         Tactics_Ogre_Reborn,
+
+        [Display(Name = "Tactics Ogre Reborn Alt")]
         Tactics_Ogre_Reborn_Alt,
+
+        [Display(Name = "Tactics Ogre Reborn Quil")]
         Tactics_Ogre_Reborn_Quil,
+
+        [Display(Name = "Tactics Ogre Reborn Quil Alt")]
         Tactics_Ogre_Reborn_Quil_Alt
     }
 
@@ -58,30 +88,73 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original,
         PSX,
         Black,
+
+        [Display(Name = "Crisis Core")]
         Crisis_Core,
+
+        [Display(Name = "Crisis Core — Upscaled")]
         Crisis_Core_Upscaled,
+
         Dissidia,
+
+        [Display(Name = "Dissidia — Upscaled")]
         Dissidia_Upscaled,
+
+        [Display(Name = "Tactics Ogre")]
         Tactics_Ogre,
+
+        [Display(Name = "Tactics Ogre — Upscaled")]
         Tactics_Ogre_Upscaled,
+
+        [Display(Name = "Tactics Ogre Reborn")]
         Tactics_Ogre_Reborn
     }
 
     public enum UnitHighlightRingOption
     {
         Original,
+
+        [Display(Name = "Minimal & Original")]
         Minimal_Original,
+
+        [Display(Name = "Minimal & Removed")]
         Minimal_Removed,
+
+        [Display(Name = "Minimal & Purple")]
         Minimal_Purple,
+
+        [Display(Name = "Minimal & White")]
         Minimal_White,
+
+        [Display(Name = "Minimal & Red")]
         Minimal_Red
     }
 
-    public enum UnitShiftArrowOption { Original, Removed, Greyscale }
+    public enum UnitShiftArrowOption
+    {
+        Original,
+        Removed,
+        Greyscale
+    }
 
-    public enum WorldMapOption { Original, Azure_and_Ivory }
+    public enum WorldMapOption
+    {
+        Original,
+
+        [Display(Name = "Azure and Ivory")]
+        Azure_and_Ivory
+    }
+
     public enum MapOption { Original, Vibrant }
-    public enum BattleFilterOption { Original, Removed, Removed_Bright }
+
+    public enum BattleFilterOption
+    {
+        Original,
+        Removed,
+
+        [Display(Name = "Removed — Bright")]
+        Removed_Bright
+    }
 
     public enum DirectionalWaitArrowOption
     {
@@ -94,33 +167,98 @@ namespace fftivc.config.zodioverwriter.Configuration
         Blue,
         White,
         Black,
+
+        [Display(Name = "Tactics Ogre")]
         Tactics_Ogre,
+
+        [Display(Name = "Tactics Ogre — Greyscale")]
         Tactics_Ogre_Greyscale,
+
+        [Display(Name = "Tactics Ogre Alt")]
         Tactics_Ogre_Alt
     }
 
-    public enum UnitStatusHUDOption { Original, Minimal, Minimal_Blue_HP_Bar, Minimal_PSX }
-    public enum StatusIconsOption { Original, Greyscale, Minimal, Minimal_Greyscale, PSX, PSX_Dark }
+    public enum UnitStatusHUDOption
+    {
+        Original,
+        Minimal,
+
+        [Display(Name = "Minimal — Blue HP Bar")]
+        Minimal_Blue_HP_Bar,
+
+        [Display(Name = "Minimal — PSX")]
+        Minimal_PSX
+    }
+
+    public enum StatusIconsOption
+    {
+        Original,
+        Greyscale,
+        Minimal,
+
+        [Display(Name = "Minimal — Greyscale")]
+        Minimal_Greyscale,
+
+        PSX,
+
+        [Display(Name = "PSX — Dark")]
+        PSX_Dark
+    }
 
     public enum ZodiacIconsOption
     {
         Original,
+
+        [Display(Name = "Minimal")]
         Original_Alt,
+
+        [Display(Name = "Minimal — Vibrant")]
         Original_Alt_Vibrant,
+
+        [Display(Name = "Minimal — Greyscale")]
         Original_Alt_Greyscale,
+
         Auracite,
+
+        [Display(Name = "Auracite — Pixelated")]
         Auracite_Pixelated,
+
+        [Display(Name = "Auracite — Pixelated (Extra)")]
         Auracite_Pixelated_Extra,
+
+        [Display(Name = "Auracite Glowing")]
         Auracite_Glowing,
+
+        [Display(Name = "Auracite Glowing — Pixelated")]
         Auracite_Glowing_Pixelated,
+
+        [Display(Name = "Auracite Glowing — Pixelated (Extra)")]
         Auracite_Glowing_Pixelated_Extra,
+
         Gold,
+
+        [Display(Name = "Gold — Pixelated")]
         Gold_Pixelated,
+
+        [Display(Name = "Gold — Pixelated (Extra)")]
         Gold_Pixelated_Extra
     }
 
-    public enum SpeechBubbleOption { Original, PSX_Upscaled }
-    public enum SpeechBubbleTypefaceOption { Original, Old_English }
+    public enum SpeechBubbleOption
+    {
+        Original,
+
+        [Display(Name = "PSX Upscaled")]
+        PSX_Upscaled
+    }
+
+    public enum SpeechBubbleTypefaceOption
+    {
+        Original,
+
+        [Display(Name = "Old English")]
+        Old_English
+    }
 
 
     public class Config : Configurable<Config>
@@ -132,8 +270,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Category("Asset Swaps")]
         [DisplayName("Maps")]
         [Description("Select which map textures to use.")]
-        [DefaultValue(MapOption.Vibrant)]
-        public MapOption Maps { get; set; } = MapOption.Vibrant;
+        [DefaultValue(MapOption.Original)]
+        public MapOption Maps { get; set; } = MapOption.Original;
 
         [Category("Asset Swaps")]
         [DisplayName("Portraits")]
@@ -144,8 +282,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Category("Asset Swaps")]
         [DisplayName("Sprites")]
         [Description("Select which sprite style to use.")]
-        [DefaultValue(SpriteOption.Mobile)]
-        public SpriteOption SpritesOption { get; set; } = SpriteOption.Mobile;
+        [DefaultValue(SpriteOption.Original)]
+        public SpriteOption SpritesOption { get; set; } = SpriteOption.Original;
 
         // ========================================================================
         // WORLD MAP
@@ -192,20 +330,20 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Category("UI & Colors")]
         [DisplayName("Battle Frame")]
         [Description("Choose which battle frame to use.")]
-        [DefaultValue(BattleFrameOption.Removed)]
-        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Removed;
+        [DefaultValue(BattleFrameOption.Original)]
+        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Battle Pointer")]
         [Description("Choose which battle pointer to use.")]
-        [DefaultValue(BattlePointerChoice.Removed)]
-        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Removed;
+        [DefaultValue(BattlePointerChoice.Original)]
+        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Unit Select Frame")]
         [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
-        [DefaultValue(UnitSelectFrameOption.Removed)]
-        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Removed;
+        [DefaultValue(UnitSelectFrameOption.Original)]
+        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Unit Shift Arrows")]
@@ -216,8 +354,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Category("UI & Colors")]
         [DisplayName("Unit Status HUD")]
         [Description("Select the style for the unit status HUD (HP/MP bars).")]
-        [DefaultValue(UnitStatusHUDOption.Minimal)]
-        public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Minimal;
+        [DefaultValue(UnitStatusHUDOption.Original)]
+        public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Party Menu Style & Ring")]
@@ -288,14 +426,14 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Category("Filters")]
         [DisplayName("Battle Filter")]
         [Description("Select the battle screen filter style.")]
-        [DefaultValue(BattleFilterOption.Removed)]
-        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Removed;
+        [DefaultValue(BattleFilterOption.Original)]
+        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Original;
 
         [Category("Filters")]
         [DisplayName("Remove Party Menu Filter")]
         [Description("Removes the party menu screen filter.")]
-        [DefaultValue(true)]
-        public bool RemovePartyMenuFilter { get; set; } = true;
+        [DefaultValue(false)]
+        public bool RemovePartyMenuFilter { get; set; } = false;
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
