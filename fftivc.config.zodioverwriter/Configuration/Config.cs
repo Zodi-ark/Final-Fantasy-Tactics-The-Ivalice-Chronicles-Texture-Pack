@@ -89,6 +89,9 @@ namespace fftivc.config.zodioverwriter.Configuration
         PSX,
         Black,
 
+        [Display(Name = "Final Fantasy VIII")]
+        Final_Fantasy_VIII,
+
         [Display(Name = "Crisis Core")]
         Crisis_Core,
 
@@ -107,7 +110,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         Tactics_Ogre_Upscaled,
 
         [Display(Name = "Tactics Ogre Reborn")]
-        Tactics_Ogre_Reborn
+        Tactics_Ogre_Reborn,
+
+        [Display(Name = "Octopath Traveler")]
+        Octopath_Traveler
     }
 
     public enum UnitHighlightRingOption
@@ -260,7 +266,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         Old_English
     }
 
-    // NEW ENUM FOR HEARTS & GLOW
     public enum BleedOutHeartsAndTurnGlowOption
     {
         Original,
@@ -274,26 +279,54 @@ namespace fftivc.config.zodioverwriter.Configuration
     public class Config : Configurable<Config>
     {
         // ========================================================================
-        // ASSET SWAPS
+        // GLOBAL (New Category)
         // ========================================================================
 
-        [Category("Asset Swaps")]
-        [DisplayName("Maps")]
-        [Description("Select which map textures to use.")]
-        [DefaultValue(MapOption.Original)]
-        public MapOption Maps { get; set; } = MapOption.Original;
+        [Category("Global")]
+        [DisplayName("Cursor Finger")]
+        [Description("Select the style for the cursor finger.")]
+        [DefaultValue(CursorFingerOption.Original)]
+        public CursorFingerOption CursorFinger { get; set; } = CursorFingerOption.Original;
 
-        [Category("Asset Swaps")]
+        [Category("Global")]
+        [DisplayName("Minimal Button Prompts")]
+        [Description("Removes many UI button tooltip prompts.")]
+        [DefaultValue(false)]
+        public bool MinimalButtonPrompts { get; set; } = false;
+
+        [Category("Global")]
+        [DisplayName("Unit Status HUD")]
+        [Description("Select the style for the unit status HUD (HP/MP bars).")]
+        [DefaultValue(UnitStatusHUDOption.Original)]
+        public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Original;
+
+        [Category("Global")]
         [DisplayName("Portraits")]
         [Description("Select which portrait style to use.")]
         [DefaultValue(PortraitOption.Original)]
         public PortraitOption PortraitsOption { get; set; } = PortraitOption.Original;
 
-        [Category("Asset Swaps")]
+        [Category("Global")]
         [DisplayName("Sprites")]
         [Description("Select which sprite style to use.")]
         [DefaultValue(SpriteOption.Original)]
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Original;
+
+        // ========================================================================
+        // FILTERS
+        // ========================================================================
+
+        [Category("Filters")]
+        [DisplayName("Remove Party Menu Filter")]
+        [Description("Removes the party menu screen filter.")]
+        [DefaultValue(false)]
+        public bool RemovePartyMenuFilter { get; set; } = false;
+
+        [Category("Filters")]
+        [DisplayName("Battle Filter")]
+        [Description("Select the battle screen filter style.")]
+        [DefaultValue(BattleFilterOption.Original)]
+        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Original;
 
         // ========================================================================
         // WORLD MAP
@@ -328,90 +361,78 @@ namespace fftivc.config.zodioverwriter.Configuration
         public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
 
         // ========================================================================
-        // UI & COLORS
+        // BATTLE (New Category)
         // ========================================================================
 
-        [Category("UI & Colors")]
-        [DisplayName("Directional Wait Arrows")]
-        [Description("Choose the color or style of the directional selection arrows.")]
-        [DefaultValue(DirectionalWaitArrowOption.Original)]
-        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+        [Category("Battle")]
+        [DisplayName("Remove Text On Portraits")]
+        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\"  \"Auto,\" and \"Objective\" text from portraits and sprites.")]
+        [DefaultValue(false)]
+        public bool RemoveTextOnPortraits { get; set; } = false;
 
-        [Category("UI & Colors")]
-        [DisplayName("Battle Frame")]
-        [Description("Choose which battle frame to use.")]
-        [DefaultValue(BattleFrameOption.Original)]
-        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Battle Pointer")]
-        [Description("Choose which battle pointer to use.")]
-        [DefaultValue(BattlePointerChoice.Original)]
-        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Unit Select Frame")]
-        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
-        [DefaultValue(UnitSelectFrameOption.Original)]
-        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Bleed Out Hearts & Turn Glow")]
-        [Description("Select the style of the heart counter over KO'ed units and the gold glow over the turn counter.")]
-        [DefaultValue(BleedOutHeartsAndTurnGlowOption.Original)]
-        public BleedOutHeartsAndTurnGlowOption BleedOutHeartsAndTurnGlow { get; set; } = BleedOutHeartsAndTurnGlowOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Unit Shift Arrows")]
-        [Description("Select the style for the unit shift arrow on the unit status and job page.")]
-        [DefaultValue(UnitShiftArrowOption.Original)]
-        public UnitShiftArrowOption UnitShiftArrow { get; set; } = UnitShiftArrowOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Unit Status HUD")]
-        [Description("Select the style for the unit status HUD (HP/MP bars).")]
-        [DefaultValue(UnitStatusHUDOption.Original)]
-        public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Party Menu Style & Ring")]
-        [Description("This setting changes the style of the party menu and also changes the color of the unit highlight ring.")]
-        [DefaultValue(UnitHighlightRingOption.Original)]
-        public UnitHighlightRingOption UnitHighlightRingOption { get; set; } = UnitHighlightRingOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Party Menu Color")]
-        [Description("Select the background color for the party menu.")]
-        [DefaultValue(PartyMenuColorOption.Original)]
-        public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
-
-        [Category("UI & Colors")]
-        [DisplayName("Cursor Finger")]
-        [Description("Select the style for the cursor finger.")]
-        [DefaultValue(CursorFingerOption.Original)]
-        public CursorFingerOption CursorFinger { get; set; } = CursorFingerOption.Original;
-
-        // ========================================================================
-        // INTERFACE TOGGLES
-        // ========================================================================
-
-        [Category("Interface Toggles")]
+        [Category("Battle")]
         [DisplayName("Minimal Warnings")]
         [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
         [DefaultValue(false)]
         public bool MinimalWarnings { get; set; } = false;
 
-        [Category("Interface Toggles")]
-        [DisplayName("Minimal Button Prompts")]
-        [Description("Removes many UI button tooltip prompts.")]
-        [DefaultValue(false)]
-        public bool MinimalButtonPrompts { get; set; } = false;
+        [Category("Battle")]
+        [DisplayName("Bleed Out Hearts & Turn Glow")]
+        [Description("Select the style of the heart counter over KO'ed units and the gold glow over the turn counter.")]
+        [DefaultValue(BleedOutHeartsAndTurnGlowOption.Original)]
+        public BleedOutHeartsAndTurnGlowOption BleedOutHeartsAndTurnGlow { get; set; } = BleedOutHeartsAndTurnGlowOption.Original;
 
-        [Category("Interface Toggles")]
-        [DisplayName("Remove Text On Portraits")]
-        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\"  \"Auto,\" and \"Objective\" text from portraits and sprites.")]
-        [DefaultValue(false)]
-        public bool RemoveTextOnPortraits { get; set; } = false;
+        [Category("Battle")]
+        [DisplayName("Directional Wait Arrows")]
+        [Description("Choose the color or style of the directional selection arrows.")]
+        [DefaultValue(DirectionalWaitArrowOption.Original)]
+        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Battle Frame")]
+        [Description("Choose which battle frame to use.")]
+        [DefaultValue(BattleFrameOption.Original)]
+        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Battle Pointer")]
+        [Description("Choose which battle pointer to use.")]
+        [DefaultValue(BattlePointerChoice.Original)]
+        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Original;
+
+        [Category("Battle")]
+        [DisplayName("Unit Select Frame")]
+        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
+        [DefaultValue(UnitSelectFrameOption.Original)]
+        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Maps")]
+        [Description("Select which map textures to use.")]
+        [DefaultValue(MapOption.Original)]
+        public MapOption Maps { get; set; } = MapOption.Original;
+
+        // ========================================================================
+        // PARTY MENU (New Category)
+        // ========================================================================
+
+        [Category("Party Menu")]
+        [DisplayName("Unit Shift Arrows")]
+        [Description("Select the style for the unit shift arrow on the unit status and job page.")]
+        [DefaultValue(UnitShiftArrowOption.Original)]
+        public UnitShiftArrowOption UnitShiftArrow { get; set; } = UnitShiftArrowOption.Original;
+
+        [Category("Party Menu")]
+        [DisplayName("Party Menu Style & Ring Color")]
+        [Description("This setting changes the style of the party menu and also changes the color of the unit highlight ring.")]
+        [DefaultValue(UnitHighlightRingOption.Original)]
+        public UnitHighlightRingOption UnitHighlightRingOption { get; set; } = UnitHighlightRingOption.Original;
+
+        [Category("Party Menu")]
+        [DisplayName("Party Menu Color")]
+        [Description("Select the background color for the party menu.")]
+        [DefaultValue(PartyMenuColorOption.Original)]
+        public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
 
         // ========================================================================
         // ICONS
@@ -435,21 +456,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(EquipmentOption.Original)]
         public EquipmentOption EquipmentIcons { get; set; } = EquipmentOption.Original;
 
-        // ========================================================================
-        // FILTERS
-        // ========================================================================
-
-        [Category("Filters")]
-        [DisplayName("Battle Filter")]
-        [Description("Select the battle screen filter style.")]
-        [DefaultValue(BattleFilterOption.Original)]
-        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Original;
-
-        [Category("Filters")]
-        [DisplayName("Remove Party Menu Filter")]
-        [Description("Removes the party menu screen filter.")]
-        [DefaultValue(false)]
-        public bool RemovePartyMenuFilter { get; set; } = false;
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
