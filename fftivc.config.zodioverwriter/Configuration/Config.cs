@@ -275,11 +275,56 @@ namespace fftivc.config.zodioverwriter.Configuration
         Minimal_Greyscale
     }
 
+    // RENAMED ENUM FOR FAVORITE TILE & FLAG
+    public enum UnitFavoriteTileAndFlagOption
+    {
+        Original,
+
+        [Display(Name = "Original — Vibrant")]
+        Original_Vibrant,
+
+        Pink,
+        Greyscale,
+
+        [Display(Name = "Greyscale — Bright")]
+        Greyscale_Bright,
+
+        [Display(Name = "Greyscale — Dark")]
+        Greyscale_Dark
+    }
+
+    // NEW ENUM FOR UNIT TILE
+    public enum UnitTileOption
+    {
+        Original,
+        Pink,
+        Purple,
+        Red,
+        Gold,
+        Blue,
+
+        [Display(Name = "Blue — Light")]
+        Blue_Light,
+
+        Teal,
+        White,
+        Greyscale,
+
+        [Display(Name = "Greyscale — Bright")]
+        Greyscale_Bright,
+
+        [Display(Name = "Greyscale — Dark")]
+        Greyscale_Dark,
+
+        [Display(Name = "Greyscale — Smooth")]
+        Greyscale_Smooth
+    }
+
 
     public class Config : Configurable<Config>
     {
         // ========================================================================
-        // GLOBAL (New Category)
+        // GLOBAL
         // ========================================================================
 
         [Category("Global")]
@@ -311,6 +356,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select which sprite style to use.")]
         [DefaultValue(SpriteOption.Original)]
         public SpriteOption SpritesOption { get; set; } = SpriteOption.Original;
+
 
         // ========================================================================
         // FILTERS
@@ -361,7 +407,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
 
         // ========================================================================
-        // BATTLE (New Category)
+        // BATTLE
         // ========================================================================
 
         [Category("Battle")]
@@ -413,7 +459,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         public MapOption Maps { get; set; } = MapOption.Original;
 
         // ========================================================================
-        // PARTY MENU (New Category)
+        // PARTY MENU
         // ========================================================================
 
         [Category("Party Menu")]
@@ -421,6 +467,18 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select the style for the unit shift arrow on the unit status and job page.")]
         [DefaultValue(UnitShiftArrowOption.Original)]
         public UnitShiftArrowOption UnitShiftArrow { get; set; } = UnitShiftArrowOption.Original;
+
+        [Category("Party Menu")]
+        [DisplayName("Unit Tile")]
+        [Description("Select the style for the tile units stand on.")]
+        [DefaultValue(UnitTileOption.Original)]
+        public UnitTileOption UnitTile { get; set; } = UnitTileOption.Original;
+
+        [Category("Party Menu")]
+        [DisplayName("Favorite Unit Tile & Flag")]
+        [Description("Select the style for the tile favorited units stand on and the flag over them.")]
+        [DefaultValue(UnitFavoriteTileAndFlagOption.Original)]
+        public UnitFavoriteTileAndFlagOption UnitFavoriteTileAndFlag { get; set; } = UnitFavoriteTileAndFlagOption.Original;
 
         [Category("Party Menu")]
         [DisplayName("Party Menu Style & Ring Color")]

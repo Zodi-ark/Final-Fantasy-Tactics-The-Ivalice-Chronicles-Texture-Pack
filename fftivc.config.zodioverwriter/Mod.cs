@@ -70,7 +70,7 @@ namespace fftivc.config.zodioverwriter
             ApplyBattleFrame(texturePackDir);
             ApplyUnitSelectFrame(texturePackDir);
             ApplyDirectionalWaitArrow(texturePackDir);
-            ApplyBleedOutHeartsAndTurnGlow(texturePackDir); // <--- Added New Method Call Here
+            ApplyBleedOutHeartsAndTurnGlow(texturePackDir);
             ApplyWorldMapBlur(texturePackDir);
             ApplyWorldMap(texturePackDir);
             ApplyMenuFilter(texturePackDir);
@@ -85,6 +85,8 @@ namespace fftivc.config.zodioverwriter
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
             ApplyUnitShiftArrow(texturePackDir);
+            ApplyUnitFavoriteTileAndFlag(texturePackDir); // Renamed call
+            ApplyUnitTile(texturePackDir); // <--- Added New Method Call Here
             ApplyUnitStatusHUD(texturePackDir);
             ApplyStatusIcons(texturePackDir);
             ApplyZodiacIcons(texturePackDir);
@@ -353,9 +355,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // ========================================================================================================
-        // NEW METHOD: BLEED OUT HEARTS & TURN GLOW
-        // ========================================================================================================
         private void ApplyBleedOutHeartsAndTurnGlow(string texturePackDir)
         {
             try
@@ -686,6 +685,69 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
+        // ========================================================================================================
+        // RENAMED METHOD: FAVORITE UNIT TILE & FLAG
+        // ========================================================================================================
+        private void ApplyUnitFavoriteTileAndFlag(string texturePackDir)
+        {
+            try
+            {
+                // Destination path for the favorite tile texture
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "unit", "texture", "ui_unit_starting_member_uitx.tex");
+
+                if (_configuration!.UnitFavoriteTileAndFlag == UnitFavoriteTileAndFlagOption.Original)
+                {
+                    // Restore vanilla/default texture by deleting the override
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.UnitFavoriteTileAndFlag.ToString();
+                    // Source path based on the enum name. Note: Renamed folder to match config name is good practice.
+                    // Assuming the folder name matches the enum name (UnitFavoriteTileAndFlagOption) OR you renamed the folder.
+                    // If you kept the folder as "UnitFavoriteTile", change the string below to "UnitFavoriteTile".
+                    // I'll assume you rename the folder to "UnitFavoriteTileAndFlag" to match the config rename.
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitFavoriteTileAndFlag", option, "ui_unit_starting_member_uitx.tex");
+
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Favorite Unit Tile & Flag: {ex.Message}");
+            }
+        }
+
+        // ========================================================================================================
+        // NEW METHOD: UNIT TILE
+        // ========================================================================================================
+        private void ApplyUnitTile(string texturePackDir)
+        {
+            try
+            {
+                // Destination path for the unit tile texture
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "icon", "unit_stand", "texture", "us_001_uitx.tex");
+
+                if (_configuration!.UnitTile == UnitTileOption.Original)
+                {
+                    // Restore vanilla/default texture by deleting the override
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.UnitTile.ToString();
+                    // Source path: Resources/UnitTile/{Option}/us_001_uitx.tex
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitTile", option, "us_001_uitx.tex");
+
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Unit Tile: {ex.Message}");
+            }
+        }
+
         private void ApplySpriteOption(string texturePackDir)
         {
             try
@@ -744,6 +806,8 @@ namespace fftivc.config.zodioverwriter
         {
             if (!Directory.Exists(sourceDir))
             {
+                // Note: Not printing error here to avoid log spam if user just hasn't made the folder yet
+                // But generally this folder should exist for correct cleanup.
                 return;
             }
 
@@ -833,6 +897,8 @@ namespace fftivc.config.zodioverwriter
             {
                 if (File.Exists(source))
                 {
+                    // This handles creating the folder if it doesn't exist,
+                    // which is safe even if UnitHighlightRing already created it.
                     Directory.CreateDirectory(Path.GetDirectoryName(destination)!);
                     File.Copy(source, destination, true);
                     Console.WriteLine($"[fftivc.config.zodioverwriter] Copied: {Path.GetFileName(source)}");
