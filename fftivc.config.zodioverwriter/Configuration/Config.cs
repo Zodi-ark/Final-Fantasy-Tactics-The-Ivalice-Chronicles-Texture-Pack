@@ -260,6 +260,16 @@ namespace fftivc.config.zodioverwriter.Configuration
         Old_English
     }
 
+    // NEW ENUM FOR HEARTS & GLOW
+    public enum BleedOutHeartsAndTurnGlowOption
+    {
+        Original,
+        Minimal,
+
+        [Display(Name = "Minimal — Greyscale")]
+        Minimal_Greyscale
+    }
+
 
     public class Config : Configurable<Config>
     {
@@ -344,6 +354,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
         [DefaultValue(UnitSelectFrameOption.Original)]
         public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Original;
+
+        [Category("UI & Colors")]
+        [DisplayName("Bleed Out Hearts & Turn Glow")]
+        [Description("Select the style of the heart counter over KO'ed units and the gold glow over the turn counter.")]
+        [DefaultValue(BleedOutHeartsAndTurnGlowOption.Original)]
+        public BleedOutHeartsAndTurnGlowOption BleedOutHeartsAndTurnGlow { get; set; } = BleedOutHeartsAndTurnGlowOption.Original;
 
         [Category("UI & Colors")]
         [DisplayName("Unit Shift Arrows")]

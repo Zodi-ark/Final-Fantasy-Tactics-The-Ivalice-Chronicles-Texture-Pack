@@ -70,6 +70,7 @@ namespace fftivc.config.zodioverwriter
             ApplyBattleFrame(texturePackDir);
             ApplyUnitSelectFrame(texturePackDir);
             ApplyDirectionalWaitArrow(texturePackDir);
+            ApplyBleedOutHeartsAndTurnGlow(texturePackDir); // <--- Added New Method Call Here
             ApplyWorldMapBlur(texturePackDir);
             ApplyWorldMap(texturePackDir);
             ApplyMenuFilter(texturePackDir);
@@ -83,7 +84,7 @@ namespace fftivc.config.zodioverwriter
 
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
-            ApplyUnitShiftArrow(texturePackDir); // <--- Added New Method Call Here
+            ApplyUnitShiftArrow(texturePackDir);
             ApplyUnitStatusHUD(texturePackDir);
             ApplyStatusIcons(texturePackDir);
             ApplyZodiacIcons(texturePackDir);
@@ -244,13 +245,11 @@ namespace fftivc.config.zodioverwriter
                 if (_configuration!.StatusIcons == StatusIconsOption.Original)
                 {
                     // We use the PSX folder as a "reference list" of files to delete to restore vanilla.
-                    // This assumes PSX and Original_Greyscale modify the same set of files.
                     string referenceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", "PSX");
                     DeleteManagedFiles(referenceDir, targetDir);
                 }
                 else
                 {
-                    // FIX: Use the selected option's name ("Original_Greyscale" or "PSX") instead of hardcoding "PSX"
                     string option = _configuration!.StatusIcons.ToString();
                     string sourceDir = Path.Combine(_modRoot!, "Resources", "StatusIcons", option);
 
@@ -351,6 +350,32 @@ namespace fftivc.config.zodioverwriter
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying directional wait arrow: {ex.Message}");
+            }
+        }
+
+        // ========================================================================================================
+        // NEW METHOD: BLEED OUT HEARTS & TURN GLOW
+        // ========================================================================================================
+        private void ApplyBleedOutHeartsAndTurnGlow(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "battle", "texture", "ui_battle_atb_uitx.tex");
+
+                if (_configuration!.BleedOutHeartsAndTurnGlow == BleedOutHeartsAndTurnGlowOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.BleedOutHeartsAndTurnGlow.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "BleedOutHeartsAndTurnGlow", option, "ui_battle_atb_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Bleed Out Hearts & Turn Glow: {ex.Message}");
             }
         }
 
@@ -638,26 +663,19 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // ========================================================================================================
-        // NEW METHOD: UNIT SHIFT ARROW
-        // ========================================================================================================
         private void ApplyUnitShiftArrow(string texturePackDir)
         {
             try
             {
-                // Destination: .../ui/ffto/unit/texture/ui_jobchange_uitx.tex
-                // This folder is shared with UnitHighlightRing.
                 string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "unit", "texture", "ui_jobchange_uitx.tex");
 
                 if (_configuration!.UnitShiftArrow == UnitShiftArrowOption.Original)
                 {
-                    // Restore texture pack default (or vanilla)
                     TryDelete(destPath);
                 }
                 else
                 {
                     string option = _configuration!.UnitShiftArrow.ToString();
-                    // Source: Resources/UnitShiftArrow/{Option}/ui_jobchange_uitx.tex
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitShiftArrow", option, "ui_jobchange_uitx.tex");
                     TryCopy(sourcePath, destPath);
                 }
@@ -726,8 +744,6 @@ namespace fftivc.config.zodioverwriter
         {
             if (!Directory.Exists(sourceDir))
             {
-                // Note: Not printing error here to avoid log spam if user just hasn't made the folder yet
-                // But generally this folder should exist for correct cleanup.
                 return;
             }
 
@@ -817,8 +833,6 @@ namespace fftivc.config.zodioverwriter
             {
                 if (File.Exists(source))
                 {
-                    // This handles creating the folder if it doesn't exist,
-                    // which is safe even if UnitHighlightRing already created it.
                     Directory.CreateDirectory(Path.GetDirectoryName(destination)!);
                     File.Copy(source, destination, true);
                     Console.WriteLine($"[fftivc.config.zodioverwriter] Copied: {Path.GetFileName(source)}");
