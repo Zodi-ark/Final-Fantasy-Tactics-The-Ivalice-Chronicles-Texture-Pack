@@ -80,7 +80,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         Tactics_Ogre_Reborn_Quil_Alt
     }
 
-    public enum BattleFrameOption { Original, Removed, Vignette }
+    public enum BattleFrameOption { Original, Removed, Vignette, Letterbox }
     public enum UnitSelectFrameOption { Original, Removed }
 
     public enum CursorFingerOption
@@ -436,7 +436,7 @@ namespace fftivc.config.zodioverwriter.Configuration
 
         [Category("Battle")]
         [DisplayName("Battle Frame")]
-        [Description("Choose which battle frame to use.")]
+        [Description("Choose which frame to use that appears at the top and bottom of the screen during battle.")]
         [DefaultValue(BattleFrameOption.Original)]
         public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Original;
 
