@@ -85,8 +85,8 @@ namespace fftivc.config.zodioverwriter
             ApplyPartyMenuColor(texturePackDir);
             ApplyUnitHighlightRing(texturePackDir);
             ApplyUnitShiftArrow(texturePackDir);
-            ApplyUnitFavoriteTileAndFlag(texturePackDir); // Renamed call
-            ApplyUnitTile(texturePackDir); // <--- Added New Method Call Here
+            ApplyUnitFavoriteTileAndFlag(texturePackDir);
+            ApplyUnitTile(texturePackDir);
             ApplyUnitStatusHUD(texturePackDir);
             ApplyStatusIcons(texturePackDir);
             ApplyZodiacIcons(texturePackDir);
@@ -96,6 +96,35 @@ namespace fftivc.config.zodioverwriter
             ApplyCursorFinger(texturePackDir);
             ApplySpeechBubble(texturePackDir);
             ApplySpeechBubbleTypeface(texturePackDir);
+            ApplyTurnAndHUDTypeface(texturePackDir); // Updated Method Call
+        }
+
+        // ========================================================================================================
+        // UPDATED METHOD: TURN & SECONDARY HUD TYPEFACE
+        // ========================================================================================================
+        private void ApplyTurnAndHUDTypeface(string texturePackDir)
+        {
+            try
+            {
+                string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "system", "graphics", "font2");
+                string fileName = "jura-semibold_ffto_custom_font.tex";
+                string destPath = Path.Combine(destDir, fileName);
+
+                if (_configuration!.TurnAndHUDTypeface == TurnAndHUDTypefaceOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    // Looks inside "Old_English" subdirectory
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "TurnAndHUDTypeface", "Old_English", fileName);
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Turn & Secondary HUD Typeface: {ex.Message}");
+            }
         }
 
         private void ApplyEquipmentIcons(string texturePackDir)
@@ -703,10 +732,6 @@ namespace fftivc.config.zodioverwriter
                 else
                 {
                     string option = _configuration!.UnitFavoriteTileAndFlag.ToString();
-                    // Source path based on the enum name. Note: Renamed folder to match config name is good practice.
-                    // Assuming the folder name matches the enum name (UnitFavoriteTileAndFlagOption) OR you renamed the folder.
-                    // If you kept the folder as "UnitFavoriteTile", change the string below to "UnitFavoriteTile".
-                    // I'll assume you rename the folder to "UnitFavoriteTileAndFlag" to match the config rename.
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "UnitFavoriteTileAndFlag", option, "ui_unit_starting_member_uitx.tex");
 
                     TryCopy(sourcePath, destPath);

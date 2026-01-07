@@ -87,7 +87,7 @@ namespace fftivc.config.zodioverwriter.Configuration
     {
         Original,
         PSX,
-        Black,
+        Greyscale,
 
         [Display(Name = "Final Fantasy VIII")]
         Final_Fantasy_VIII,
@@ -275,38 +275,47 @@ namespace fftivc.config.zodioverwriter.Configuration
         Minimal_Greyscale
     }
 
-    // RENAMED ENUM FOR FAVORITE TILE & FLAG
     public enum UnitFavoriteTileAndFlagOption
     {
         Original,
-
-        [Display(Name = "Original — Vibrant")]
-        Original_Vibrant,
-
+        Gold,
+        Teal,
+        Purple,
+        Green,
         Pink,
+        Blue,
         Greyscale,
 
         [Display(Name = "Greyscale — Bright")]
         Greyscale_Bright,
 
         [Display(Name = "Greyscale — Dark")]
-        Greyscale_Dark
+        Greyscale_Dark,
+
+        [Display(Name = "Original — Vibrant")]
+        Original_Vibrant,
+
+        [Display(Name = "Gold Slate")]
+        Gold_Slate,
+
+        [Display(Name = "Gold Brick")]
+        Gold_Brick,
+
+        [Display(Name = "PSX Gold")]
+        PSX_Gold
     }
 
-    // NEW ENUM FOR UNIT TILE
     public enum UnitTileOption
     {
         Original,
-        Pink,
+        Gold,
+        Teal,
         Purple,
         Red,
-        Gold,
+        Green,
+        Pink,
         Blue,
-
-        [Display(Name = "Blue — Light")]
-        Blue_Light,
-
-        Teal,
+        Azure,
         White,
         Greyscale,
 
@@ -317,7 +326,21 @@ namespace fftivc.config.zodioverwriter.Configuration
         Greyscale_Dark,
 
         [Display(Name = "Greyscale — Smooth")]
-        Greyscale_Smooth
+        Greyscale_Smooth,
+
+        PSX,
+
+        [Display(Name = "PSX — Bright")]
+        PSX_Bright
+    }
+
+    // RENAMED ENUM FOR TURN & SECONDARY HUD TYPEFACE
+    public enum TurnAndHUDTypefaceOption
+    {
+        Original,
+
+        [Display(Name = "Old English")]
+        Old_English
     }
 
 
@@ -338,6 +361,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Removes many UI button tooltip prompts.")]
         [DefaultValue(false)]
         public bool MinimalButtonPrompts { get; set; } = false;
+
+        [Category("Global")]
+        [DisplayName("HUD Secondary Typeface")]
+        [Description("Select the typeface for the turn counter, detailed statistics & secondary elements on the HUD: EXP, LV, Next, and JP including their respective number value.")]
+        [DefaultValue(TurnAndHUDTypefaceOption.Original)]
+        public TurnAndHUDTypefaceOption TurnAndHUDTypeface { get; set; } = TurnAndHUDTypefaceOption.Original;
 
         [Category("Global")]
         [DisplayName("Unit Status HUD")]
