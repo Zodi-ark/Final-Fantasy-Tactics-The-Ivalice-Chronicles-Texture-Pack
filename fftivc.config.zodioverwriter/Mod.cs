@@ -96,12 +96,137 @@ namespace fftivc.config.zodioverwriter
             ApplyCursorFinger(texturePackDir);
             ApplySpeechBubble(texturePackDir);
             ApplySpeechBubbleTypeface(texturePackDir);
-            ApplyTurnAndHUDTypeface(texturePackDir); // Updated Method Call
+            ApplyTurnAndHUDTypeface(texturePackDir);
+            ApplyAttackRange(texturePackDir); // <--- New Call
+            ApplyAttackTarget(texturePackDir); // <--- New Call
+            ApplyMoveTiles(texturePackDir);
+            ApplyMoveTilesEnemy(texturePackDir);
         }
 
         // ========================================================================================================
-        // UPDATED METHOD: TURN & SECONDARY HUD TYPEFACE
+        // NEW METHOD: ATTACK RANGE
         // ========================================================================================================
+        private void ApplyAttackRange(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "bg", "ui", "panel", "attack_range.tga");
+
+                if (_configuration!.AttackRange == AttackRangeOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.AttackRange.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "AttackRange", option, "attack_range.tga");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Attack Range: {ex.Message}");
+            }
+        }
+
+        // ========================================================================================================
+        // NEW METHOD: ATTACK TARGET
+        // ========================================================================================================
+        private void ApplyAttackTarget(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "bg", "ui", "panel", "attack_target.tga");
+
+                if (_configuration!.AttackTarget == AttackTargetOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.AttackTarget.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "AttackTarget", option, "attack_target.tga");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Attack Target: {ex.Message}");
+            }
+        }
+
+        // ========================================================================================================
+        // METHOD: ENEMY MOVE TILES
+        // ========================================================================================================
+        private void ApplyMoveTilesEnemy(string texturePackDir)
+        {
+            try
+            {
+                string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "bg", "ui", "panel");
+                var files = new[] { "e_move_range.tga", "e_move_range_s.tga" };
+
+                if (_configuration!.MoveTilesEnemy == MoveTilesEnemyOption.Original)
+                {
+                    foreach (var file in files)
+                    {
+                        TryDelete(Path.Combine(destDir, file));
+                    }
+                }
+                else
+                {
+                    string option = _configuration!.MoveTilesEnemy.ToString();
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "MoveTilesEnemy", option);
+
+                    foreach (var file in files)
+                    {
+                        string sourcePath = Path.Combine(sourceDir, file);
+                        string destPath = Path.Combine(destDir, file);
+                        TryCopy(sourcePath, destPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Enemy Move Tiles: {ex.Message}");
+            }
+        }
+
+        // ========================================================================================================
+        // METHOD: MOVE TILES (PLAYER)
+        // ========================================================================================================
+        private void ApplyMoveTiles(string texturePackDir)
+        {
+            try
+            {
+                string destDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "bg", "ui", "panel");
+                var files = new[] { "p_move_range.tga", "p_hole_move_range.tga", "p_move_range_s.tga" };
+
+                if (_configuration!.MoveTiles == MoveTilesOption.Original)
+                {
+                    foreach (var file in files)
+                    {
+                        TryDelete(Path.Combine(destDir, file));
+                    }
+                }
+                else
+                {
+                    string option = _configuration!.MoveTiles.ToString();
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "MoveTiles", option);
+
+                    foreach (var file in files)
+                    {
+                        string sourcePath = Path.Combine(sourceDir, file);
+                        string destPath = Path.Combine(destDir, file);
+                        TryCopy(sourcePath, destPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Move Tiles: {ex.Message}");
+            }
+        }
+
         private void ApplyTurnAndHUDTypeface(string texturePackDir)
         {
             try

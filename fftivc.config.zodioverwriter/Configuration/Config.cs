@@ -334,13 +334,81 @@ namespace fftivc.config.zodioverwriter.Configuration
         PSX_Bright
     }
 
-    // RENAMED ENUM FOR TURN & SECONDARY HUD TYPEFACE
     public enum TurnAndHUDTypefaceOption
     {
         Original,
 
         [Display(Name = "Old English")]
         Old_English
+    }
+
+    public enum MoveTilesOption
+    {
+        Original,
+        Cyanobacteria,
+        Green,
+        Teal,
+        Purple,
+        Pink,
+        Gold,
+
+        [Display(Name = "Gold — Alt")]
+        Gold_Alt,
+
+        Red,
+        Orange,
+        White,
+        Black
+    }
+
+    public enum MoveTilesEnemyOption
+    {
+        Original,
+        Cyanobacteria,
+        Green,
+        Teal,
+        Purple,
+        Pink,
+        Gold,
+
+        [Display(Name = "Gold — Alt")]
+        Gold_Alt,
+
+        Red,
+        Orange,
+        White,
+        Black
+    }
+
+    // NEW ENUMS FOR ATTACK RANGE & TARGET
+    public enum AttackTargetOption
+    {
+        Original,
+        Green,
+        Teal,
+        Purple,
+        Pink,
+        Gold,
+        Red,
+        White,
+        Black
+    }
+
+    public enum AttackRangeOption
+    {
+        Original,
+        Green,
+        Teal,
+        Purple,
+
+        [Display(Name = "Purple — Vibrant")]
+        Purple_Vibrant,
+
+        Pink,
+        Gold,
+        Red,
+        White,
+        Black
     }
 
 
@@ -462,6 +530,34 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Choose the color or style of the directional selection arrows.")]
         [DefaultValue(DirectionalWaitArrowOption.Original)]
         public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+
+        // --- New Attack Options (Before Move Tiles) ---
+
+        [Category("Battle")]
+        [DisplayName("Attack Target")]
+        [Description("Select the color style for the attack target tiles.")]
+        [DefaultValue(AttackTargetOption.Original)]
+        public AttackTargetOption AttackTarget { get; set; } = AttackTargetOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Attack Range")]
+        [Description("Select the color style for the attack range tiles.")]
+        [DefaultValue(AttackRangeOption.Original)]
+        public AttackRangeOption AttackRange { get; set; } = AttackRangeOption.Original;
+
+        // ----------------------------------------------
+
+        [Category("Battle")]
+        [DisplayName("Enemy Move Tiles")]
+        [Description("Select the color style for the enemy movement range tiles in battle.")]
+        [DefaultValue(MoveTilesEnemyOption.Original)]
+        public MoveTilesEnemyOption MoveTilesEnemy { get; set; } = MoveTilesEnemyOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Move Tiles")]
+        [Description("Select the color style for the movement range tiles in battle.")]
+        [DefaultValue(MoveTilesOption.Original)]
+        public MoveTilesOption MoveTiles { get; set; } = MoveTilesOption.Original;
 
         [Category("Battle")]
         [DisplayName("Battle Frame")]
