@@ -542,13 +542,13 @@ namespace fftivc.config.zodioverwriter.Configuration
         // --- New Attack Options (Before Move Tiles) ---
 
         [Category("Battle")]
-        [DisplayName("Attack Target")]
+        [DisplayName("Attack Target Tiles")]
         [Description("Select the color style for the attack target tiles.")]
         [DefaultValue(AttackTargetOption.Original)]
         public AttackTargetOption AttackTarget { get; set; } = AttackTargetOption.Original;
 
         [Category("Battle")]
-        [DisplayName("Attack Range")]
+        [DisplayName("Attack Range Tiles")]
         [Description("Select the color style for the attack range tiles.")]
         [DefaultValue(AttackRangeOption.Original)]
         public AttackRangeOption AttackRange { get; set; } = AttackRangeOption.Original;
