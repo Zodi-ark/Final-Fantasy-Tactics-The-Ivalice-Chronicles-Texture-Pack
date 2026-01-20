@@ -347,6 +347,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original,
         Cyanobacteria,
         Green,
+
+        [Display(Name = "Green — Vibrant")]
+        Green_Vibrant,
+
         Teal,
         Purple,
         Pink,
@@ -366,6 +370,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original,
         Cyanobacteria,
         Green,
+
+        [Display(Name = "Green — Vibrant")]
+        Green_Vibrant,
+
         Teal,
         Purple,
         Pink,
