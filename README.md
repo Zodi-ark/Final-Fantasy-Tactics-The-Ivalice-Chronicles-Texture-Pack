@@ -101,7 +101,7 @@ Texture Pack & Reshade
 
  ### <ins>**Configurator**</ins>
 
- **UI**
+ **Options**
 - Toggle party menu color from original, black, blackara, blackaga, or white.
 - Toggle party menu highlight ring color from original, white, red, purple, or removed.
 - Toggle battle pointer from removed, original, PSX, pink, purple, red, green, cyan, blue, white, or black.
