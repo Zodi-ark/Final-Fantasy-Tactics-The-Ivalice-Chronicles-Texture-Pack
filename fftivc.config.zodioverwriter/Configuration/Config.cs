@@ -215,6 +215,8 @@ namespace fftivc.config.zodioverwriter.Configuration
     {
         Original,
 
+        Removed,
+
         [Display(Name = "Minimal")]
         Original_Alt,
 
