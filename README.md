@@ -99,23 +99,6 @@ Texture Pack & Reshade
 
 ## `v1.0 | "Noble Endeavors"` IN DEVELOPMENT
 
-### <ins>**Texture Pack**</ins>
-
- **Maps**
-- All maps have been given a boost to saturation, contrast, and clarity.
-- Various dramatic lighting adjustments.
-
- **UI**
-- Removed battle portrait border.
-- Removed red/blue vignette.
-- Removed battle pointer.
-- Removed battle frame.
-- Removed party menu up & down arrows.
-- Removed party menu boxes around "Units, Inventory, Chronicle, and Option."
-
- **Sprites**
- - Added IOS/ Android Sprites.
-
  ### <ins>**Configurator**</ins>
 
  **UI**
@@ -130,8 +113,6 @@ Texture Pack & Reshade
 - Configurable burlap and noise battle filters.
 - Configurable burlap party menu filter.
 - Configurable world map blur.
-
- **Sprites**
 - Toggle IOS/ Android Sprites or original sprites.
 - Toggle upscaled or original portraits.
 
