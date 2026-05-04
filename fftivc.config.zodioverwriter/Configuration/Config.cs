@@ -34,6 +34,10 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum PartyMenuColorOption
     {
         Original,
+
+        [Display(Name = "Black — 2x (High Detail)")]
+        blackhd,
+
         Black,
         Blackara,
         Blackaga,
@@ -441,6 +445,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         public bool MinimalButtonPrompts { get; set; } = false;
 
         [Category("Global")]
+        [DisplayName("Minimal Warnings")]
+        [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
+        [DefaultValue(false)]
+        public bool MinimalWarnings { get; set; } = false;
+
+        [Category("Global")]
         [DisplayName("HUD Secondary Typeface")]
         [Description("Select the typeface for the turn counter, detailed statistics & secondary elements on the HUD: EXP, LV, Next, and JP including their respective number value.")]
         [DefaultValue(TurnAndHUDTypefaceOption.Original)]
@@ -522,12 +532,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\"  \"Auto,\" and \"Objective\" text from portraits and sprites.")]
         [DefaultValue(false)]
         public bool RemoveTextOnPortraits { get; set; } = false;
-
-        [Category("Battle")]
-        [DisplayName("Minimal Warnings")]
-        [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
-        [DefaultValue(false)]
-        public bool MinimalWarnings { get; set; } = false;
 
         [Category("Battle")]
         [DisplayName("Bleed Out Hearts & Turn Glow")]
