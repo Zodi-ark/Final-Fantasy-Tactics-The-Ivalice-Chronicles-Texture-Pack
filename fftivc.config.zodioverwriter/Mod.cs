@@ -97,8 +97,8 @@ namespace fftivc.config.zodioverwriter
             ApplySpeechBubble(texturePackDir);
             ApplySpeechBubbleTypeface(texturePackDir);
             ApplyTurnAndHUDTypeface(texturePackDir);
-            ApplyAttackRange(texturePackDir); // <--- New Call
-            ApplyAttackTarget(texturePackDir); // <--- New Call
+            ApplyAttackRange(texturePackDir);
+            ApplyAttackTarget(texturePackDir);
             ApplyMoveTiles(texturePackDir);
             ApplyMoveTilesEnemy(texturePackDir);
         }
@@ -580,11 +580,16 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
+        // ========================================================================================================
+        // UPDATED METHOD: MAPS
+        // ========================================================================================================
         private void ApplyMapOption(string texturePackDir)
         {
             try
             {
-                string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "bg");
+                // We target "textures" specifically so we don't accidentally rename the entire "bg" 
+                // folder which now contains your move/attack tiles in "bg\ui\panel"
+                string targetDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "bg", "textures");
 
                 if (_configuration!.Maps == MapOption.Original)
                 {
@@ -839,9 +844,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // ========================================================================================================
-        // RENAMED METHOD: FAVORITE UNIT TILE & FLAG
-        // ========================================================================================================
         private void ApplyUnitFavoriteTileAndFlag(string texturePackDir)
         {
             try
@@ -868,9 +870,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // ========================================================================================================
-        // NEW METHOD: UNIT TILE
-        // ========================================================================================================
         private void ApplyUnitTile(string texturePackDir)
         {
             try
@@ -956,8 +955,6 @@ namespace fftivc.config.zodioverwriter
         {
             if (!Directory.Exists(sourceDir))
             {
-                // Note: Not printing error here to avoid log spam if user just hasn't made the folder yet
-                // But generally this folder should exist for correct cleanup.
                 return;
             }
 
@@ -986,12 +983,16 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
+        // ========================================================================================================
+        // UPDATED: FAST DIRECTORY TOGGLING
+        // ========================================================================================================
         private void DisableDirectory(string path)
         {
             try
             {
                 string disabledPath = path + ".disabled_by_config";
 
+                // If already disabled, do nothing
                 if (Directory.Exists(disabledPath))
                     return;
 
@@ -1013,6 +1014,7 @@ namespace fftivc.config.zodioverwriter
             {
                 string disabledPath = path + ".disabled_by_config";
 
+                // If already enabled, do nothing
                 if (Directory.Exists(path))
                     return;
 
