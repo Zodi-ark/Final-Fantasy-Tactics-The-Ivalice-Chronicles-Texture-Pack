@@ -44,9 +44,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         Teal,
         Red,
         Purple,
+        Blue,
         White,
 
-        [Display(Name = "White — HDR")]
+        [Display(Name = "Marble")]
         White_HDR
     }
 
@@ -284,12 +285,12 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum UnitFavoriteTileAndFlagOption
     {
         Original,
-        Gold,
         Teal,
         Purple,
         Green,
         Pink,
         Blue,
+        Gold,
         Greyscale,
 
         [Display(Name = "Greyscale — Bright")]
