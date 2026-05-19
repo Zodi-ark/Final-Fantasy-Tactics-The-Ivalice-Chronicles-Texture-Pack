@@ -303,17 +303,17 @@ namespace fftivc.config.zodioverwriter.Configuration
 
         Gold,
 
-        [Display(Name = "Gold Slate")]
-        Gold_Slate,
-
-        [Display(Name = "Gold Brick")]
-        Gold_Brick,
-
         [Display(Name = "PSX Gold")]
         PSX_Gold,
 
         [Display(Name = "PSX Pink")]
-        PSX_Pink
+        PSX_Pink,
+
+        [Display(Name = "Gold Slate")]
+        Gold_Slate,
+
+        [Display(Name = "Gold Brick")]
+        Gold_Brick
     }
 
     public enum UnitTileOption
