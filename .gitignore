@@ -1,0 +1,5 @@
+# GIMP Autosaves & Backups
+# ------------------------
+*.xcf
+*.xcf~
+.*.xcf~
