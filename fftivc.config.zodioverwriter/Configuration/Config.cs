@@ -194,6 +194,9 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original,
         Minimal,
 
+        [Display(Name = "Minimal — Smooth Gradient")]
+        Minimal_Gradient,
+
         [Display(Name = "Minimal — Blue HP Bar")]
         Minimal_Blue_HP_Bar,
 

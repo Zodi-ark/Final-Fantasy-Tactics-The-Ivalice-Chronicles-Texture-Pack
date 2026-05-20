@@ -44,7 +44,7 @@
               "RelativeDocumentMoniker": "Configuration\\Config.cs",
               "ToolTip": "F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.config.zodioverwriter\\Configuration\\Config.cs",
               "RelativeToolTip": "Configuration\\Config.cs",
-              "ViewState": "AgIAAB0BAAAAAAAAAAAAADUBAAARAAAAAAAAAA==",
+              "ViewState": "AgIAALMAAAAAAAAAAAAAAMQAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-10T04:26:31.233Z",
               "EditorCaption": ""
@@ -83,7 +83,8 @@
               "RelativeToolTip": "fftivc.config.zodioverwriter.csproj",
               "ViewState": "AgIAAAAAAAAAAAAAAADwvxsAAAAkAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-10-10T04:13:17.389Z"
+              "WhenOpened": "2025-10-10T04:13:17.389Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
