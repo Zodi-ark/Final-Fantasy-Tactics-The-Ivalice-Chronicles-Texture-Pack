@@ -306,11 +306,17 @@ namespace fftivc.config.zodioverwriter.Configuration
 
         Gold,
 
-        [Display(Name = "PSX Gold")]
-        PSX_Gold,
+        [Display(Name = "PSX Red")]
+        PSX_Red,
+
+        [Display(Name = "PSX Green")]
+        PSX_Green,
 
         [Display(Name = "PSX Pink")]
         PSX_Pink,
+
+        [Display(Name = "PSX Gold")]
+        PSX_Gold,
 
         [Display(Name = "Gold Slate")]
         Gold_Slate,
@@ -322,7 +328,6 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum UnitTileOption
     {
         Original,
-        Gold,
         Teal,
         Purple,
         Red,
@@ -342,9 +347,11 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Display(Name = "Greyscale — Smooth")]
         Greyscale_Smooth,
 
+        Gold,
+
         PSX,
 
-        [Display(Name = "PSX — Bright")]
+        [Display(Name = "PSX Bright")]
         PSX_Bright
     }
 
