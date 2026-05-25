@@ -101,10 +101,44 @@ namespace fftivc.config.zodioverwriter
             ApplyAttackTarget(texturePackDir);
             ApplyMoveTiles(texturePackDir);
             ApplyMoveTilesEnemy(texturePackDir);
+            ApplyCommandHUDAndInfoPanels(texturePackDir);
         }
 
         // ========================================================================================================
-        // NEW METHOD: ATTACK RANGE
+        // NEW METHOD: COMMAND HUD AND INFO PANELS
+        // ========================================================================================================
+        private void ApplyCommandHUDAndInfoPanels(string texturePackDir)
+        {
+            try
+            {
+                string destCommon = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "common", "texture", "ui_common_bg_uitx.tex");
+                string destUnit = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "unit", "texture", "ui_tooltip_art_bg_uitx.tex");
+
+                if (_configuration!.CommandHUDAndInfoPanels == CommandHUDAndInfoPanelsOption.Original)
+                {
+                    TryDelete(destCommon);
+                    TryDelete(destUnit);
+                }
+                else
+                {
+                    string option = _configuration!.CommandHUDAndInfoPanels.ToString();
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "CommandHUDAndInfoPanels", option);
+
+                    string sourceCommon = Path.Combine(sourceDir, "ui_common_bg_uitx.tex");
+                    TryCopy(sourceCommon, destCommon);
+
+                    string sourceUnit = Path.Combine(sourceDir, "ui_tooltip_art_bg_uitx.tex");
+                    TryCopy(sourceUnit, destUnit);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Command HUD And Info Panels: {ex.Message}");
+            }
+        }
+
+        // ========================================================================================================
+        // METHOD: ATTACK RANGE
         // ========================================================================================================
         private void ApplyAttackRange(string texturePackDir)
         {
@@ -130,7 +164,7 @@ namespace fftivc.config.zodioverwriter
         }
 
         // ========================================================================================================
-        // NEW METHOD: ATTACK TARGET
+        // METHOD: ATTACK TARGET
         // ========================================================================================================
         private void ApplyAttackTarget(string texturePackDir)
         {

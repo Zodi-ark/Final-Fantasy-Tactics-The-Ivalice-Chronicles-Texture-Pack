@@ -431,7 +431,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         Black
     }
 
-    // NEW ENUMS FOR ATTACK RANGE & TARGET
     public enum AttackTargetOption
     {
         Original,
@@ -462,6 +461,13 @@ namespace fftivc.config.zodioverwriter.Configuration
         Black
     }
 
+    // NEW ENUM FOR COMMAND HUD AND INFO PANELS
+    public enum CommandHUDAndInfoPanelsOption
+    {
+        Original,
+        White
+    }
+
 
     public class Config : Configurable<Config>
     {
@@ -486,6 +492,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
         [DefaultValue(false)]
         public bool MinimalWarnings { get; set; } = false;
+
+        [Category("Global")]
+        [DisplayName("Command HUD & Info Panels")]
+        [Description("Select the Command HUD (Move, Abilities, Wait, Status) and Info Panels used for equipment and ability descriptions, Poach alerts, and Treasure Hunt alerts.")]
+        [DefaultValue(CommandHUDAndInfoPanelsOption.Original)]
+        public CommandHUDAndInfoPanelsOption CommandHUDAndInfoPanels { get; set; } = CommandHUDAndInfoPanelsOption.Original;
 
         [Category("Global")]
         [DisplayName("HUD Secondary Typeface")]
@@ -582,8 +594,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(DirectionalWaitArrowOption.Original)]
         public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
 
-        // --- New Attack Options (Before Move Tiles) ---
-
         [Category("Battle")]
         [DisplayName("Attack Target Tiles")]
         [Description("Select the color style for the attack target tiles.")]
@@ -595,8 +605,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select the color style for the attack range tiles.")]
         [DefaultValue(AttackRangeOption.Original)]
         public AttackRangeOption AttackRange { get; set; } = AttackRangeOption.Original;
-
-        // ----------------------------------------------
 
         [Category("Battle")]
         [DisplayName("Enemy Move Tiles")]
