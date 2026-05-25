@@ -125,27 +125,49 @@ namespace fftivc.config.zodioverwriter.Configuration
     {
         Original,
 
-        [Display(Name = "Minimal & Original")]
+        [Display(Name = "Minimal Style & Original Ring")]
         Minimal_Original,
 
-        [Display(Name = "Minimal & Removed")]
+        [Display(Name = "Minimal Style & Removed Ring")]
         Minimal_Removed,
 
-        [Display(Name = "Minimal & Purple")]
+        [Display(Name = "Minimal Style & Purple Ring")]
         Minimal_Purple,
 
-        [Display(Name = "Minimal & White")]
+        [Display(Name = "Minimal Style & White Ring")]
         Minimal_White,
 
-        [Display(Name = "Minimal & Red")]
+        [Display(Name = "Minimal Style & Red Ring")]
         Minimal_Red
     }
 
     public enum UnitShiftArrowOption
     {
         Original,
+
+        [Display(Name = "No Arrows & Ring")]
+        Removed_Arrow_Removed_Job_Circle,
+
+        [Display(Name = "No Arrows & Ring (White Job Highlight)")]
+        Removed_Arrow_Removed_Job_Circle_White_Job_Highlight,
+
+        [Display(Name = "No Arrows & Ring (Purple Job Highlight)")]
+        Removed_Arrow_Removed_Job_Circle_Purple_Job_Highlight,
+
+        [Display(Name = "No Arrows & Ring (Red Job Highlight)")]
+        Removed_Arrow_Removed_Job_Circle_Red_Job_Highlight,
+
+        [Display(Name = "Original Arrows & Removed Job Ring")]
+        Original_Arrow_Removed_Job_Circle,
+
+        [Display(Name = "Removed Arrows & Original Job Ring")]
         Removed,
-        Greyscale
+
+        [Display(Name = "Greyscale Arrows & Original Job Ring")]
+        Greyscale,
+
+        [Display(Name = "Greyscale Arrows & Removed Job Ring")]
+        Greyscale_Arrow_Removed_Job_Circle,
     }
 
     public enum WorldMapOption
@@ -617,8 +639,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         // ========================================================================
 
         [Category("Party Menu")]
-        [DisplayName("Unit Shift Arrows")]
-        [Description("Select the style for the unit shift arrow on the unit status and job page.")]
+        [DisplayName("Shift Arrows & Job Highlights")]
+        [Description("Select the style for the unit shift arrows on the unit status and jobs page, as well as the yellow highlight ring below units and the job highlight color on the jobs page. ")]
         [DefaultValue(UnitShiftArrowOption.Original)]
         public UnitShiftArrowOption UnitShiftArrow { get; set; } = UnitShiftArrowOption.Original;
 
