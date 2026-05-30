@@ -3,6 +3,7 @@ using fftivc.config.zodioverwriter.Template.Configuration;
 using Reloaded.Mod.Interfaces;
 using Reloaded.Mod.Interfaces.Internal;
 using System;
+using System.Collections.Generic; // Required for Dictionary
 using System.IO;
 using System.Text.Json;
 
@@ -102,10 +103,62 @@ namespace fftivc.config.zodioverwriter
             ApplyMoveTiles(texturePackDir);
             ApplyMoveTilesEnemy(texturePackDir);
             ApplyCommandHUDAndInfoPanels(texturePackDir);
+            ApplyUIGlowAndEquipDisplay(texturePackDir);
         }
 
         // ========================================================================================================
-        // NEW METHOD: COMMAND HUD AND INFO PANELS
+        // METHOD: UI GLOW AND EQUIP DISPLAY
+        // ========================================================================================================
+        private void ApplyUIGlowAndEquipDisplay(string texturePackDir)
+        {
+            try
+            {
+                // Dictionary maps each filename to its specific subfolder destination inside ui\ffto
+                var destinations = new Dictionary<string, string>
+                {
+                    { "ui_bar_parts_uitx.tex", Path.Combine("bar", "texture") },
+                    { "ui_battle_continuous_map_uitx.tex", Path.Combine("battle", "texture") },
+                    { "ui_battle_encount_parts_uitx.tex", Path.Combine("battle", "texture") },
+                    { "ui_brave_story_top_uitx.tex", Path.Combine("bravestory", "texture") },
+                    { "ui_bs_category_tab_uitx.tex", Path.Combine("bravestory", "texture") },
+                    { "ui_bs_detail_window_uitx.tex", Path.Combine("bravestory", "texture") },
+                    { "ui_shop_parts_uitx.tex", Path.Combine("shop", "texture") },
+                    { "ui_system_saveload_uitx.tex", Path.Combine("system", "texture") },
+                    { "ui_title_mode_select_uitx.tex", Path.Combine("title", "texture") },
+                    { "ui_unit_status_01_uitx.tex", Path.Combine("unit", "texture") },
+                    { "ui_wm_base_uitx.tex", Path.Combine("worldmap", "texture") } // <--- Corrected Path
+                };
+
+                string baseDestDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto");
+
+                if (_configuration!.UIGlowAndEquipDisplay == UIGlowAndEquipDisplayOption.Original)
+                {
+                    foreach (var kvp in destinations)
+                    {
+                        TryDelete(Path.Combine(baseDestDir, kvp.Value, kvp.Key));
+                    }
+                }
+                else
+                {
+                    string option = _configuration!.UIGlowAndEquipDisplay.ToString();
+                    string sourceDir = Path.Combine(_modRoot!, "Resources", "UIGlowAndEquipDisplay", option);
+
+                    foreach (var kvp in destinations)
+                    {
+                        string sourcePath = Path.Combine(sourceDir, kvp.Key);
+                        string destPath = Path.Combine(baseDestDir, kvp.Value, kvp.Key);
+                        TryCopy(sourcePath, destPath);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying UI Glow And Equip Display: {ex.Message}");
+            }
+        }
+
+        // ========================================================================================================
+        // METHOD: COMMAND HUD AND INFO PANELS
         // ========================================================================================================
         private void ApplyCommandHUDAndInfoPanels(string texturePackDir)
         {

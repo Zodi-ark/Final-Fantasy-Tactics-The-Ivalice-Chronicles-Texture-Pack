@@ -461,11 +461,25 @@ namespace fftivc.config.zodioverwriter.Configuration
         Black
     }
 
-    // NEW ENUM FOR COMMAND HUD AND INFO PANELS
     public enum CommandHUDAndInfoPanelsOption
     {
         Original,
-        White
+        Silver
+    }
+
+    // NEW ENUM FOR UI GLOW AND EQUIP DISPLAY
+    public enum UIGlowAndEquipDisplayOption
+    {
+        Original,
+
+        [Display(Name = "Silver Display Only")]
+        Silver_Display_Only,
+
+        [Display(Name = "Silver Display + Nearby Glow")]
+        Silver_Display_Nearby_Glow,
+
+        [Display(Name = "Silver Display + Full UI Glow")]
+        Silver_Display_All_Glow
     }
 
 
@@ -482,6 +496,42 @@ namespace fftivc.config.zodioverwriter.Configuration
         public CursorFingerOption CursorFinger { get; set; } = CursorFingerOption.Original;
 
         [Category("Global")]
+        [DisplayName("Sprites")]
+        [Description("Select which sprite style to use.")]
+        [DefaultValue(SpriteOption.Original)]
+        public SpriteOption SpritesOption { get; set; } = SpriteOption.Original;
+
+        [Category("Global")]
+        [DisplayName("Portraits")]
+        [Description("Select which portrait style to use.")]
+        [DefaultValue(PortraitOption.Original)]
+        public PortraitOption PortraitsOption { get; set; } = PortraitOption.Original;
+
+        [Category("Global")]
+        [DisplayName("Unit Status HUD")]
+        [Description("Select the style for the unit status HUD (HP/MP bars).")]
+        [DefaultValue(UnitStatusHUDOption.Original)]
+        public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Original;
+
+        [Category("Global")]
+        [DisplayName("HUD Secondary Typeface")]
+        [Description("Select the typeface for the turn counter, detailed statistics & secondary elements on the HUD: EXP, LV, Next, and JP including their respective number value.")]
+        [DefaultValue(TurnAndHUDTypefaceOption.Original)]
+        public TurnAndHUDTypefaceOption TurnAndHUDTypeface { get; set; } = TurnAndHUDTypefaceOption.Original;
+
+        [Category("Global")]
+        [DisplayName("Command HUD & Info Panels")]
+        [Description("Select the Command HUD (Move, Abilities, Wait, Status) and Info Panels used for equipment and ability descriptions, Poach alerts, and Treasure Hunt alerts.")]
+        [DefaultValue(CommandHUDAndInfoPanelsOption.Original)]
+        public CommandHUDAndInfoPanelsOption CommandHUDAndInfoPanels { get; set; } = CommandHUDAndInfoPanelsOption.Original;
+
+        [Category("Global")]
+        [DisplayName("UI Glow & Equip Display")]
+        [Description("Controls glowing UI accents throughout the interface, along with the background texture for equipped equipment and abilities.")]
+        [DefaultValue(UIGlowAndEquipDisplayOption.Original)]
+        public UIGlowAndEquipDisplayOption UIGlowAndEquipDisplay { get; set; } = UIGlowAndEquipDisplayOption.Original;
+
+        [Category("Global")]
         [DisplayName("Minimal Button Prompts")]
         [Description("Removes many UI button tooltip prompts.")]
         [DefaultValue(false)]
@@ -493,68 +543,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(false)]
         public bool MinimalWarnings { get; set; } = false;
 
-        [Category("Global")]
-        [DisplayName("Command HUD & Info Panels")]
-        [Description("Select the Command HUD (Move, Abilities, Wait, Status) and Info Panels used for equipment and ability descriptions, Poach alerts, and Treasure Hunt alerts.")]
-        [DefaultValue(CommandHUDAndInfoPanelsOption.Original)]
-        public CommandHUDAndInfoPanelsOption CommandHUDAndInfoPanels { get; set; } = CommandHUDAndInfoPanelsOption.Original;
-
-        [Category("Global")]
-        [DisplayName("HUD Secondary Typeface")]
-        [Description("Select the typeface for the turn counter, detailed statistics & secondary elements on the HUD: EXP, LV, Next, and JP including their respective number value.")]
-        [DefaultValue(TurnAndHUDTypefaceOption.Original)]
-        public TurnAndHUDTypefaceOption TurnAndHUDTypeface { get; set; } = TurnAndHUDTypefaceOption.Original;
-
-        [Category("Global")]
-        [DisplayName("Unit Status HUD")]
-        [Description("Select the style for the unit status HUD (HP/MP bars).")]
-        [DefaultValue(UnitStatusHUDOption.Original)]
-        public UnitStatusHUDOption UnitStatusHUD { get; set; } = UnitStatusHUDOption.Original;
-
-        [Category("Global")]
-        [DisplayName("Portraits")]
-        [Description("Select which portrait style to use.")]
-        [DefaultValue(PortraitOption.Original)]
-        public PortraitOption PortraitsOption { get; set; } = PortraitOption.Original;
-
-        [Category("Global")]
-        [DisplayName("Sprites")]
-        [Description("Select which sprite style to use.")]
-        [DefaultValue(SpriteOption.Original)]
-        public SpriteOption SpritesOption { get; set; } = SpriteOption.Original;
-
-
-        // ========================================================================
-        // FILTERS
-        // ========================================================================
-
-        [Category("Filters")]
-        [DisplayName("Remove Party Menu Filter")]
-        [Description("Removes the party menu screen filter.")]
-        [DefaultValue(false)]
-        public bool RemovePartyMenuFilter { get; set; } = false;
-
-        [Category("Filters")]
-        [DisplayName("Battle Filter")]
-        [Description("Select the battle screen filter style.")]
-        [DefaultValue(BattleFilterOption.Original)]
-        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Original;
-
-        // ========================================================================
-        // WORLD MAP
-        // ========================================================================
-
-        [Category("World Map")]
-        [DisplayName("Disable World Map Blur")]
-        [Description("Disables the blur effect on the world map.")]
-        [DefaultValue(false)]
-        public bool DisableWorldMapBlur { get; set; } = false;
-
-        [Category("World Map")]
-        [DisplayName("World Map")]
-        [Description("Select the world map to use.")]
-        [DefaultValue(WorldMapOption.Original)]
-        public WorldMapOption WorldMap { get; set; } = WorldMapOption.Original;
 
         // ========================================================================
         // DIALOG
@@ -571,6 +559,41 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Select the typeface style for speech bubbles.")]
         [DefaultValue(SpeechBubbleTypefaceOption.Original)]
         public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
+
+
+        // ========================================================================
+        // WORLD MAP
+        // ========================================================================
+
+        [Category("World Map")]
+        [DisplayName("World Map")]
+        [Description("Select the world map to use.")]
+        [DefaultValue(WorldMapOption.Original)]
+        public WorldMapOption WorldMap { get; set; } = WorldMapOption.Original;
+
+        [Category("World Map")]
+        [DisplayName("Disable World Map Blur")]
+        [Description("Disables the blur effect on the world map.")]
+        [DefaultValue(false)]
+        public bool DisableWorldMapBlur { get; set; } = false;
+
+
+        // ========================================================================
+        // FILTERS
+        // ========================================================================
+
+        [Category("Filters")]
+        [DisplayName("Battle Filter")]
+        [Description("Select the battle screen filter style.")]
+        [DefaultValue(BattleFilterOption.Original)]
+        public BattleFilterOption BattleFilter { get; set; } = BattleFilterOption.Original;
+
+        [Category("Filters")]
+        [DisplayName("Remove Party Menu Filter")]
+        [Description("Removes the party menu screen filter.")]
+        [DefaultValue(false)]
+        public bool RemovePartyMenuFilter { get; set; } = false;
+
 
         // ========================================================================
         // BATTLE
