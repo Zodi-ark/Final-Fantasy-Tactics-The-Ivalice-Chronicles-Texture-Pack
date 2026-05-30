@@ -464,7 +464,8 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum CommandHUDAndInfoPanelsOption
     {
         Original,
-        Silver
+        Silver,
+        Pink
     }
 
     // NEW ENUM FOR UI GLOW AND EQUIP DISPLAY
@@ -479,7 +480,16 @@ namespace fftivc.config.zodioverwriter.Configuration
         Silver_Display_Nearby_Glow,
 
         [Display(Name = "Silver Display + Full UI Glow")]
-        Silver_Display_All_Glow
+        Silver_Display_All_Glow,
+
+        [Display(Name = "Pink Display Only")]
+        Pink_Display_Only,
+
+        [Display(Name = "Pink Display + Nearby Glow")]
+        Pink_Display_Nearby_Glow,
+
+        [Display(Name = "Pink Display + Full UI Glow")]
+        Pink_Display_All_Glow
     }
 
 

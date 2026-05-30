@@ -11,6 +11,9 @@
       "RelativeMoniker": "D:0:0:{1D10CC92-ABDC-43C3-9B5D-D3DC28BC420B}|fftivc.config.zodioverwriter.csproj|solutionrelative:mod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.gameplay.wotlequipmentreplacers\\FFTIVC\\tables\\enhanced\\ItemData.xml||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{1D10CC92-ABDC-43C3-9B5D-D3DC28BC420B}|fftivc.config.zodioverwriter.csproj|f:\\the ivalice chronicles\\reloaded ii\\mods\\fftivc.config.zodioverwriter\\modconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{1D10CC92-ABDC-43C3-9B5D-D3DC28BC420B}|fftivc.config.zodioverwriter.csproj|solutionrelative:modconfig.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -34,8 +37,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ItemData.xml",
+              "DocumentMoniker": "F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.gameplay.wotlequipmentreplacers\\FFTIVC\\tables\\enhanced\\ItemData.xml",
+              "RelativeDocumentMoniker": "..\\fftivc.gameplay.wotlequipmentreplacers\\FFTIVC\\tables\\enhanced\\ItemData.xml",
+              "ToolTip": "F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.gameplay.wotlequipmentreplacers\\FFTIVC\\tables\\enhanced\\ItemData.xml",
+              "RelativeToolTip": "..\\fftivc.gameplay.wotlequipmentreplacers\\FFTIVC\\tables\\enhanced\\ItemData.xml",
+              "ViewState": "AgIAABYAAAAAAAAAAAAAABYAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2026-05-30T04:40:45.615Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -44,14 +60,14 @@
               "RelativeDocumentMoniker": "Configuration\\Config.cs",
               "ToolTip": "F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.config.zodioverwriter\\Configuration\\Config.cs",
               "RelativeToolTip": "Configuration\\Config.cs",
-              "ViewState": "AgIAAK4BAAAAAAAAAAAuwM0BAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAANgBAAAAAAAAAAAswOoBAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-10T04:26:31.233Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ModConfig.json",
               "DocumentMoniker": "F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.config.zodioverwriter\\ModConfig.json",
               "RelativeDocumentMoniker": "ModConfig.json",
@@ -69,14 +85,14 @@
               "RelativeDocumentMoniker": "Mod.cs",
               "ToolTip": "F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.config.zodioverwriter\\Mod.cs",
               "RelativeToolTip": "Mod.cs",
-              "ViewState": "AgIAAHQEAAAAAAAAAAAgwJwEAAAFAAAAAAAAAA==",
+              "ViewState": "AgIAAJIEAAAAAAAAAAAiwKgEAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-10T04:19:32.191Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "fftivc.config.zodioverwriter.csproj",
               "DocumentMoniker": "F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.config.zodioverwriter\\fftivc.config.zodioverwriter.csproj",
               "RelativeDocumentMoniker": "fftivc.config.zodioverwriter.csproj",
@@ -88,7 +104,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": ".NETCoreApp,Version=v9.0.AssemblyAttributes.cs",
               "DocumentMoniker": "F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.config.zodioverwriter\\obj\\Release\\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs",
               "RelativeDocumentMoniker": "obj\\Release\\.NETCoreApp,Version=v9.0.AssemblyAttributes.cs",
@@ -100,7 +116,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Startup.cs",
               "DocumentMoniker": "F:\\The Ivalice Chronicles\\Reloaded II\\Mods\\fftivc.config.zodioverwriter\\Template\\Startup.cs",
               "RelativeDocumentMoniker": "Template\\Startup.cs",

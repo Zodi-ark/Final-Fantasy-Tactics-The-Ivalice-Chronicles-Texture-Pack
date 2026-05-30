@@ -107,7 +107,7 @@ namespace fftivc.config.zodioverwriter
         }
 
         // ========================================================================================================
-        // METHOD: UI GLOW AND EQUIP DISPLAY
+        // METHOD: UI GLOW AND EQUIP DISPLAY (UPDATED FOR SPARSE FOLDERS)
         // ========================================================================================================
         private void ApplyUIGlowAndEquipDisplay(string texturePackDir)
         {
@@ -126,7 +126,7 @@ namespace fftivc.config.zodioverwriter
                     { "ui_system_saveload_uitx.tex", Path.Combine("system", "texture") },
                     { "ui_title_mode_select_uitx.tex", Path.Combine("title", "texture") },
                     { "ui_unit_status_01_uitx.tex", Path.Combine("unit", "texture") },
-                    { "ui_wm_base_uitx.tex", Path.Combine("worldmap", "texture") } // <--- Corrected Path
+                    { "ui_wm_base_uitx.tex", Path.Combine("worldmap", "texture") }
                 };
 
                 string baseDestDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto");
@@ -147,7 +147,18 @@ namespace fftivc.config.zodioverwriter
                     {
                         string sourcePath = Path.Combine(sourceDir, kvp.Key);
                         string destPath = Path.Combine(baseDestDir, kvp.Value, kvp.Key);
-                        TryCopy(sourcePath, destPath);
+
+                        if (File.Exists(sourcePath))
+                        {
+                            // If you included the file in your specific option folder, copy it over.
+                            TryCopy(sourcePath, destPath);
+                        }
+                        else
+                        {
+                            // If you omitted the file, automatically delete any existing override
+                            // so the game reverts to using the vanilla Original file.
+                            TryDelete(destPath);
+                        }
                     }
                 }
             }
