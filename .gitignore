@@ -1,3 +1,10 @@
 # GIMP
 # ------------------------
 *.xcf
+
+# PNGs
+# ------------------------
+**/*.png
+
+!/fftivc.config.zodioverwriter/*.png
+!/fftivc.asset.zoditexturepack/*.png
