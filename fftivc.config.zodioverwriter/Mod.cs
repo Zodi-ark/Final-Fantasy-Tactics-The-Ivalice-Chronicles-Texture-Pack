@@ -630,6 +630,9 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
+        // ========================================================================================================
+        // METHOD: MINIMAL WARNINGS (RESTORED)
+        // ========================================================================================================
         private void ApplyMinimalWarnings(string texturePackDir)
         {
             try
@@ -675,6 +678,78 @@ namespace fftivc.config.zodioverwriter
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying battle filter: {ex.Message}");
+            }
+        }
+
+        // ========================================================================================================
+        // METHOD: MINIMAL BUTTON PROMPTS
+        // ========================================================================================================
+        private void ApplyMinimalButtonPrompts(string texturePackDir)
+        {
+            try
+            {
+                string sourceDir = Path.Combine(_modRoot!, "Resources", "MinimalButtonPrompts");
+
+                // 1. NXD File
+                string nxdDest = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "nxd", "uibuttonguide.nxd");
+
+                // 2. Win UI Textures (2 files)
+                string winDestDir = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "platform", "win", "texture");
+                var winFiles = new[] { "key_015_uitx.tex", "key_027_uitx.tex" };
+
+                // 3. Multi-Platform Controller Buttons (4 files across 3 folders)
+                var multiDestDirs = new[]
+                {
+                    Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "platform", "prospero", "texture"),
+                    Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "platform", "ounce", "texture"),
+                    Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "platform", "hermia", "texture")
+                };
+                var multiFiles = new[] { "ui_button_l1_uitx.tex", "ui_button_l2_uitx.tex", "ui_button_r1_uitx.tex", "ui_button_r2_uitx.tex" };
+
+                if (_configuration!.MinimalButtonPrompts)
+                {
+                    // Copy NXD
+                    TryCopy(Path.Combine(sourceDir, "uibuttonguide.nxd"), nxdDest);
+
+                    // Copy Win Files
+                    foreach (var file in winFiles)
+                    {
+                        TryCopy(Path.Combine(sourceDir, file), Path.Combine(winDestDir, file));
+                    }
+
+                    // Copy Multi-Platform Files
+                    foreach (var dir in multiDestDirs)
+                    {
+                        foreach (var file in multiFiles)
+                        {
+                            TryCopy(Path.Combine(sourceDir, file), Path.Combine(dir, file));
+                        }
+                    }
+                }
+                else
+                {
+                    // Delete NXD
+                    TryDelete(nxdDest);
+
+                    // Delete Win Files
+                    foreach (var file in winFiles)
+                    {
+                        TryDelete(Path.Combine(winDestDir, file));
+                    }
+
+                    // Delete Multi-Platform Files
+                    foreach (var dir in multiDestDirs)
+                    {
+                        foreach (var file in multiFiles)
+                        {
+                            TryDelete(Path.Combine(dir, file));
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying minimal button prompts: {ex.Message}");
             }
         }
 
@@ -728,28 +803,6 @@ namespace fftivc.config.zodioverwriter
             catch (Exception ex)
             {
                 Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying 'Remove Text On Portraits': {ex.Message}");
-            }
-        }
-
-        private void ApplyMinimalButtonPrompts(string texturePackDir)
-        {
-            try
-            {
-                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "nxd", "uibuttonguide.nxd");
-
-                if (_configuration!.MinimalButtonPrompts)
-                {
-                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MinimalButtonPrompts", "uibuttonguide.nxd");
-                    TryCopy(sourcePath, destPath);
-                }
-                else
-                {
-                    TryDelete(destPath);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying minimal button prompts: {ex.Message}");
             }
         }
 
