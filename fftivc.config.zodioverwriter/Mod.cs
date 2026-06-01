@@ -106,10 +106,10 @@ namespace fftivc.config.zodioverwriter
             ApplyUIGlowAndEquipDisplay(texturePackDir);
             ApplyMenuHighlightColor(texturePackDir);
 
-            // New Intro Logos Logic
+            // New Intro Logos Logic (Fixed: Renamed method call)
             ApplyIntroLogoOne(texturePackDir);
             ApplyIntroLogoTwo(texturePackDir);
-            ApplyIntroThree(texturePackDir);
+            ApplyIntroLogoThree(texturePackDir);
         }
 
         // ========================================================================================================
@@ -161,19 +161,20 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        private void ApplyIntroThree(string texturePackDir)
+        // Fixed: Renamed method and config/enum checks to ApplyIntroLogoThree
+        private void ApplyIntroLogoThree(string texturePackDir)
         {
             try
             {
                 string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "start_flow", "texture", "ui_logo_start_uitx.tex");
 
-                if (_configuration!.IntroThree == IntroThreeOption.Original)
+                if (_configuration!.IntroLogoThree == IntroLogoThreeOption.Original)
                 {
                     TryDelete(destPath);
                 }
                 else
                 {
-                    string option = _configuration!.IntroThree.ToString();
+                    string option = _configuration!.IntroLogoThree.ToString();
                     string sourcePath = Path.Combine(_modRoot!, "Resources", "IntroThree", option, "ui_logo_start_uitx.tex");
                     TryCopy(sourcePath, destPath);
                 }

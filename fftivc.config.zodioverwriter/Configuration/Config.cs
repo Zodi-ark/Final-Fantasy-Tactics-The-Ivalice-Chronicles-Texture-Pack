@@ -497,7 +497,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         Red
     }
 
-    // NEW ENUMS FOR INTRO LOGOS
     public enum IntroLogoOneOption
     {
         Original,
@@ -523,7 +522,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         Zodiac_Yellow
     }
 
-    public enum IntroThreeOption
+    // Fixed: Renamed to match the pattern
+    public enum IntroLogoThreeOption
     {
         Original,
 
@@ -794,8 +794,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Category("Intro Logos")]
         [DisplayName("Intro Logo 3")]
         [Description("Select the screen that appears third on the intro sequence.")]
-        [DefaultValue(IntroThreeOption.Original)]
-        public IntroThreeOption IntroThree { get; set; } = IntroThreeOption.Original;
+        [DefaultValue(IntroLogoThreeOption.Original)]
+        public IntroLogoThreeOption IntroLogoThree { get; set; } = IntroLogoThreeOption.Original; // Fixed: Renamed property
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
