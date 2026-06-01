@@ -468,7 +468,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         Pink
     }
 
-    // NEW ENUM FOR UI GLOW AND EQUIP DISPLAY
     public enum UIGlowAndEquipDisplayOption
     {
         Original,
@@ -492,6 +491,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         Pink_Display_All_Glow
     }
 
+    // NEW ENUM FOR MENU HIGHLIGHT COLOR
+    public enum MenuHighlightColorOption
+    {
+        Original,
+        Red
+    }
 
     public class Config : Configurable<Config>
     {
@@ -540,6 +545,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Controls glowing UI accents throughout the interface, along with the background texture for equipped equipment and abilities.")]
         [DefaultValue(UIGlowAndEquipDisplayOption.Original)]
         public UIGlowAndEquipDisplayOption UIGlowAndEquipDisplay { get; set; } = UIGlowAndEquipDisplayOption.Original;
+
+        [Category("Global")]
+        [DisplayName("Menu Highlight Color")]
+        [Description("Select the color of the highlight shown on the selected menu item at the command HUD, equipment/ability screens, and other menus.")]
+        [DefaultValue(MenuHighlightColorOption.Original)]
+        public MenuHighlightColorOption MenuHighlightColor { get; set; } = MenuHighlightColorOption.Original;
 
         [Category("Global")]
         [DisplayName("Minimal Button Prompts")]

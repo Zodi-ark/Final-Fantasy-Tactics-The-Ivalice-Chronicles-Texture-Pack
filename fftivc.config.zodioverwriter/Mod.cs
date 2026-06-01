@@ -104,6 +104,33 @@ namespace fftivc.config.zodioverwriter
             ApplyMoveTilesEnemy(texturePackDir);
             ApplyCommandHUDAndInfoPanels(texturePackDir);
             ApplyUIGlowAndEquipDisplay(texturePackDir);
+            ApplyMenuHighlightColor(texturePackDir);
+        }
+
+        // ========================================================================================================
+        // NEW METHOD: MENU HIGHLIGHT COLOR
+        // ========================================================================================================
+        private void ApplyMenuHighlightColor(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "unit", "texture", "ui_unit_tex_02_uitx.tex");
+
+                if (_configuration!.MenuHighlightColor == MenuHighlightColorOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.MenuHighlightColor.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "MenuHighlightColor", option, "ui_unit_tex_02_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Menu Highlight Color: {ex.Message}");
+            }
         }
 
         // ========================================================================================================
@@ -631,7 +658,7 @@ namespace fftivc.config.zodioverwriter
         }
 
         // ========================================================================================================
-        // METHOD: MINIMAL WARNINGS (RESTORED)
+        // METHOD: MINIMAL WARNINGS
         // ========================================================================================================
         private void ApplyMinimalWarnings(string texturePackDir)
         {
