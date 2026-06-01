@@ -491,11 +491,44 @@ namespace fftivc.config.zodioverwriter.Configuration
         Pink_Display_All_Glow
     }
 
-    // NEW ENUM FOR MENU HIGHLIGHT COLOR
     public enum MenuHighlightColorOption
     {
         Original,
         Red
+    }
+
+    // NEW ENUMS FOR INTRO LOGOS
+    public enum IntroLogoOneOption
+    {
+        Original,
+
+        [Display(Name = "Job Outline")]
+        Job_Outline
+    }
+
+    public enum IntroLogoTwoOption
+    {
+        Original,
+
+        [Display(Name = "TIC Key Art")]
+        TIC_Key_Art,
+
+        [Display(Name = "WotL Love Art")]
+        WotL_Love_Art,
+
+        [Display(Name = "Zodiac Grey")]
+        Zodiac_Grey,
+
+        [Display(Name = "Zodiac Yellow")]
+        Zodiac_Yellow
+    }
+
+    public enum IntroThreeOption
+    {
+        Original,
+
+        [Display(Name = "FFT Japan")]
+        FFT_Japan
     }
 
     public class Config : Configurable<Config>
@@ -742,6 +775,27 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(EquipmentOption.Original)]
         public EquipmentOption EquipmentIcons { get; set; } = EquipmentOption.Original;
 
+        // ========================================================================
+        // INTRO LOGOS
+        // ========================================================================
+
+        [Category("Intro Logos")]
+        [DisplayName("Intro Logo 1")]
+        [Description("Select the screen that appears first on the intro sequence.")]
+        [DefaultValue(IntroLogoOneOption.Original)]
+        public IntroLogoOneOption IntroLogoOne { get; set; } = IntroLogoOneOption.Original;
+
+        [Category("Intro Logos")]
+        [DisplayName("Intro Logo 2")]
+        [Description("Select the screen that appears second on the intro sequence.")]
+        [DefaultValue(IntroLogoTwoOption.Original)]
+        public IntroLogoTwoOption IntroLogoTwo { get; set; } = IntroLogoTwoOption.Original;
+
+        [Category("Intro Logos")]
+        [DisplayName("Intro Logo 3")]
+        [Description("Select the screen that appears third on the intro sequence.")]
+        [DefaultValue(IntroThreeOption.Original)]
+        public IntroThreeOption IntroThree { get; set; } = IntroThreeOption.Original;
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase

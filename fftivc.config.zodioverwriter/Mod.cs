@@ -105,10 +105,87 @@ namespace fftivc.config.zodioverwriter
             ApplyCommandHUDAndInfoPanels(texturePackDir);
             ApplyUIGlowAndEquipDisplay(texturePackDir);
             ApplyMenuHighlightColor(texturePackDir);
+
+            // New Intro Logos Logic
+            ApplyIntroLogoOne(texturePackDir);
+            ApplyIntroLogoTwo(texturePackDir);
+            ApplyIntroThree(texturePackDir);
         }
 
         // ========================================================================================================
-        // NEW METHOD: MENU HIGHLIGHT COLOR
+        // NEW METHODS: INTRO LOGOS
+        // ========================================================================================================
+        private void ApplyIntroLogoOne(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "start_flow", "texture", "start_flow02_uitx.tex");
+
+                if (_configuration!.IntroLogoOne == IntroLogoOneOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.IntroLogoOne.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "IntroOne", option, "start_flow02_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Intro Logo 1: {ex.Message}");
+            }
+        }
+
+        private void ApplyIntroLogoTwo(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "start_flow", "texture", "start_flow03_uitx.tex");
+
+                if (_configuration!.IntroLogoTwo == IntroLogoTwoOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.IntroLogoTwo.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "IntroTwo", option, "start_flow03_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Intro Logo 2: {ex.Message}");
+            }
+        }
+
+        private void ApplyIntroThree(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "start_flow", "texture", "ui_logo_start_uitx.tex");
+
+                if (_configuration!.IntroThree == IntroThreeOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.IntroThree.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "IntroThree", option, "ui_logo_start_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Intro Logo 3: {ex.Message}");
+            }
+        }
+
+        // ========================================================================================================
+        // METHOD: MENU HIGHLIGHT COLOR
         // ========================================================================================================
         private void ApplyMenuHighlightColor(string texturePackDir)
         {
