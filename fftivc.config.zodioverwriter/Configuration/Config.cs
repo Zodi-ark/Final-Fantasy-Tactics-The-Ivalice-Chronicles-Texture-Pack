@@ -185,7 +185,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original,
         Removed,
 
-        [Display(Name = "Removed — Bright")]
+        [Display(Name = "Removed — Brighter Battlefields")]
         Removed_Bright
     }
 
@@ -501,7 +501,7 @@ namespace fftivc.config.zodioverwriter.Configuration
     {
         Original,
 
-        [Display(Name = "Job Outline")]
+        [Display(Name = "TIC Job Outline Promo Art")]
         Job_Outline
     }
 
@@ -526,7 +526,7 @@ namespace fftivc.config.zodioverwriter.Configuration
     {
         Original,
 
-        [Display(Name = "FFT Japan")]
+        [Display(Name = "TIC Japanese Logo")]
         FFT_Japan
     }
 
@@ -576,6 +576,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         public TurnAndHUDTypefaceOption TurnAndHUDTypeface { get; set; } = TurnAndHUDTypefaceOption.Original;
 
         [Category("Global")]
+        [DisplayName("Menu Highlight")]
+        [Description("Choose the color used to highlight the currently selected option in the command HUD, equipment, ability, and other menus.")]
+        [DefaultValue(MenuHighlightColorOption.Original)]
+        public MenuHighlightColorOption MenuHighlightColor { get; set; } = MenuHighlightColorOption.Original;
+
+        [Category("Global")]
         [DisplayName("Command HUD & Info Panels")]
         [Description("Select the Command HUD (Move, Abilities, Wait, Status) and Info Panels used for equipment and ability descriptions, Poach alerts, and Treasure Hunt alerts.")]
         [DefaultValue(CommandHUDAndInfoPanelsOption.Original)]
@@ -583,15 +589,9 @@ namespace fftivc.config.zodioverwriter.Configuration
 
         [Category("Global")]
         [DisplayName("UI Glow & Equip Display")]
-        [Description("Controls glowing UI accents throughout the interface, along with the background texture for equipped equipment and abilities.")]
+        [Description("Controls glowing UI menus throughout the interface, along with the background texture for equipped equipment and abilities.")]
         [DefaultValue(UIGlowAndEquipDisplayOption.Original)]
         public UIGlowAndEquipDisplayOption UIGlowAndEquipDisplay { get; set; } = UIGlowAndEquipDisplayOption.Original;
-
-        [Category("Global")]
-        [DisplayName("Menu Highlight Color")]
-        [Description("Select the color of the highlight shown on the selected menu item at the command HUD, equipment/ability screens, and other menus.")]
-        [DefaultValue(MenuHighlightColorOption.Original)]
-        public MenuHighlightColorOption MenuHighlightColor { get; set; } = MenuHighlightColorOption.Original;
 
         [Category("Global")]
         [DisplayName("Minimal Button Prompts")]
@@ -604,24 +604,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Removes many warnings such as 'That tile cannot be targeted' and range warnings.")]
         [DefaultValue(false)]
         public bool MinimalWarnings { get; set; } = false;
-
-
-        // ========================================================================
-        // DIALOG
-        // ========================================================================
-
-        [Category("Dialog")]
-        [DisplayName("Speech Bubble Style")]
-        [Description("Select the style for speech bubbles.")]
-        [DefaultValue(SpeechBubbleOption.Original)]
-        public SpeechBubbleOption SpeechBubble { get; set; } = SpeechBubbleOption.Original;
-
-        [Category("Dialog")]
-        [DisplayName("Speech Bubble Typeface")]
-        [Description("Select the typeface style for speech bubbles.")]
-        [DefaultValue(SpeechBubbleTypefaceOption.Original)]
-        public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
-
 
         // ========================================================================
         // WORLD MAP
@@ -641,6 +623,45 @@ namespace fftivc.config.zodioverwriter.Configuration
 
 
         // ========================================================================
+        // DIALOG
+        // ========================================================================
+
+        [Category("Dialog")]
+        [DisplayName("Speech Bubble Style")]
+        [Description("Select the style for speech bubbles.")]
+        [DefaultValue(SpeechBubbleOption.Original)]
+        public SpeechBubbleOption SpeechBubble { get; set; } = SpeechBubbleOption.Original;
+
+        [Category("Dialog")]
+        [DisplayName("Speech Bubble Typeface")]
+        [Description("Select the typeface style for speech bubbles.")]
+        [DefaultValue(SpeechBubbleTypefaceOption.Original)]
+        public SpeechBubbleTypefaceOption SpeechBubbleTypeface { get; set; } = SpeechBubbleTypefaceOption.Original;
+
+        // ========================================================================
+        // INTRO LOGOS
+        // ========================================================================
+
+        [Category("Intro Logos")]
+        [DisplayName("Intro Logo 1")]
+        [Description("Select the screen that appears first on the intro sequence.")]
+        [DefaultValue(IntroLogoOneOption.Original)]
+        public IntroLogoOneOption IntroLogoOne { get; set; } = IntroLogoOneOption.Original;
+
+        [Category("Intro Logos")]
+        [DisplayName("Intro Logo 2")]
+        [Description("Select the screen that appears second on the intro sequence.")]
+        [DefaultValue(IntroLogoTwoOption.Original)]
+        public IntroLogoTwoOption IntroLogoTwo { get; set; } = IntroLogoTwoOption.Original;
+
+        [Category("Intro Logos")]
+        [DisplayName("Intro Logo 3")]
+        [Description("Select the screen that appears third on the intro sequence.")]
+        [DefaultValue(IntroLogoThreeOption.Original)]
+        public IntroLogoThreeOption IntroLogoThree { get; set; } = IntroLogoThreeOption.Original;
+
+
+        // ========================================================================
         // FILTERS
         // ========================================================================
 
@@ -655,117 +676,6 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Description("Removes the party menu screen filter.")]
         [DefaultValue(false)]
         public bool RemovePartyMenuFilter { get; set; } = false;
-
-
-        // ========================================================================
-        // BATTLE
-        // ========================================================================
-
-        [Category("Battle")]
-        [DisplayName("Remove Text On Portraits")]
-        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\"  \"Auto,\" and \"Objective\" text from portraits and sprites.")]
-        [DefaultValue(false)]
-        public bool RemoveTextOnPortraits { get; set; } = false;
-
-        [Category("Battle")]
-        [DisplayName("Bleed Out Hearts & Turn Glow")]
-        [Description("Select the style of the heart counter over KO'ed units and the gold glow over the turn counter.")]
-        [DefaultValue(BleedOutHeartsAndTurnGlowOption.Original)]
-        public BleedOutHeartsAndTurnGlowOption BleedOutHeartsAndTurnGlow { get; set; } = BleedOutHeartsAndTurnGlowOption.Original;
-
-        [Category("Battle")]
-        [DisplayName("Directional Wait Arrows")]
-        [Description("Choose the color or style of the directional selection arrows.")]
-        [DefaultValue(DirectionalWaitArrowOption.Original)]
-        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
-
-        [Category("Battle")]
-        [DisplayName("Attack Target Tiles")]
-        [Description("Select the color style for the attack target tiles.")]
-        [DefaultValue(AttackTargetOption.Original)]
-        public AttackTargetOption AttackTarget { get; set; } = AttackTargetOption.Original;
-
-        [Category("Battle")]
-        [DisplayName("Attack Range Tiles")]
-        [Description("Select the color style for the attack range tiles.")]
-        [DefaultValue(AttackRangeOption.Original)]
-        public AttackRangeOption AttackRange { get; set; } = AttackRangeOption.Original;
-
-        [Category("Battle")]
-        [DisplayName("Enemy Move Tiles")]
-        [Description("Select the color style for the enemy movement range tiles in battle.")]
-        [DefaultValue(MoveTilesEnemyOption.Original)]
-        public MoveTilesEnemyOption MoveTilesEnemy { get; set; } = MoveTilesEnemyOption.Original;
-
-        [Category("Battle")]
-        [DisplayName("Move Tiles")]
-        [Description("Select the color style for the movement range tiles in battle.")]
-        [DefaultValue(MoveTilesOption.Original)]
-        public MoveTilesOption MoveTiles { get; set; } = MoveTilesOption.Original;
-
-        [Category("Battle")]
-        [DisplayName("Battle Frame")]
-        [Description("Choose which frame to use that appears at the top and bottom of the screen during battle.")]
-        [DefaultValue(BattleFrameOption.Original)]
-        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Original;
-
-        [Category("Battle")]
-        [DisplayName("Battle Pointer")]
-        [Description("Choose which battle pointer to use.")]
-        [DefaultValue(BattlePointerChoice.Original)]
-        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Original;
-
-        [Category("Battle")]
-        [DisplayName("Unit Select Frame")]
-        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
-        [DefaultValue(UnitSelectFrameOption.Original)]
-        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Original;
-
-        [Category("Battle")]
-        [DisplayName("Maps")]
-        [Description("Select which map textures to use.")]
-        [DefaultValue(MapOption.Original)]
-        public MapOption Maps { get; set; } = MapOption.Original;
-
-        // ========================================================================
-        // PARTY MENU
-        // ========================================================================
-
-        [Category("Party Menu")]
-        [DisplayName("Shift Arrows & Job Highlights")]
-        [Description("Select the style for the unit shift arrows on the unit status and jobs page, as well as the yellow highlight ring below units and the job highlight color on the jobs page. ")]
-        [DefaultValue(UnitShiftArrowOption.Original)]
-        public UnitShiftArrowOption UnitShiftArrow { get; set; } = UnitShiftArrowOption.Original;
-
-        [Category("Party Menu")]
-        [DisplayName("Unit Tile")]
-        [Description("Select the style for the tile units stand on.")]
-        [DefaultValue(UnitTileOption.Original)]
-        public UnitTileOption UnitTile { get; set; } = UnitTileOption.Original;
-
-        [Category("Party Menu")]
-        [DisplayName("Favorite Unit Tile & Flag")]
-        [Description("Select the style for the tile favorited units stand on and the flag over them.")]
-        [DefaultValue(UnitFavoriteTileAndFlagOption.Original)]
-        public UnitFavoriteTileAndFlagOption UnitFavoriteTileAndFlag { get; set; } = UnitFavoriteTileAndFlagOption.Original;
-
-        [Category("Party Menu")]
-        [DisplayName("Party Menu Style & Ring Color")]
-        [Description("This setting changes the style of the party menu and also changes the color of the unit highlight ring.")]
-        [DefaultValue(UnitHighlightRingOption.Original)]
-        public UnitHighlightRingOption UnitHighlightRingOption { get; set; } = UnitHighlightRingOption.Original;
-
-        [Category("Party Menu")]
-        [DisplayName("Party Menu Color")]
-        [Description("Select the background color for the party menu.")]
-        [DefaultValue(PartyMenuColorOption.Original)]
-        public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
-
-        [Category("Party Menu")]
-        [DisplayName("Save Background")]
-        [Description("Select the background texture for the save/load screen.")]
-        [DefaultValue(SaveBackgroundOption.Original)]
-        public SaveBackgroundOption SaveBackground { get; set; } = SaveBackgroundOption.Original;
 
         // ========================================================================
         // ICONS
@@ -789,27 +699,117 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(EquipmentOption.Original)]
         public EquipmentOption EquipmentIcons { get; set; } = EquipmentOption.Original;
 
+
         // ========================================================================
-        // INTRO LOGOS
+        // PARTY MENU
         // ========================================================================
 
-        [Category("Intro Logos")]
-        [DisplayName("Intro Logo 1")]
-        [Description("Select the screen that appears first on the intro sequence.")]
-        [DefaultValue(IntroLogoOneOption.Original)]
-        public IntroLogoOneOption IntroLogoOne { get; set; } = IntroLogoOneOption.Original;
+        [Category("Party Menu")]
+        [DisplayName("Party Menu Background")]
+        [Description("Select the background color for the party menu.")]
+        [DefaultValue(PartyMenuColorOption.Original)]
+        public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
 
-        [Category("Intro Logos")]
-        [DisplayName("Intro Logo 2")]
-        [Description("Select the screen that appears second on the intro sequence.")]
-        [DefaultValue(IntroLogoTwoOption.Original)]
-        public IntroLogoTwoOption IntroLogoTwo { get; set; } = IntroLogoTwoOption.Original;
+        [Category("Party Menu")]
+        [DisplayName("Party Menu Style & Ring Color")]
+        [Description("This setting changes the style of the party menu and also changes the color of the unit highlight ring.")]
+        [DefaultValue(UnitHighlightRingOption.Original)]
+        public UnitHighlightRingOption UnitHighlightRingOption { get; set; } = UnitHighlightRingOption.Original;
 
-        [Category("Intro Logos")]
-        [DisplayName("Intro Logo 3")]
-        [Description("Select the screen that appears third on the intro sequence.")]
-        [DefaultValue(IntroLogoThreeOption.Original)]
-        public IntroLogoThreeOption IntroLogoThree { get; set; } = IntroLogoThreeOption.Original;
+        [Category("Party Menu")]
+        [DisplayName("Favorite Unit Tile & Flag")]
+        [Description("Select the style for the tile favorited units stand on and the flag over them.")]
+        [DefaultValue(UnitFavoriteTileAndFlagOption.Original)]
+        public UnitFavoriteTileAndFlagOption UnitFavoriteTileAndFlag { get; set; } = UnitFavoriteTileAndFlagOption.Original;
+
+        [Category("Party Menu")]
+        [DisplayName("Unit Tile")]
+        [Description("Select the style for the tile units stand on.")]
+        [DefaultValue(UnitTileOption.Original)]
+        public UnitTileOption UnitTile { get; set; } = UnitTileOption.Original;
+
+        [Category("Party Menu")]
+        [DisplayName("Shift Arrows & Job Highlights")]
+        [Description("Select the style for the unit shift arrows on the unit status and jobs page, as well as the yellow highlight ring below units and the job highlight color on the jobs page. ")]
+        [DefaultValue(UnitShiftArrowOption.Original)]
+        public UnitShiftArrowOption UnitShiftArrow { get; set; } = UnitShiftArrowOption.Original;
+
+        [Category("Party Menu")]
+        [DisplayName("Save Background")]
+        [Description("Select the background texture for the save and load screen.")]
+        [DefaultValue(SaveBackgroundOption.Original)]
+        public SaveBackgroundOption SaveBackground { get; set; } = SaveBackgroundOption.Original;
+
+
+        // ========================================================================
+        // BATTLE
+        // ========================================================================
+
+        [Category("Battle")]
+        [DisplayName("Maps")]
+        [Description("Select which map textures to use.")]
+        [DefaultValue(MapOption.Original)]
+        public MapOption Maps { get; set; } = MapOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Bleed Out Hearts & Turn Glow")]
+        [Description("Select the style of the heart counter over KO'ed units and the gold glow over the turn counter.")]
+        [DefaultValue(BleedOutHeartsAndTurnGlowOption.Original)]
+        public BleedOutHeartsAndTurnGlowOption BleedOutHeartsAndTurnGlow { get; set; } = BleedOutHeartsAndTurnGlowOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Unit Select Frame")]
+        [Description("Select the option for the frame surrounding the unit when selecting them for battle.")]
+        [DefaultValue(UnitSelectFrameOption.Original)]
+        public UnitSelectFrameOption UnitSelectFrame { get; set; } = UnitSelectFrameOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Battle Pointer")]
+        [Description("Choose which battle pointer to use.")]
+        [DefaultValue(BattlePointerChoice.Original)]
+        public BattlePointerChoice BattlePointerOption { get; set; } = BattlePointerChoice.Original;
+
+        [Category("Battle")]
+        [DisplayName("Battle Frame")]
+        [Description("Choose which frame to use that appears at the top and bottom of the screen during battle.")]
+        [DefaultValue(BattleFrameOption.Original)]
+        public BattleFrameOption BattleFrameOption { get; set; } = BattleFrameOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Move Tiles")]
+        [Description("Select the color style for the movement range tiles in battle.")]
+        [DefaultValue(MoveTilesOption.Original)]
+        public MoveTilesOption MoveTiles { get; set; } = MoveTilesOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Enemy Move Tiles")]
+        [Description("Select the color style for the enemy movement range tiles in battle.")]
+        [DefaultValue(MoveTilesEnemyOption.Original)]
+        public MoveTilesEnemyOption MoveTilesEnemy { get; set; } = MoveTilesEnemyOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Attack Range Tiles")]
+        [Description("Select the color style for the attack range tiles.")]
+        [DefaultValue(AttackRangeOption.Original)]
+        public AttackRangeOption AttackRange { get; set; } = AttackRangeOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Attack Target Tiles")]
+        [Description("Select the color style for the attack target tiles.")]
+        [DefaultValue(AttackTargetOption.Original)]
+        public AttackTargetOption AttackTarget { get; set; } = AttackTargetOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Directional Wait Arrows")]
+        [Description("Choose the color or style of the directional selection arrows.")]
+        [DefaultValue(DirectionalWaitArrowOption.Original)]
+        public DirectionalWaitArrowOption DirectionalWaitArrow { get; set; } = DirectionalWaitArrowOption.Original;
+
+        [Category("Battle")]
+        [DisplayName("Remove Text On Portraits")]
+        [Description("Removes \"Enemy,\" \"Guest,\" \"Special,\"  \"Auto,\" and \"Objective\" text from portraits and sprites.")]
+        [DefaultValue(false)]
+        public bool RemoveTextOnPortraits { get; set; } = false;
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase
