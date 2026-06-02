@@ -522,13 +522,21 @@ namespace fftivc.config.zodioverwriter.Configuration
         Zodiac_Yellow
     }
 
-    // Fixed: Renamed to match the pattern
     public enum IntroLogoThreeOption
     {
         Original,
 
         [Display(Name = "FFT Japan")]
         FFT_Japan
+    }
+
+    // NEW ENUM FOR SAVE BACKGROUND
+    public enum SaveBackgroundOption
+    {
+        Original,
+
+        [Display(Name = "TIC Promo Blue")]
+        TIC_Promo_Blue
     }
 
     public class Config : Configurable<Config>
@@ -753,6 +761,12 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DefaultValue(PartyMenuColorOption.Original)]
         public PartyMenuColorOption PartyMenuColorOption { get; set; } = PartyMenuColorOption.Original;
 
+        [Category("Party Menu")]
+        [DisplayName("Save Background")]
+        [Description("Select the background texture for the save/load screen.")]
+        [DefaultValue(SaveBackgroundOption.Original)]
+        public SaveBackgroundOption SaveBackground { get; set; } = SaveBackgroundOption.Original;
+
         // ========================================================================
         // ICONS
         // ========================================================================
@@ -795,7 +809,7 @@ namespace fftivc.config.zodioverwriter.Configuration
         [DisplayName("Intro Logo 3")]
         [Description("Select the screen that appears third on the intro sequence.")]
         [DefaultValue(IntroLogoThreeOption.Original)]
-        public IntroLogoThreeOption IntroLogoThree { get; set; } = IntroLogoThreeOption.Original; // Fixed: Renamed property
+        public IntroLogoThreeOption IntroLogoThree { get; set; } = IntroLogoThreeOption.Original;
     }
 
     public class ConfiguratorMixin : ConfiguratorMixinBase

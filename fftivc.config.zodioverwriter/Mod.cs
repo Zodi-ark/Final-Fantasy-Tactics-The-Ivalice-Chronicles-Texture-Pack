@@ -106,10 +106,39 @@ namespace fftivc.config.zodioverwriter
             ApplyUIGlowAndEquipDisplay(texturePackDir);
             ApplyMenuHighlightColor(texturePackDir);
 
-            // New Intro Logos Logic (Fixed: Renamed method call)
+            // Intro Logos Logic
             ApplyIntroLogoOne(texturePackDir);
             ApplyIntroLogoTwo(texturePackDir);
             ApplyIntroLogoThree(texturePackDir);
+
+            // Save Background
+            ApplySaveBackground(texturePackDir);
+        }
+
+        // ========================================================================================================
+        // METHOD: SAVE BACKGROUND
+        // ========================================================================================================
+        private void ApplySaveBackground(string texturePackDir)
+        {
+            try
+            {
+                string destPath = Path.Combine(texturePackDir, "FFTIVC", "data", "enhanced", "ui", "ffto", "system", "texture", "ui_system_save_bg_uitx.tex");
+
+                if (_configuration!.SaveBackground == SaveBackgroundOption.Original)
+                {
+                    TryDelete(destPath);
+                }
+                else
+                {
+                    string option = _configuration!.SaveBackground.ToString();
+                    string sourcePath = Path.Combine(_modRoot!, "Resources", "SaveBg", option, "ui_system_save_bg_uitx.tex");
+                    TryCopy(sourcePath, destPath);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"[fftivc.config.zodioverwriter] Error applying Save Background: {ex.Message}");
+            }
         }
 
         // ========================================================================================================
@@ -161,7 +190,6 @@ namespace fftivc.config.zodioverwriter
             }
         }
 
-        // Fixed: Renamed method and config/enum checks to ApplyIntroLogoThree
         private void ApplyIntroLogoThree(string texturePackDir)
         {
             try
