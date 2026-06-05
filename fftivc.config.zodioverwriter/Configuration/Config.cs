@@ -279,7 +279,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         Gold_Pixelated,
 
         [Display(Name = "Gold — Pixelated (Extra)")]
-        Gold_Pixelated_Extra
+        Gold_Pixelated_Extra,
+
+        [Display(Name = "Corresponding Lucavi in Ivalican Font")]
+        TIC_Promo_Ivalican_Font_Lucavi
     }
 
     public enum SpeechBubbleOption
@@ -515,8 +518,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Display(Name = "WotL Love Art")]
         WotL_Love_Art,
 
-        [Display(Name = "Zodiac Grey")]
-        Zodiac_Grey,
+        [Display(Name = "Zodiac White")]
+        Zodiac_White,
 
         [Display(Name = "Zodiac Yellow")]
         Zodiac_Yellow
@@ -527,7 +530,13 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original,
 
         [Display(Name = "TIC Japanese Logo")]
-        FFT_Japan
+        FFT_Japan,
+
+        [Display(Name = "TIC Japanese Logo — Zodiac")]
+        FFT_Japan_Zodiac,
+
+        [Display(Name = "TIC Japanese Logo — Zodiac (No Signs)")]
+        FFT_Japan_Zodiac_No_Signs
     }
 
     // NEW ENUM FOR SAVE BACKGROUND
