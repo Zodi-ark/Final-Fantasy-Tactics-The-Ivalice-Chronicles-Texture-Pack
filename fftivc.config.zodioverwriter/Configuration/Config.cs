@@ -504,8 +504,11 @@ namespace fftivc.config.zodioverwriter.Configuration
     {
         Original,
 
-        [Display(Name = "TIC Job Outline Promo Art")]
-        Job_Outline
+        [Display(Name = "Jobs Silhouette Promo Art")]
+        Jobs_Silhouette,
+
+        [Display(Name = "Lucavi Outline Promo Art")]
+        Lucavi_Outline
     }
 
     public enum IntroLogoTwoOption
@@ -518,10 +521,10 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Display(Name = "WotL Love Art")]
         WotL_Love_Art,
 
-        [Display(Name = "Zodiac White")]
+        [Display(Name = "Zodiac Promo Art — White")]
         Zodiac_White,
 
-        [Display(Name = "Zodiac Yellow")]
+        [Display(Name = "Zodiac Promo Art — Yellow")]
         Zodiac_Yellow
     }
 
