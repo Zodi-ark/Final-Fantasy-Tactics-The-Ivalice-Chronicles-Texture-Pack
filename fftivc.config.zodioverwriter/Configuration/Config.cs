@@ -468,6 +468,10 @@ namespace fftivc.config.zodioverwriter.Configuration
     {
         Original,
         Silver,
+        Blue,
+        Green,
+        Purple,
+        Red,
         Pink
     }
 
@@ -484,6 +488,42 @@ namespace fftivc.config.zodioverwriter.Configuration
         [Display(Name = "Silver Display + Full UI Glow")]
         Silver_Display_All_Glow,
 
+        [Display(Name = "Blue Display Only")]
+        Blue_Display_Only,
+
+        [Display(Name = "Blue Display + Nearby Glow")]
+        Blue_Display_Nearby_Glow,
+
+        [Display(Name = "Blue Display + Full UI Glow")]
+        Blue_Display_All_Glow,
+
+        [Display(Name = "Green Display Only")]
+        Green_Display_Only,
+
+        [Display(Name = "Green Display + Nearby Glow")]
+        Green_Display_Nearby_Glow,
+
+        [Display(Name = "Green Display + Full UI Glow")]
+        Green_Display_All_Glow,
+
+        [Display(Name = "Purple Display Only")]
+        Purple_Display_Only,
+
+        [Display(Name = "Purple Display + Nearby Glow")]
+        Purple_Display_Nearby_Glow,
+
+        [Display(Name = "Purple Display + Full UI Glow")]
+        Purple_Display_All_Glow,
+
+        [Display(Name = "Red Display Only")]
+        Red_Display_Only,
+
+        [Display(Name = "Red Display + Nearby Glow")]
+        Red_Display_Nearby_Glow,
+
+        [Display(Name = "Red Display + Full UI Glow")]
+        Red_Display_All_Glow,
+
         [Display(Name = "Pink Display Only")]
         Pink_Display_Only,
 
@@ -497,7 +537,12 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum MenuHighlightColorOption
     {
         Original,
-        Red
+        Silver,
+        Blue,
+        Green,
+        Purple,
+        Red,
+        Pink
     }
 
     public enum IntroLogoOneOption
