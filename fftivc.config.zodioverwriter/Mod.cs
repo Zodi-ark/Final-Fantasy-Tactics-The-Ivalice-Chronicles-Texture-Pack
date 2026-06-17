@@ -916,7 +916,7 @@ namespace fftivc.config.zodioverwriter
         {
             try
             {
-                var filesToManage = new[] { "ui.de.nxd", "ui.en.nxd", "ui.fr.nxd", "ui.ja.nxd" };
+                var filesToManage = new[] { "ui.de.nxd", "ui.en.nxd", "ui.fr.nxd", "ui.ja.nxd", "ui.cs.nxd", "ui.ct.nxd", "ui.ko.nxd" };
 
                 foreach (var fileName in filesToManage)
                 {
