@@ -306,8 +306,26 @@ namespace fftivc.config.zodioverwriter.Configuration
         Original,
         Minimal,
 
-        [Display(Name = "Minimal — Greyscale")]
-        Minimal_Greyscale
+        [Display(Name = "Minimal Hearts & Silver Glow")]
+        Minimal_Greyscale,
+
+        [Display(Name = "Minimal Hearts & Blue Glow")]
+        Minimal_Blue,
+
+        [Display(Name = "Minimal Hearts & Green Glow")]
+        Minimal_Green,
+
+        [Display(Name = "Minimal Hearts & Purple Glow")]
+        Minimal_Purple,
+
+        [Display(Name = "Minimal Hearts & Red Glow")]
+        Minimal_Red,
+
+        [Display(Name = "Minimal Hearts & Pink Glow")]
+        Minimal_Pink,
+
+        [Display(Name = "Minimal Hearts & Removed Glow")]
+        Minimal_Removed
     }
 
     public enum UnitFavoriteTileAndFlagOption
@@ -392,11 +410,15 @@ namespace fftivc.config.zodioverwriter.Configuration
     {
         Original,
         Cyanobacteria,
-        Green,
+        Iridescent,
 
-        [Display(Name = "Green — Vibrant")]
+        [Display(Name = "Iridescent Gold")]
+        Iridescent_Gold,
+
+        [Display(Name = "Lime")]
         Green_Vibrant,
 
+        Green,
         Teal,
         Purple,
         Pink,
@@ -415,11 +437,15 @@ namespace fftivc.config.zodioverwriter.Configuration
     {
         Original,
         Cyanobacteria,
-        Green,
+        Iridescent,
 
-        [Display(Name = "Green — Vibrant")]
+        [Display(Name = "Iridescent Gold")]
+        Iridescent_Gold,
+
+        [Display(Name = "Lime")]
         Green_Vibrant,
 
+        Green,
         Teal,
         Purple,
         Pink,
@@ -437,6 +463,11 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum AttackTargetOption
     {
         Original,
+        Iridescent,
+
+        [Display(Name = "Iridescent Gold")]
+        Iridescent_Gold,
+
         Green,
         Teal,
         Purple,
@@ -450,6 +481,11 @@ namespace fftivc.config.zodioverwriter.Configuration
     public enum AttackRangeOption
     {
         Original,
+        Iridescent,
+
+        [Display(Name = "Iridescent Gold")]
+        Iridescent_Gold,
+
         Green,
         Teal,
         Purple,
@@ -809,8 +845,8 @@ namespace fftivc.config.zodioverwriter.Configuration
         public MapOption Maps { get; set; } = MapOption.Original;
 
         [Category("Battle")]
-        [DisplayName("Bleed Out Hearts & Turn Glow")]
-        [Description("Select the style of the heart counter over KO'ed units and the gold glow over the turn counter.")]
+        [DisplayName("Bleed Out Hearts & HUD Glow")]
+        [Description("Select the style of the KO heart counter, turn counter gold glow, and HP bar gold glow above units.")]
         [DefaultValue(BleedOutHeartsAndTurnGlowOption.Original)]
         public BleedOutHeartsAndTurnGlowOption BleedOutHeartsAndTurnGlow { get; set; } = BleedOutHeartsAndTurnGlowOption.Original;
 
