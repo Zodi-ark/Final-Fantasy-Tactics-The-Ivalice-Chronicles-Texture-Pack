@@ -8,3 +8,7 @@
 
 !/fftivc.config.zodioverwriter/*.png
 !/fftivc.asset.zoditexturepack/*.png
+
+# DDS
+# ------------------------
+*.dds
